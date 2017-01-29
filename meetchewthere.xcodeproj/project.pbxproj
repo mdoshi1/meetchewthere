@@ -12,7 +12,48 @@
 		5E2A7DAF1E3D5AE600B2CE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DAD1E3D5AE600B2CE15 /* Main.storyboard */; };
 		5E2A7DB11E3D5AE600B2CE15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DB01E3D5AE600B2CE15 /* Assets.xcassets */; };
 		5E2A7DB41E3D5AE600B2CE15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DB21E3D5AE600B2CE15 /* LaunchScreen.storyboard */; };
+		5E2A7DC21E3D5B0700B2CE15 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2A7DC11E3D5B0700B2CE15 /* Messages.framework */; };
+		5E2A7DC51E3D5B0700B2CE15 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DC41E3D5B0700B2CE15 /* MessagesViewController.swift */; };
+		5E2A7DC81E3D5B0700B2CE15 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DC61E3D5B0700B2CE15 /* MainInterface.storyboard */; };
+		5E2A7DCA1E3D5B0700B2CE15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DC91E3D5B0700B2CE15 /* Assets.xcassets */; };
+		5E2A7DCE1E3D5B0700B2CE15 /* meetchewthere imessage.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5E2A7DBF1E3D5B0700B2CE15 /* meetchewthere imessage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5E2A7DD41E3D63BF00B2CE15 /* Near Me-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DD31E3D63BF00B2CE15 /* Near Me-100.png */; };
+		5E2A7DD61E3D64F500B2CE15 /* Rabbit In Hat-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DD51E3D64F500B2CE15 /* Rabbit In Hat-100.png */; };
+		5E2A7DD81E3D65A800B2CE15 /* Star-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DD71E3D65A800B2CE15 /* Star-100.png */; };
+		5E2A7DDA1E3D664A00B2CE15 /* Settings-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DD91E3D664A00B2CE15 /* Settings-100.png */; };
+		5E2A7DDC1E3D805E00B2CE15 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DDB1E3D805E00B2CE15 /* RestaurantCell.swift */; };
+		5E2A7DDE1E3D820600B2CE15 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DDD1E3D820600B2CE15 /* Data.swift */; };
+		5E2A7DE51E3D855D00B2CE15 /* rest1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DE11E3D855D00B2CE15 /* rest1.png */; };
+		5E2A7DE61E3D855D00B2CE15 /* rest2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DE21E3D855D00B2CE15 /* rest2.png */; };
+		5E2A7DE71E3D855D00B2CE15 /* rest3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DE31E3D855D00B2CE15 /* rest3.png */; };
+		5E2A7DE81E3D855D00B2CE15 /* rest4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DE41E3D855D00B2CE15 /* rest4.png */; };
+		5E2A7DEA1E3D85A300B2CE15 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DE91E3D85A300B2CE15 /* Discover.swift */; };
+		5E2A7DED1E3D891A00B2CE15 /* ratings.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DEC1E3D891A00B2CE15 /* ratings.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E2A7DCC1E3D5B0700B2CE15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E2A7D9E1E3D5AE600B2CE15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E2A7DBE1E3D5B0700B2CE15;
+			remoteInfo = "meetchewthere imessage";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5E2A7DD21E3D5B0700B2CE15 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5E2A7DCE1E3D5B0700B2CE15 /* meetchewthere imessage.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5E2A7DA61E3D5AE600B2CE15 /* meetchewthere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meetchewthere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +63,24 @@
 		5E2A7DB01E3D5AE600B2CE15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E2A7DB31E3D5AE600B2CE15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E2A7DB51E3D5AE600B2CE15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E2A7DBF1E3D5B0700B2CE15 /* meetchewthere imessage.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "meetchewthere imessage.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E2A7DC11E3D5B0700B2CE15 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		5E2A7DC41E3D5B0700B2CE15 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		5E2A7DC71E3D5B0700B2CE15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		5E2A7DC91E3D5B0700B2CE15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5E2A7DCB1E3D5B0700B2CE15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E2A7DD31E3D63BF00B2CE15 /* Near Me-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Near Me-100.png"; sourceTree = "<group>"; };
+		5E2A7DD51E3D64F500B2CE15 /* Rabbit In Hat-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rabbit In Hat-100.png"; sourceTree = "<group>"; };
+		5E2A7DD71E3D65A800B2CE15 /* Star-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star-100.png"; sourceTree = "<group>"; };
+		5E2A7DD91E3D664A00B2CE15 /* Settings-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-100.png"; sourceTree = "<group>"; };
+		5E2A7DDB1E3D805E00B2CE15 /* RestaurantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
+		5E2A7DDD1E3D820600B2CE15 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		5E2A7DE11E3D855D00B2CE15 /* rest1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rest1.png; sourceTree = "<group>"; };
+		5E2A7DE21E3D855D00B2CE15 /* rest2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rest2.png; sourceTree = "<group>"; };
+		5E2A7DE31E3D855D00B2CE15 /* rest3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rest3.png; sourceTree = "<group>"; };
+		5E2A7DE41E3D855D00B2CE15 /* rest4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rest4.png; sourceTree = "<group>"; };
+		5E2A7DE91E3D85A300B2CE15 /* Discover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		5E2A7DEC1E3D891A00B2CE15 /* ratings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ratings.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +91,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5E2A7DBC1E3D5B0700B2CE15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E2A7DC21E3D5B0700B2CE15 /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -39,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				5E2A7DA81E3D5AE600B2CE15 /* meetchewthere */,
+				5E2A7DC31E3D5B0700B2CE15 /* meetchewthere imessage */,
+				5E2A7DC01E3D5B0700B2CE15 /* Frameworks */,
 				5E2A7DA71E3D5AE600B2CE15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				5E2A7DA61E3D5AE600B2CE15 /* meetchewthere.app */,
+				5E2A7DBF1E3D5B0700B2CE15 /* meetchewthere imessage.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,13 +125,52 @@
 			isa = PBXGroup;
 			children = (
 				5E2A7DA91E3D5AE600B2CE15 /* AppDelegate.swift */,
+				5E2A7DEB1E3D85AC00B2CE15 /* images */,
 				5E2A7DAB1E3D5AE600B2CE15 /* ViewController.swift */,
+				5E2A7DE91E3D85A300B2CE15 /* Discover.swift */,
 				5E2A7DAD1E3D5AE600B2CE15 /* Main.storyboard */,
+				5E2A7DDD1E3D820600B2CE15 /* Data.swift */,
+				5E2A7DDB1E3D805E00B2CE15 /* RestaurantCell.swift */,
 				5E2A7DB01E3D5AE600B2CE15 /* Assets.xcassets */,
 				5E2A7DB21E3D5AE600B2CE15 /* LaunchScreen.storyboard */,
 				5E2A7DB51E3D5AE600B2CE15 /* Info.plist */,
 			);
 			path = meetchewthere;
+			sourceTree = "<group>";
+		};
+		5E2A7DC01E3D5B0700B2CE15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E2A7DC11E3D5B0700B2CE15 /* Messages.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E2A7DC31E3D5B0700B2CE15 /* meetchewthere imessage */ = {
+			isa = PBXGroup;
+			children = (
+				5E2A7DC41E3D5B0700B2CE15 /* MessagesViewController.swift */,
+				5E2A7DC61E3D5B0700B2CE15 /* MainInterface.storyboard */,
+				5E2A7DC91E3D5B0700B2CE15 /* Assets.xcassets */,
+				5E2A7DCB1E3D5B0700B2CE15 /* Info.plist */,
+			);
+			path = "meetchewthere imessage";
+			sourceTree = "<group>";
+		};
+		5E2A7DEB1E3D85AC00B2CE15 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				5E2A7DEC1E3D891A00B2CE15 /* ratings.png */,
+				5E2A7DD91E3D664A00B2CE15 /* Settings-100.png */,
+				5E2A7DD51E3D64F500B2CE15 /* Rabbit In Hat-100.png */,
+				5E2A7DD31E3D63BF00B2CE15 /* Near Me-100.png */,
+				5E2A7DD71E3D65A800B2CE15 /* Star-100.png */,
+				5E2A7DE11E3D855D00B2CE15 /* rest1.png */,
+				5E2A7DE21E3D855D00B2CE15 /* rest2.png */,
+				5E2A7DE31E3D855D00B2CE15 /* rest3.png */,
+				5E2A7DE41E3D855D00B2CE15 /* rest4.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,15 +183,34 @@
 				5E2A7DA21E3D5AE600B2CE15 /* Sources */,
 				5E2A7DA31E3D5AE600B2CE15 /* Frameworks */,
 				5E2A7DA41E3D5AE600B2CE15 /* Resources */,
+				5E2A7DD21E3D5B0700B2CE15 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5E2A7DCD1E3D5B0700B2CE15 /* PBXTargetDependency */,
 			);
 			name = meetchewthere;
 			productName = meetchewthere;
 			productReference = 5E2A7DA61E3D5AE600B2CE15 /* meetchewthere.app */;
 			productType = "com.apple.product-type.application";
+		};
+		5E2A7DBE1E3D5B0700B2CE15 /* meetchewthere imessage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E2A7DCF1E3D5B0700B2CE15 /* Build configuration list for PBXNativeTarget "meetchewthere imessage" */;
+			buildPhases = (
+				5E2A7DBB1E3D5B0700B2CE15 /* Sources */,
+				5E2A7DBC1E3D5B0700B2CE15 /* Frameworks */,
+				5E2A7DBD1E3D5B0700B2CE15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "meetchewthere imessage";
+			productName = "meetchewthere imessage";
+			productReference = 5E2A7DBF1E3D5B0700B2CE15 /* meetchewthere imessage.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,6 +223,11 @@
 				ORGANIZATIONNAME = "Alejandrina Gonzalez Reyes";
 				TargetAttributes = {
 					5E2A7DA51E3D5AE600B2CE15 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = K4DJ8NDU4W;
+						ProvisioningStyle = Automatic;
+					};
+					5E2A7DBE1E3D5B0700B2CE15 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = K4DJ8NDU4W;
 						ProvisioningStyle = Automatic;
@@ -115,6 +248,7 @@
 			projectRoot = "";
 			targets = (
 				5E2A7DA51E3D5AE600B2CE15 /* meetchewthere */,
+				5E2A7DBE1E3D5B0700B2CE15 /* meetchewthere imessage */,
 			);
 		};
 /* End PBXProject section */
@@ -124,9 +258,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E2A7DD41E3D63BF00B2CE15 /* Near Me-100.png in Resources */,
 				5E2A7DB41E3D5AE600B2CE15 /* LaunchScreen.storyboard in Resources */,
+				5E2A7DE81E3D855D00B2CE15 /* rest4.png in Resources */,
+				5E2A7DED1E3D891A00B2CE15 /* ratings.png in Resources */,
 				5E2A7DB11E3D5AE600B2CE15 /* Assets.xcassets in Resources */,
+				5E2A7DD61E3D64F500B2CE15 /* Rabbit In Hat-100.png in Resources */,
 				5E2A7DAF1E3D5AE600B2CE15 /* Main.storyboard in Resources */,
+				5E2A7DE61E3D855D00B2CE15 /* rest2.png in Resources */,
+				5E2A7DE51E3D855D00B2CE15 /* rest1.png in Resources */,
+				5E2A7DE71E3D855D00B2CE15 /* rest3.png in Resources */,
+				5E2A7DD81E3D65A800B2CE15 /* Star-100.png in Resources */,
+				5E2A7DDA1E3D664A00B2CE15 /* Settings-100.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E2A7DBD1E3D5B0700B2CE15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E2A7DCA1E3D5B0700B2CE15 /* Assets.xcassets in Resources */,
+				5E2A7DC81E3D5B0700B2CE15 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,12 +289,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E2A7DDC1E3D805E00B2CE15 /* RestaurantCell.swift in Sources */,
+				5E2A7DEA1E3D85A300B2CE15 /* Discover.swift in Sources */,
 				5E2A7DAC1E3D5AE600B2CE15 /* ViewController.swift in Sources */,
 				5E2A7DAA1E3D5AE600B2CE15 /* AppDelegate.swift in Sources */,
+				5E2A7DDE1E3D820600B2CE15 /* Data.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E2A7DBB1E3D5B0700B2CE15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E2A7DC51E3D5B0700B2CE15 /* MessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E2A7DCD1E3D5B0700B2CE15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E2A7DBE1E3D5B0700B2CE15 /* meetchewthere imessage */;
+			targetProxy = 5E2A7DCC1E3D5B0700B2CE15 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5E2A7DAD1E3D5AE600B2CE15 /* Main.storyboard */ = {
@@ -159,6 +330,14 @@
 				5E2A7DB31E3D5AE600B2CE15 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5E2A7DC61E3D5B0700B2CE15 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E2A7DC71E3D5B0700B2CE15 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -260,9 +439,11 @@
 		5E2A7DB91E3D5AE600B2CE15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K4DJ8NDU4W;
 				INFOPLIST_FILE = meetchewthere/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.meetchewthere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -273,12 +454,42 @@
 		5E2A7DBA1E3D5AE600B2CE15 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K4DJ8NDU4W;
 				INFOPLIST_FILE = meetchewthere/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.meetchewthere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		5E2A7DD01E3D5B0700B2CE15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = K4DJ8NDU4W;
+				INFOPLIST_FILE = "meetchewthere imessage/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alejandrinagonzalez.meetchewthere.meetchewthere-imessage";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		5E2A7DD11E3D5B0700B2CE15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = K4DJ8NDU4W;
+				INFOPLIST_FILE = "meetchewthere imessage/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alejandrinagonzalez.meetchewthere.meetchewthere-imessage";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -300,6 +511,14 @@
 			buildConfigurations = (
 				5E2A7DB91E3D5AE600B2CE15 /* Debug */,
 				5E2A7DBA1E3D5AE600B2CE15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5E2A7DCF1E3D5B0700B2CE15 /* Build configuration list for PBXNativeTarget "meetchewthere imessage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E2A7DD01E3D5B0700B2CE15 /* Debug */,
+				5E2A7DD11E3D5B0700B2CE15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
