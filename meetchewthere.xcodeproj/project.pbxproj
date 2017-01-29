@@ -30,6 +30,10 @@
 		5E2A7DEA1E3D85A300B2CE15 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DE91E3D85A300B2CE15 /* Discover.swift */; };
 		5E2A7DED1E3D891A00B2CE15 /* ratings.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DEC1E3D891A00B2CE15 /* ratings.png */; };
 		F44D9B941E3D6FBB00566044 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D9B931E3D6FBB00566044 /* FavoritesViewController.swift */; };
+		F44D9B961E3D74EC00566044 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D9B951E3D74EC00566044 /* UIView+Autolayout.swift */; };
+		F48C58661E3D80FE00BFFB0C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C58651E3D80FE00BFFB0C /* HeaderView.swift */; };
+		F48C58681E3D843300BFFB0C /* UIColor+meetchewthere.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C58671E3D843300BFFB0C /* UIColor+meetchewthere.swift */; };
+		F48C586B1E3DD28600BFFB0C /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C586A1E3DD28600BFFB0C /* UIView+Border.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +87,10 @@
 		F44D9B811E3D6E3700566044 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
 		F44D9B841E3D6E3700566044 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		F44D9B931E3D6FBB00566044 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		F44D9B951E3D74EC00566044 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
+		F48C58651E3D80FE00BFFB0C /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F48C58671E3D843300BFFB0C /* UIColor+meetchewthere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+meetchewthere.swift"; sourceTree = "<group>"; };
+		F48C586A1E3DD28600BFFB0C /* UIView+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +161,8 @@
 			children = (
 				F44D9B841E3D6E3700566044 /* MessagesViewController.swift */,
 				F44D9B931E3D6FBB00566044 /* FavoritesViewController.swift */,
+				F48C58651E3D80FE00BFFB0C /* HeaderView.swift */,
+				F48C58691E3D843F00BFFB0C /* Extension */,
 				F44D9B861E3D6E3700566044 /* MainInterface.storyboard */,
 				F44D9B891E3D6E3700566044 /* Assets.xcassets */,
 				F44D9B8B1E3D6E3700566044 /* Info.plist */,
@@ -174,6 +184,18 @@
 				5E2A7DE41E3D855D00B2CE15 /* rest4.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		F48C58691E3D843F00BFFB0C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F48C58671E3D843300BFFB0C /* UIColor+meetchewthere.swift */,
+				F44D9B951E3D74EC00566044 /* UIView+Autolayout.swift */,
+				F48C586A1E3DD28600BFFB0C /* UIView+Border.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,7 +347,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F44D9B941E3D6FBB00566044 /* FavoritesViewController.swift in Sources */,
+				F44D9B961E3D74EC00566044 /* UIView+Autolayout.swift in Sources */,
+				F48C586B1E3DD28600BFFB0C /* UIView+Border.swift in Sources */,
 				F44D9B851E3D6E3700566044 /* MessagesViewController.swift in Sources */,
+				F48C58681E3D843300BFFB0C /* UIColor+meetchewthere.swift in Sources */,
+				F48C58661E3D80FE00BFFB0C /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +572,7 @@
 				F44D9B901E3D6E3700566044 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E2A7DCF1E3D5B0700B2CE15 /* Build configuration list for PBXNativeTarget "meetchewthere imessage" */ = {
 			isa = XCConfigurationList;

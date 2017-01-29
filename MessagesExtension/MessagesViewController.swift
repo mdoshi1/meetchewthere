@@ -31,7 +31,7 @@ class MessagesViewController: MSMessagesAppViewController {
     
     // MARK: - View Controller Presentation
     
-    fileprivate func buildFavoritesViewController() -> UIViewController {
+    private func buildFavoritesViewController() -> UIViewController {
         let controller = FavoritesViewController()
         return controller
     }
