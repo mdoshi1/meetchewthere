@@ -12,11 +12,11 @@
 		5E2A7DAF1E3D5AE600B2CE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DAD1E3D5AE600B2CE15 /* Main.storyboard */; };
 		5E2A7DB11E3D5AE600B2CE15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DB01E3D5AE600B2CE15 /* Assets.xcassets */; };
 		5E2A7DB41E3D5AE600B2CE15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DB21E3D5AE600B2CE15 /* LaunchScreen.storyboard */; };
-		5E2A7DC21E3D5B0700B2CE15 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2A7DC11E3D5B0700B2CE15 /* Messages.framework */; };
-		5E2A7DC51E3D5B0700B2CE15 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DC41E3D5B0700B2CE15 /* MessagesViewController.swift */; };
-		5E2A7DC81E3D5B0700B2CE15 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DC61E3D5B0700B2CE15 /* MainInterface.storyboard */; };
-		5E2A7DCA1E3D5B0700B2CE15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DC91E3D5B0700B2CE15 /* Assets.xcassets */; };
-		5E2A7DCE1E3D5B0700B2CE15 /* meetchewthere imessage.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5E2A7DBF1E3D5B0700B2CE15 /* meetchewthere imessage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F44D9B821E3D6E3700566044 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44D9B811E3D6E3700566044 /* Messages.framework */; };
+		F44D9B851E3D6E3700566044 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D9B841E3D6E3700566044 /* MessagesViewController.swift */; };
+		F44D9B881E3D6E3700566044 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44D9B861E3D6E3700566044 /* MainInterface.storyboard */; };
+		F44D9B8A1E3D6E3700566044 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44D9B891E3D6E3700566044 /* Assets.xcassets */; };
+		F44D9B8E1E3D6E3700566044 /* MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F44D9B7F1E3D6E3700566044 /* MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5E2A7DD41E3D63BF00B2CE15 /* Near Me-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DD31E3D63BF00B2CE15 /* Near Me-100.png */; };
 		5E2A7DD61E3D64F500B2CE15 /* Rabbit In Hat-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DD51E3D64F500B2CE15 /* Rabbit In Hat-100.png */; };
 		5E2A7DD81E3D65A800B2CE15 /* Star-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DD71E3D65A800B2CE15 /* Star-100.png */; };
@@ -32,23 +32,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5E2A7DCC1E3D5B0700B2CE15 /* PBXContainerItemProxy */ = {
+		F44D9B8C1E3D6E3700566044 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5E2A7D9E1E3D5AE600B2CE15 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5E2A7DBE1E3D5B0700B2CE15;
-			remoteInfo = "meetchewthere imessage";
+			remoteGlobalIDString = F44D9B7E1E3D6E3700566044;
+			remoteInfo = MessagesExtension;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5E2A7DD21E3D5B0700B2CE15 /* Embed App Extensions */ = {
+		F44D9B921E3D6E3700566044 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				5E2A7DCE1E3D5B0700B2CE15 /* meetchewthere imessage.appex in Embed App Extensions */,
+				F44D9B8E1E3D6E3700566044 /* MessagesExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,12 +63,9 @@
 		5E2A7DB01E3D5AE600B2CE15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E2A7DB31E3D5AE600B2CE15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E2A7DB51E3D5AE600B2CE15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5E2A7DBF1E3D5B0700B2CE15 /* meetchewthere imessage.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "meetchewthere imessage.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E2A7DC11E3D5B0700B2CE15 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
-		5E2A7DC41E3D5B0700B2CE15 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
-		5E2A7DC71E3D5B0700B2CE15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		5E2A7DC91E3D5B0700B2CE15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5E2A7DCB1E3D5B0700B2CE15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F44D9B871E3D6E3700566044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F44D9B891E3D6E3700566044 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F44D9B8B1E3D6E3700566044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2A7DD31E3D63BF00B2CE15 /* Near Me-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Near Me-100.png"; sourceTree = "<group>"; };
 		5E2A7DD51E3D64F500B2CE15 /* Rabbit In Hat-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rabbit In Hat-100.png"; sourceTree = "<group>"; };
 		5E2A7DD71E3D65A800B2CE15 /* Star-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star-100.png"; sourceTree = "<group>"; };
@@ -81,6 +78,9 @@
 		5E2A7DE41E3D855D00B2CE15 /* rest4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rest4.png; sourceTree = "<group>"; };
 		5E2A7DE91E3D85A300B2CE15 /* Discover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		5E2A7DEC1E3D891A00B2CE15 /* ratings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ratings.png; sourceTree = "<group>"; };
+		F44D9B7F1E3D6E3700566044 /* MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessagesExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F44D9B811E3D6E3700566044 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		F44D9B841E3D6E3700566044 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,11 +91,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5E2A7DBC1E3D5B0700B2CE15 /* Frameworks */ = {
+		F44D9B7C1E3D6E3700566044 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E2A7DC21E3D5B0700B2CE15 /* Messages.framework in Frameworks */,
+				F44D9B821E3D6E3700566044 /* Messages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				5E2A7DA81E3D5AE600B2CE15 /* meetchewthere */,
-				5E2A7DC31E3D5B0700B2CE15 /* meetchewthere imessage */,
-				5E2A7DC01E3D5B0700B2CE15 /* Frameworks */,
+				F44D9B831E3D6E3700566044 /* MessagesExtension */,
+				F44D9B801E3D6E3700566044 /* Frameworks */,
 				5E2A7DA71E3D5AE600B2CE15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				5E2A7DA61E3D5AE600B2CE15 /* meetchewthere.app */,
-				5E2A7DBF1E3D5B0700B2CE15 /* meetchewthere imessage.appex */,
+				F44D9B7F1E3D6E3700566044 /* MessagesExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,23 +138,23 @@
 			path = meetchewthere;
 			sourceTree = "<group>";
 		};
-		5E2A7DC01E3D5B0700B2CE15 /* Frameworks */ = {
+		F44D9B801E3D6E3700566044 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5E2A7DC11E3D5B0700B2CE15 /* Messages.framework */,
+				F44D9B811E3D6E3700566044 /* Messages.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5E2A7DC31E3D5B0700B2CE15 /* meetchewthere imessage */ = {
+		F44D9B831E3D6E3700566044 /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
-				5E2A7DC41E3D5B0700B2CE15 /* MessagesViewController.swift */,
-				5E2A7DC61E3D5B0700B2CE15 /* MainInterface.storyboard */,
-				5E2A7DC91E3D5B0700B2CE15 /* Assets.xcassets */,
-				5E2A7DCB1E3D5B0700B2CE15 /* Info.plist */,
+				F44D9B841E3D6E3700566044 /* MessagesViewController.swift */,
+				F44D9B861E3D6E3700566044 /* MainInterface.storyboard */,
+				F44D9B891E3D6E3700566044 /* Assets.xcassets */,
+				F44D9B8B1E3D6E3700566044 /* Info.plist */,
 			);
-			path = "meetchewthere imessage";
+			path = MessagesExtension;
 			sourceTree = "<group>";
 		};
 		5E2A7DEB1E3D85AC00B2CE15 /* images */ = {
@@ -171,8 +171,6 @@
 				5E2A7DE41E3D855D00B2CE15 /* rest4.png */,
 			);
 			name = images;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -183,33 +181,33 @@
 				5E2A7DA21E3D5AE600B2CE15 /* Sources */,
 				5E2A7DA31E3D5AE600B2CE15 /* Frameworks */,
 				5E2A7DA41E3D5AE600B2CE15 /* Resources */,
-				5E2A7DD21E3D5B0700B2CE15 /* Embed App Extensions */,
+				F44D9B921E3D6E3700566044 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5E2A7DCD1E3D5B0700B2CE15 /* PBXTargetDependency */,
+				F44D9B8D1E3D6E3700566044 /* PBXTargetDependency */,
 			);
 			name = meetchewthere;
 			productName = meetchewthere;
 			productReference = 5E2A7DA61E3D5AE600B2CE15 /* meetchewthere.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5E2A7DBE1E3D5B0700B2CE15 /* meetchewthere imessage */ = {
+		F44D9B7E1E3D6E3700566044 /* MessagesExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E2A7DCF1E3D5B0700B2CE15 /* Build configuration list for PBXNativeTarget "meetchewthere imessage" */;
+			buildConfigurationList = F44D9B911E3D6E3700566044 /* Build configuration list for PBXNativeTarget "MessagesExtension" */;
 			buildPhases = (
-				5E2A7DBB1E3D5B0700B2CE15 /* Sources */,
-				5E2A7DBC1E3D5B0700B2CE15 /* Frameworks */,
-				5E2A7DBD1E3D5B0700B2CE15 /* Resources */,
+				F44D9B7B1E3D6E3700566044 /* Sources */,
+				F44D9B7C1E3D6E3700566044 /* Frameworks */,
+				F44D9B7D1E3D6E3700566044 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "meetchewthere imessage";
-			productName = "meetchewthere imessage";
-			productReference = 5E2A7DBF1E3D5B0700B2CE15 /* meetchewthere imessage.appex */;
+			name = MessagesExtension;
+			productName = MessagesExtension;
+			productReference = F44D9B7F1E3D6E3700566044 /* MessagesExtension.appex */;
 			productType = "com.apple.product-type.app-extension.messages";
 		};
 /* End PBXNativeTarget section */
@@ -224,7 +222,12 @@
 				TargetAttributes = {
 					5E2A7DA51E3D5AE600B2CE15 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = K4DJ8NDU4W;
+						DevelopmentTeam = F42N7QJG3C;
+						ProvisioningStyle = Automatic;
+					};
+					F44D9B7E1E3D6E3700566044 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = F42N7QJG3C;
 						ProvisioningStyle = Automatic;
 					};
 					5E2A7DBE1E3D5B0700B2CE15 = {
@@ -248,7 +251,7 @@
 			projectRoot = "";
 			targets = (
 				5E2A7DA51E3D5AE600B2CE15 /* meetchewthere */,
-				5E2A7DBE1E3D5B0700B2CE15 /* meetchewthere imessage */,
+				F44D9B7E1E3D6E3700566044 /* MessagesExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -282,6 +285,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F44D9B7D1E3D6E3700566044 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F44D9B8A1E3D6E3700566044 /* Assets.xcassets in Resources */,
+				F44D9B881E3D6E3700566044 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -305,13 +317,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F44D9B7B1E3D6E3700566044 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F44D9B851E3D6E3700566044 /* MessagesViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5E2A7DCD1E3D5B0700B2CE15 /* PBXTargetDependency */ = {
+		F44D9B8D1E3D6E3700566044 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5E2A7DBE1E3D5B0700B2CE15 /* meetchewthere imessage */;
-			targetProxy = 5E2A7DCC1E3D5B0700B2CE15 /* PBXContainerItemProxy */;
+			target = F44D9B7E1E3D6E3700566044 /* MessagesExtension */;
+			targetProxy = F44D9B8C1E3D6E3700566044 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -332,10 +352,10 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		5E2A7DC61E3D5B0700B2CE15 /* MainInterface.storyboard */ = {
+		F44D9B861E3D6E3700566044 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5E2A7DC71E3D5B0700B2CE15 /* Base */,
+				F44D9B871E3D6E3700566044 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -441,7 +461,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K4DJ8NDU4W;
+				DEVELOPMENT_TEAM = F42N7QJG3C;
 				INFOPLIST_FILE = meetchewthere/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -456,7 +476,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K4DJ8NDU4W;
+				DEVELOPMENT_TEAM = F42N7QJG3C;
 				INFOPLIST_FILE = meetchewthere/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -466,28 +486,28 @@
 			};
 			name = Release;
 		};
-		5E2A7DD01E3D5B0700B2CE15 /* Debug */ = {
+		F44D9B8F1E3D6E3700566044 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = K4DJ8NDU4W;
-				INFOPLIST_FILE = "meetchewthere imessage/Info.plist";
+				DEVELOPMENT_TEAM = F42N7QJG3C;
+				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alejandrinagonzalez.meetchewthere.meetchewthere-imessage";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.meetchewthere.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		5E2A7DD11E3D5B0700B2CE15 /* Release */ = {
+		F44D9B901E3D6E3700566044 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = K4DJ8NDU4W;
-				INFOPLIST_FILE = "meetchewthere imessage/Info.plist";
+				DEVELOPMENT_TEAM = F42N7QJG3C;
+				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alejandrinagonzalez.meetchewthere.meetchewthere-imessage";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.meetchewthere.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -511,6 +531,15 @@
 			buildConfigurations = (
 				5E2A7DB91E3D5AE600B2CE15 /* Debug */,
 				5E2A7DBA1E3D5AE600B2CE15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F44D9B911E3D6E3700566044 /* Build configuration list for PBXNativeTarget "MessagesExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F44D9B8F1E3D6E3700566044 /* Debug */,
+				F44D9B901E3D6E3700566044 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
