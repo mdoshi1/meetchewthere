@@ -15,6 +15,7 @@ class FavoritesViewController: UIViewController {
     private lazy var headerView: HeaderView = {
         let headerView = HeaderView()
         headerView.backgroundColor = .chewBlue
+        headerView.delegate = self
         return headerView
     }()
     
@@ -26,6 +27,19 @@ class FavoritesViewController: UIViewController {
         tableView.allowsMultipleSelection = true
         return tableView
     }()
+    
+    fileprivate let data = Data()
+    fileprivate var chosenRestaurants: [Int] = [] {
+        didSet {
+            if chosenRestaurants.count > 0 {
+                headerView.activateShare()
+            } else {
+                headerView.deactivateShare()
+            }
+        }
+    }
+    
+    weak var delegate: FavoritesVCDelegate?
     
     // MARK: - FavoritesViewController
     
@@ -40,17 +54,6 @@ class FavoritesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    fileprivate let data = Data()
-    fileprivate var chosenRestaurants: [Int] = [] {
-        didSet {
-            if chosenRestaurants.count > 0 {
-                headerView.activateShare()
-            } else {
-                headerView.deactivateShare()
-            }
-        }
     }
     
     // MARK: - Helper Methods
@@ -125,12 +128,21 @@ extension FavoritesViewController: UITableViewDataSource {
     }
 }
 
+extension FavoritesViewController: HeaderViewDelegate {
+    func shareRestaurants() {
+        delegate?.composeMessage(chosenRestaurants)
+    }
+}
+
 extension Array where Element: Equatable {
-    
     mutating func remove(object: Element) {
         if let index = index(of: object) {
             remove(at: index)
         }
     }
     
+}
+
+protocol FavoritesVCDelegate: class {
+    func composeMessage(_ chosenRestaurants: [Int])
 }

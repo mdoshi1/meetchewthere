@@ -17,9 +17,13 @@ class HeaderView: UIView {
         button.contentEdgeInsets = UIEdgeInsets(top: 7.5, left: 10.0, bottom: 7.5, right: 10.0)
         button.setTitle("Select Restaurants", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(shareRestaurants), for: .touchUpInside)
+        button.isEnabled = false
         button.layer.borderColor = UIColor.white.cgColor
         return button
     }()
+    
+    weak var delegate: HeaderViewDelegate?
     
     // MARK: - HeaderView
     
@@ -53,11 +57,23 @@ class HeaderView: UIView {
     func activateShare() {
         titleLabel.setTitle("Share Restaurants", for: .normal)
         titleLabel.drawBorder(withWidth: 1.0)
+        titleLabel.isEnabled = true
     }
     
     func deactivateShare() {
         titleLabel.setTitle("Select Restaurants", for: .normal)
         titleLabel.hideBorder()
+        titleLabel.isEnabled = false
+    }
+    
+    // MARK: - Actions
+    
+    func shareRestaurants() {
+        delegate?.shareRestaurants()
     }
 
+}
+
+protocol HeaderViewDelegate: class {
+    func shareRestaurants()
 }

@@ -15,7 +15,13 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func willBecomeActive(with conversation: MSConversation) {
         super.willBecomeActive(with: conversation)
-        let controller = buildFavoritesViewController()
+        
+        let controller: UIViewController
+        if presentationStyle == .compact {
+            controller = buildFavoritesViewController()
+        } else {
+            controller = buildVotingViewController(conversation.selectedMessage!)
+        }
         presentViewController(controller: controller)
     }
     
@@ -23,13 +29,18 @@ class MessagesViewController: MSMessagesAppViewController {
     
     private func buildFavoritesViewController() -> UIViewController {
         let controller = FavoritesViewController()
+        controller.delegate = self
         return controller
     }
-
-}
-
-extension MessagesViewController {
-    func presentViewController(controller: UIViewController) {
+    
+    private func buildVotingViewController(_ message: MSMessage) -> UIViewController {
+        let controller = VotingViewController(message.url)
+        return controller
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func presentViewController(controller: UIViewController) {
         
         // Remove any existing child controllers.
         for child in childViewControllers {
@@ -51,5 +62,43 @@ extension MessagesViewController {
         controller.view.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
         
         controller.didMove(toParentViewController: self)
+    }
+    
+    fileprivate func composeMessage(_ chosenRestaurants: [Int], session: MSSession? = nil) -> MSMessage {
+        let message = MSMessage(session: session ?? MSSession())
+        let layout = MSMessageTemplateLayout()
+        var components = URLComponents()
+        var queryItems: [URLQueryItem] = []
+        
+        var index = 0
+        for restaurant in chosenRestaurants {
+            let item = URLQueryItem(name: "Restaurant" + String(index), value: String(restaurant))
+            queryItems.append(item)
+            index += 1
+        }
+        
+        components.queryItems = queryItems
+        
+        layout.caption = "Rank your restaurant preferences!"
+        message.url = components.url!
+        message.layout = layout
+        
+        return message
+    }
+
+}
+
+extension MessagesViewController: FavoritesVCDelegate {
+    func composeMessage(_ chosenRestaurants: [Int]) {
+        guard let conversation = activeConversation else { fatalError("Expected a conversation") }
+        
+        let message = composeMessage(chosenRestaurants, session: conversation.selectedMessage?.session)
+        conversation.insert(message) { error in
+            if let error = error {
+                print(error)
+            }
+        }
+        
+        requestPresentationStyle(.compact)
     }
 }
