@@ -11,7 +11,16 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    // MARK: - Conversation Handling
+    // MARK: - Application State
+    
+    private enum AppState {
+        case favorites
+        case voting
+    }
+    
+    private var currentState: AppState!
+    
+    // MARK: - MessagesViewController
     
     override func willBecomeActive(with conversation: MSConversation) {
         super.willBecomeActive(with: conversation)
@@ -19,10 +28,26 @@ class MessagesViewController: MSMessagesAppViewController {
         let controller: UIViewController
         if presentationStyle == .compact {
             controller = buildFavoritesViewController()
+            currentState = .favorites
         } else {
             controller = buildVotingViewController(conversation.selectedMessage!)
+            currentState = .voting
         }
         presentViewController(controller: controller)
+    }
+    
+    override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        super.willTransition(to: presentationStyle)
+        if presentationStyle == .compact && currentState == .voting {
+            presentViewController(controller: buildFavoritesViewController())
+            currentState = .favorites
+        } else if presentationStyle == .expanded {
+            guard let conversation = activeConversation else { fatalError("Expected an active converstation") }
+            if let message = conversation.selectedMessage {
+                presentViewController(controller: buildVotingViewController(message))
+                currentState = .voting
+            }
+        }
     }
     
     // MARK: - View Controller Presentation
@@ -64,17 +89,19 @@ class MessagesViewController: MSMessagesAppViewController {
         controller.didMove(toParentViewController: self)
     }
     
-    fileprivate func composeMessage(_ chosenRestaurants: [Int], session: MSSession? = nil) -> MSMessage {
+    // MARK: - Message Composition
+    
+    fileprivate func composeMessage(_ chosenRestaurants: [IndexPath], session: MSSession? = nil) -> MSMessage {
         let message = MSMessage(session: session ?? MSSession())
         let layout = MSMessageTemplateLayout()
         var components = URLComponents()
         var queryItems: [URLQueryItem] = []
         
-        var index = 0
+        //var index = 0
         for restaurant in chosenRestaurants {
-            let item = URLQueryItem(name: "Restaurant" + String(index), value: String(restaurant))
+            let item = URLQueryItem(name: "Restaurant" + String(restaurant.row), value: String(restaurant.row))
             queryItems.append(item)
-            index += 1
+            //index += 1
         }
         
         components.queryItems = queryItems
@@ -89,7 +116,7 @@ class MessagesViewController: MSMessagesAppViewController {
 }
 
 extension MessagesViewController: FavoritesVCDelegate {
-    func composeMessage(_ chosenRestaurants: [Int]) {
+    func composeMessage(_ chosenRestaurants: [IndexPath]) {
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         
         let message = composeMessage(chosenRestaurants, session: conversation.selectedMessage?.session)

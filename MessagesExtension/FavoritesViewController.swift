@@ -29,7 +29,7 @@ class FavoritesViewController: UIViewController {
     }()
     
     fileprivate let data = Data()
-    fileprivate var chosenRestaurants: [Int] = [] {
+    fileprivate var chosenRestaurants: [IndexPath] = [] {
         didSet {
             if chosenRestaurants.count > 0 {
                 headerView.activateShare()
@@ -94,14 +94,12 @@ extension FavoritesViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
         
         if let cell = tableView.cellForRow(at: indexPath) as? RestaurantCell {
-            if cell.accessoryType == UITableViewCellAccessoryType.none {
-                cell.accessoryType = UITableViewCellAccessoryType.checkmark
-                cell.setChecked(isSelected: true)
-                chosenRestaurants.append(indexPath.row)
-            } else if cell.accessoryType == UITableViewCellAccessoryType.checkmark {
-                cell.accessoryType = UITableViewCellAccessoryType.none
-                cell.setChecked(isSelected: false)
-                chosenRestaurants.remove(object: indexPath.row)
+            if chosenRestaurants.contains(indexPath) {
+                cell.setChecked(false)
+                chosenRestaurants.remove(object: indexPath)
+            } else {
+                cell.setChecked(true)
+                chosenRestaurants.append(indexPath)
             }
         }
     }
@@ -110,7 +108,6 @@ extension FavoritesViewController: UITableViewDelegate {
 extension FavoritesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
         let entry = data.places[indexPath.row]
         cell.backgroundView = UIImageView(image: UIImage(named: entry.restImage))
@@ -118,9 +115,9 @@ extension FavoritesViewController: UITableViewDataSource {
         cell.ratingImage.image = UIImage(named: entry.ratings)
         cell.distanceLabel.text = entry.distance
         cell.restrictionsLabel.text = entry.restrictions
+        cell.setChecked(chosenRestaurants.contains(indexPath))
         
         return cell
-
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -144,5 +141,5 @@ extension Array where Element: Equatable {
 }
 
 protocol FavoritesVCDelegate: class {
-    func composeMessage(_ chosenRestaurants: [Int])
+    func composeMessage(_ chosenRestaurants: [IndexPath])
 }

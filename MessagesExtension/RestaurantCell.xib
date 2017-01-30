@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,6 +45,15 @@
                             <constraint firstAttribute="width" constant="223" id="UMf-AG-RXf"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDH-2W-qPp" customClass="CheckMark" customModule="MessagesExtension" customModuleProvider="target">
+                        <rect key="frame" x="287" y="37.5" width="25" height="25"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="btD-FQ-cYK"/>
+                            <constraint firstAttribute="width" constant="25" id="eWu-dP-ZHG"/>
+                            <constraint firstAttribute="width" secondItem="MDH-2W-qPp" secondAttribute="height" multiplier="1:1" id="rZT-WP-rxx"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="m1v-H5-KkX" secondAttribute="trailing" id="5Ja-Fr-XOS"/>
@@ -53,9 +63,11 @@
                     <constraint firstItem="Sv6-qH-Jup" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="L6k-FP-jqM"/>
                     <constraint firstItem="buM-Df-Jim" firstAttribute="top" secondItem="clg-N3-DQe" secondAttribute="bottom" id="MCW-5F-dV5"/>
                     <constraint firstAttribute="trailingMargin" secondItem="clg-N3-DQe" secondAttribute="trailing" id="NEl-O5-nL0"/>
+                    <constraint firstItem="MDH-2W-qPp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SPY-BQ-rUW"/>
                     <constraint firstAttribute="bottomMargin" secondItem="m1v-H5-KkX" secondAttribute="bottom" id="Ss9-R7-LdZ"/>
                     <constraint firstItem="buM-Df-Jim" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="VW1-9g-vV5"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Sv6-qH-Jup" secondAttribute="trailing" id="Ywk-Ba-w8M"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="MDH-2W-qPp" secondAttribute="trailing" id="aO7-RT-xxF"/>
                     <constraint firstItem="m1v-H5-KkX" firstAttribute="top" secondItem="Sv6-qH-Jup" secondAttribute="bottom" id="b9D-eI-Dkc"/>
                     <constraint firstItem="m1v-H5-KkX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cqk-d7-iBA"/>
                     <constraint firstItem="m1v-H5-KkX" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="l7i-a9-ul2"/>
@@ -63,6 +75,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="checkMark" destination="MDH-2W-qPp" id="H0E-C0-opw"/>
                 <outlet property="distanceLabel" destination="m1v-H5-KkX" id="gi6-b4-bzK"/>
                 <outlet property="ratingImage" destination="buM-Df-Jim" id="uYj-Z6-hkp"/>
                 <outlet property="restrictionsLabel" destination="Sv6-qH-Jup" id="0Si-wO-gjl"/>

@@ -44,6 +44,8 @@
 		F48C58931E3DFBFD00BFFB0C /* rest4.png in Resources */ = {isa = PBXBuildFile; fileRef = F48C588F1E3DFBFD00BFFB0C /* rest4.png */; };
 		F48C58981E3EC36F00BFFB0C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C58971E3EC36F00BFFB0C /* Entry.swift */; };
 		F48C589C1E3EF5A600BFFB0C /* VotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C589B1E3EF5A600BFFB0C /* VotingViewController.swift */; };
+		F48C589E1E3EFAA800BFFB0C /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C589D1E3EFAA800BFFB0C /* ResultsViewController.swift */; };
+		F48C58A01E3F0F3200BFFB0C /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C589F1E3F0F3200BFFB0C /* CheckMark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		F48C588F1E3DFBFD00BFFB0C /* rest4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rest4.png; sourceTree = "<group>"; };
 		F48C58971E3EC36F00BFFB0C /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		F48C589B1E3EF5A600BFFB0C /* VotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingViewController.swift; sourceTree = "<group>"; };
+		F48C589D1E3EFAA800BFFB0C /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		F48C589F1E3F0F3200BFFB0C /* CheckMark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,7 +232,9 @@
 			children = (
 				F44D9B841E3D6E3700566044 /* MessagesViewController.swift */,
 				F48C589B1E3EF5A600BFFB0C /* VotingViewController.swift */,
+				F48C589D1E3EFAA800BFFB0C /* ResultsViewController.swift */,
 				F44D9B931E3D6FBB00566044 /* FavoritesViewController.swift */,
+				F48C589F1E3F0F3200BFFB0C /* CheckMark.swift */,
 				F48C58881E3DEEEE00BFFB0C /* Data.swift */,
 				F48C58971E3EC36F00BFFB0C /* Entry.swift */,
 				F48C58651E3D80FE00BFFB0C /* HeaderView.swift */,
@@ -384,8 +390,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F48C589E1E3EFAA800BFFB0C /* ResultsViewController.swift in Sources */,
 				F44D9B941E3D6FBB00566044 /* FavoritesViewController.swift in Sources */,
 				F48C58791E3DE40400BFFB0C /* UIView+Autolayout.swift in Sources */,
+				F48C58A01E3F0F3200BFFB0C /* CheckMark.swift in Sources */,
 				F48C586B1E3DD28600BFFB0C /* UIView+Border.swift in Sources */,
 				F44D9B851E3D6E3700566044 /* MessagesViewController.swift in Sources */,
 				F48C58681E3D843300BFFB0C /* UIColor+meetchewthere.swift in Sources */,
