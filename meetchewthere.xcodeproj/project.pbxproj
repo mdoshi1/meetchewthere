@@ -32,6 +32,7 @@
 		5E2A7DEF1E3DA49F00B2CE15 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */; };
 		5EA118B61E3EB36B008772D8 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA118B51E3EB36B008772D8 /* close.png */; };
 		5EA118B81E3EB9EF008772D8 /* RatingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */; };
+		5EA118BA1E3EC1AC008772D8 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA118B91E3EC1AC008772D8 /* Favorites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		5EA118AE1E3EAFD5008772D8 /* meetchewthere-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "meetchewthere-Bridging-Header.h"; sourceTree = "<group>"; };
 		5EA118B51E3EB36B008772D8 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingsCells.swift; sourceTree = "<group>"; };
+		5EA118B91E3EC1AC008772D8 /* Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				5E2A7DE91E3D85A300B2CE15 /* Discover.swift */,
 				5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */,
 				5E2A7DAD1E3D5AE600B2CE15 /* Main.storyboard */,
+				5EA118B91E3EC1AC008772D8 /* Favorites.swift */,
 				5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */,
 				5E2A7DDD1E3D820600B2CE15 /* Data.swift */,
 				5E2A7DDB1E3D805E00B2CE15 /* RestaurantCell.swift */,
@@ -307,6 +310,7 @@
 				5EA118B81E3EB9EF008772D8 /* RatingsCells.swift in Sources */,
 				5E2A7DEF1E3DA49F00B2CE15 /* Details.swift in Sources */,
 				5E2A7DAC1E3D5AE600B2CE15 /* ViewController.swift in Sources */,
+				5EA118BA1E3EC1AC008772D8 /* Favorites.swift in Sources */,
 				5E2A7DAA1E3D5AE600B2CE15 /* AppDelegate.swift in Sources */,
 				5E2A7DDE1E3D820600B2CE15 /* Data.swift in Sources */,
 			);
