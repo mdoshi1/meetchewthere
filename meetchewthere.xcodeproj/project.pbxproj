@@ -30,6 +30,11 @@
 		F44D9B8A1E3D6E3700566044 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44D9B891E3D6E3700566044 /* Assets.xcassets */; };
 		F44D9B8E1E3D6E3700566044 /* MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F44D9B7F1E3D6E3700566044 /* MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F44D9B941E3D6FBB00566044 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D9B931E3D6FBB00566044 /* FavoritesViewController.swift */; };
+		F47186F51E3F672400C93EBA /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47186F11E3F672400C93EBA /* Direction.swift */; };
+		F47186F61E3F672400C93EBA /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47186F21E3F672400C93EBA /* Scheduler.swift */; };
+		F47186F71E3F672400C93EBA /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47186F31E3F672400C93EBA /* ViewManager.swift */; };
+		F47186F81E3F672400C93EBA /* ZLSwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47186F41E3F672400C93EBA /* ZLSwipeableView.swift */; };
+		F47186FA1E3F6A1800C93EBA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47186F91E3F6A1800C93EBA /* CardView.swift */; };
 		F48C58661E3D80FE00BFFB0C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C58651E3D80FE00BFFB0C /* HeaderView.swift */; };
 		F48C58681E3D843300BFFB0C /* UIColor+meetchewthere.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C58671E3D843300BFFB0C /* UIColor+meetchewthere.swift */; };
 		F48C586B1E3DD28600BFFB0C /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C586A1E3DD28600BFFB0C /* UIView+Border.swift */; };
@@ -106,6 +111,11 @@
 		F44D9B891E3D6E3700566044 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F44D9B8B1E3D6E3700566044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F44D9B931E3D6FBB00566044 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		F47186F11E3F672400C93EBA /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		F47186F21E3F672400C93EBA /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
+		F47186F31E3F672400C93EBA /* ViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
+		F47186F41E3F672400C93EBA /* ZLSwipeableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLSwipeableView.swift; sourceTree = "<group>"; };
+		F47186F91E3F6A1800C93EBA /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F48C58651E3D80FE00BFFB0C /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F48C58671E3D843300BFFB0C /* UIColor+meetchewthere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+meetchewthere.swift"; sourceTree = "<group>"; };
 		F48C586A1E3DD28600BFFB0C /* UIView+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
@@ -211,6 +221,18 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		F43759C01E3FF43600ABBC2C /* Swiping */ = {
+			isa = PBXGroup;
+			children = (
+				F47186F11E3F672400C93EBA /* Direction.swift */,
+				F47186F91E3F6A1800C93EBA /* CardView.swift */,
+				F47186F21E3F672400C93EBA /* Scheduler.swift */,
+				F47186F31E3F672400C93EBA /* ViewManager.swift */,
+				F47186F41E3F672400C93EBA /* ZLSwipeableView.swift */,
+			);
+			name = Swiping;
+			sourceTree = "<group>";
+		};
 		F44D9B801E3D6E3700566044 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +275,7 @@
 		F48C587F1E3DE8DD00BFFB0C /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				F43759C01E3FF43600ABBC2C /* Swiping */,
 				F44D9B841E3D6E3700566044 /* MessagesViewController.swift */,
 				F48C589B1E3EF5A600BFFB0C /* VotingViewController.swift */,
 				F48C589D1E3EFAA800BFFB0C /* ResultsViewController.swift */,
@@ -422,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F48C589E1E3EFAA800BFFB0C /* ResultsViewController.swift in Sources */,
+				F47186F61E3F672400C93EBA /* Scheduler.swift in Sources */,
 				F44D9B941E3D6FBB00566044 /* FavoritesViewController.swift in Sources */,
 				F48C58791E3DE40400BFFB0C /* UIView+Autolayout.swift in Sources */,
 				F48C58A01E3F0F3200BFFB0C /* CheckMark.swift in Sources */,
@@ -432,7 +456,11 @@
 				F48C58981E3EC36F00BFFB0C /* Entry.swift in Sources */,
 				F48C58861E3DEBC000BFFB0C /* RestaurantCell.swift in Sources */,
 				F48C58891E3DEEEE00BFFB0C /* Data.swift in Sources */,
+				F47186F71E3F672400C93EBA /* ViewManager.swift in Sources */,
+				F47186F81E3F672400C93EBA /* ZLSwipeableView.swift in Sources */,
 				F48C589C1E3EF5A600BFFB0C /* VotingViewController.swift in Sources */,
+				F47186FA1E3F6A1800C93EBA /* CardView.swift in Sources */,
+				F47186F51E3F672400C93EBA /* Direction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -127,7 +127,14 @@ extension FavoritesViewController: UITableViewDataSource {
 
 extension FavoritesViewController: HeaderViewDelegate {
     func shareRestaurants() {
-        delegate?.composeMessage(chosenRestaurants)
+        var restaurantNames: [Int] = []
+        
+        for index in chosenRestaurants {
+            restaurantNames.append(index.row)
+        }
+        
+        
+        delegate?.composeMessage(restaurantNames)
     }
 }
 
@@ -141,5 +148,5 @@ extension Array where Element: Equatable {
 }
 
 protocol FavoritesVCDelegate: class {
-    func composeMessage(_ chosenRestaurants: [IndexPath])
+    func composeMessage(_ chosenRestaurants: [Int])
 }

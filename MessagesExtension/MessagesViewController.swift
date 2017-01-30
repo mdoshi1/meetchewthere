@@ -91,24 +91,24 @@ class MessagesViewController: MSMessagesAppViewController {
     
     // MARK: - Message Composition
     
-    fileprivate func composeMessage(_ chosenRestaurants: [IndexPath], session: MSSession? = nil) -> MSMessage {
+    fileprivate func composeMessage(_ chosenRestaurants: [Int], session: MSSession? = nil) -> MSMessage {
         let message = MSMessage(session: session ?? MSSession())
         let layout = MSMessageTemplateLayout()
         var components = URLComponents()
         var queryItems: [URLQueryItem] = []
         
-        //var index = 0
         for restaurant in chosenRestaurants {
-            let item = URLQueryItem(name: "Restaurant" + String(restaurant.row), value: String(restaurant.row))
+            let item = URLQueryItem(name: "Restaurant" + String(restaurant), value: String(restaurant))
             queryItems.append(item)
-            //index += 1
         }
         
         components.queryItems = queryItems
         
         layout.caption = "Rank your restaurant preferences!"
+        layout.image = UIImage(named: "rest" + String(chosenRestaurants[0]) + ".png")
         message.url = components.url!
         message.layout = layout
+        message.summaryText = "Thanks for your input!"
         
         return message
     }
@@ -116,7 +116,7 @@ class MessagesViewController: MSMessagesAppViewController {
 }
 
 extension MessagesViewController: FavoritesVCDelegate {
-    func composeMessage(_ chosenRestaurants: [IndexPath]) {
+    func composeMessage(_ chosenRestaurants: [Int]) {
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         
         let message = composeMessage(chosenRestaurants, session: conversation.selectedMessage?.session)
