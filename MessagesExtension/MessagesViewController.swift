@@ -11,25 +11,61 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    // MARK: - Conversation Handling
+    // MARK: - Application State
+    
+    private enum AppState {
+        case favorites
+        case voting
+    }
+    
+    private var currentState: AppState!
+    
+    // MARK: - MessagesViewController
     
     override func willBecomeActive(with conversation: MSConversation) {
         super.willBecomeActive(with: conversation)
-        let controller = buildFavoritesViewController()
+        
+        let controller: UIViewController
+        if presentationStyle == .compact {
+            controller = buildFavoritesViewController()
+            currentState = .favorites
+        } else {
+            controller = buildVotingViewController(conversation.selectedMessage!)
+            currentState = .voting
+        }
         presentViewController(controller: controller)
+    }
+    
+    override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        super.willTransition(to: presentationStyle)
+        if presentationStyle == .compact && currentState == .voting {
+            presentViewController(controller: buildFavoritesViewController())
+            currentState = .favorites
+        } else if presentationStyle == .expanded {
+            guard let conversation = activeConversation else { fatalError("Expected an active converstation") }
+            if let message = conversation.selectedMessage {
+                presentViewController(controller: buildVotingViewController(message))
+                currentState = .voting
+            }
+        }
     }
     
     // MARK: - View Controller Presentation
     
     private func buildFavoritesViewController() -> UIViewController {
         let controller = FavoritesViewController()
+        controller.delegate = self
         return controller
     }
-
-}
-
-extension MessagesViewController {
-    func presentViewController(controller: UIViewController) {
+    
+    private func buildVotingViewController(_ message: MSMessage) -> UIViewController {
+        let controller = VotingViewController(message.url)
+        return controller
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func presentViewController(controller: UIViewController) {
         
         // Remove any existing child controllers.
         for child in childViewControllers {
@@ -51,5 +87,45 @@ extension MessagesViewController {
         controller.view.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
         
         controller.didMove(toParentViewController: self)
+    }
+    
+    // MARK: - Message Composition
+    
+    fileprivate func composeMessage(_ chosenRestaurants: [IndexPath], session: MSSession? = nil) -> MSMessage {
+        let message = MSMessage(session: session ?? MSSession())
+        let layout = MSMessageTemplateLayout()
+        var components = URLComponents()
+        var queryItems: [URLQueryItem] = []
+        
+        //var index = 0
+        for restaurant in chosenRestaurants {
+            let item = URLQueryItem(name: "Restaurant" + String(restaurant.row), value: String(restaurant.row))
+            queryItems.append(item)
+            //index += 1
+        }
+        
+        components.queryItems = queryItems
+        
+        layout.caption = "Rank your restaurant preferences!"
+        message.url = components.url!
+        message.layout = layout
+        
+        return message
+    }
+
+}
+
+extension MessagesViewController: FavoritesVCDelegate {
+    func composeMessage(_ chosenRestaurants: [IndexPath]) {
+        guard let conversation = activeConversation else { fatalError("Expected a conversation") }
+        
+        let message = composeMessage(chosenRestaurants, session: conversation.selectedMessage?.session)
+        conversation.insert(message) { error in
+            if let error = error {
+                print(error)
+            }
+        }
+        
+        requestPresentationStyle(.compact)
     }
 }

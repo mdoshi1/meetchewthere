@@ -15,6 +15,7 @@ class FavoritesViewController: UIViewController {
     private lazy var headerView: HeaderView = {
         let headerView = HeaderView()
         headerView.backgroundColor = .chewBlue
+        headerView.delegate = self
         return headerView
     }()
     
@@ -22,8 +23,23 @@ class FavoritesViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorColor = .clear
+        tableView.allowsMultipleSelection = true
         return tableView
     }()
+    
+    fileprivate let data = Data()
+    fileprivate var chosenRestaurants: [IndexPath] = [] {
+        didSet {
+            if chosenRestaurants.count > 0 {
+                headerView.activateShare()
+            } else {
+                headerView.deactivateShare()
+            }
+        }
+    }
+    
+    weak var delegate: FavoritesVCDelegate?
     
     // MARK: - FavoritesViewController
     
@@ -32,6 +48,7 @@ class FavoritesViewController: UIViewController {
         view.addSubview(headerView.usingAutolayout())
         view.addSubview(favoritesTableView.usingAutolayout())
         setUpConstraints()
+        registerReusableCells()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,7 +58,7 @@ class FavoritesViewController: UIViewController {
     
     // MARK: - Helper Methods
     
-    fileprivate func setUpConstraints() {
+    private func setUpConstraints() {
         
         // headerView constraints
         
@@ -61,6 +78,10 @@ class FavoritesViewController: UIViewController {
             ])
     }
     
+    private func registerReusableCells() {
+        favoritesTableView.register(UINib(nibName: "RestaurantCell", bundle: nil), forCellReuseIdentifier: "RestaurantCell")
+    }
+    
 }
 
 extension FavoritesViewController: UITableViewDelegate {
@@ -69,20 +90,56 @@ extension FavoritesViewController: UITableViewDelegate {
         return 100.0
     }
     
-    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
-    }*/
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? RestaurantCell {
+            if chosenRestaurants.contains(indexPath) {
+                cell.setChecked(false)
+                chosenRestaurants.remove(object: indexPath)
+            } else {
+                cell.setChecked(true)
+                chosenRestaurants.append(indexPath)
+            }
+        }
+    }
 }
 
 extension FavoritesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
+        let entry = data.places[indexPath.row]
+        cell.backgroundView = UIImageView(image: UIImage(named: entry.restImage))
+        cell.titleLabel.text = entry.title
+        cell.ratingImage.image = UIImage(named: entry.ratings)
+        cell.distanceLabel.text = entry.distance
+        cell.restrictionsLabel.text = entry.restrictions
+        cell.setChecked(chosenRestaurants.contains(indexPath))
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
+}
+
+extension FavoritesViewController: HeaderViewDelegate {
+    func shareRestaurants() {
+        delegate?.composeMessage(chosenRestaurants)
+    }
+}
+
+extension Array where Element: Equatable {
+    mutating func remove(object: Element) {
+        if let index = index(of: object) {
+            remove(at: index)
+        }
+    }
+    
+}
+
+protocol FavoritesVCDelegate: class {
+    func composeMessage(_ chosenRestaurants: [IndexPath])
 }

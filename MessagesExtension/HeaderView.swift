@@ -14,13 +14,16 @@ class HeaderView: UIView {
     
     private lazy var titleLabel: UIButton = {
         let button = UIButton()
-        button.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 10.0, bottom: 5.0, right: 10.0)
+        button.contentEdgeInsets = UIEdgeInsets(top: 7.5, left: 10.0, bottom: 7.5, right: 10.0)
         button.setTitle("Select Restaurants", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10.0
+        button.addTarget(self, action: #selector(shareRestaurants), for: .touchUpInside)
+        button.isEnabled = false
         button.layer.borderColor = UIColor.white.cgColor
         return button
     }()
+    
+    weak var delegate: HeaderViewDelegate?
     
     // MARK: - HeaderView
     
@@ -34,6 +37,11 @@ class HeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        titleLabel.layer.cornerRadius = titleLabel.frame.height / 2.0
+    }
+    
     // MARK: - Helper Methods
     
     private func setUpConstraints() {
@@ -45,5 +53,27 @@ class HeaderView: UIView {
             ])
         
     }
+    
+    func activateShare() {
+        titleLabel.setTitle("Share Restaurants", for: .normal)
+        titleLabel.drawBorder(withWidth: 1.0)
+        titleLabel.isEnabled = true
+    }
+    
+    func deactivateShare() {
+        titleLabel.setTitle("Select Restaurants", for: .normal)
+        titleLabel.hideBorder()
+        titleLabel.isEnabled = false
+    }
+    
+    // MARK: - Actions
+    
+    func shareRestaurants() {
+        delegate?.shareRestaurants()
+    }
 
+}
+
+protocol HeaderViewDelegate: class {
+    func shareRestaurants()
 }
