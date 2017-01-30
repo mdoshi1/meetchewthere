@@ -1,18 +1,18 @@
 //
-//  Discover.swift
+//  Favorites.swift
 //  meetchewthere
 //
-//  Created by Alejandrina Gonzalez on 1/28/17.
+//  Created by Alejandrina Gonzalez on 1/29/17.
 //  Copyright © 2017 Alejandrina Gonzalez Reyes. All rights reserved.
 //
 
 import UIKit
 
-class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class Favorites: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     let data = Data()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.places.count
+        return 5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RestaurantCell
@@ -22,31 +22,29 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.rating?.image = UIImage(named: entry.ratings)
         cell.distance?.text = entry.distance
         cell.restrictions?.text = entry.restrictions
-        cell.backgroundColor = .clear 
+        cell.backgroundColor = .clear
         
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "details", sender: nil)
+       // self.performSegue(withIdentifier: "details", sender: nil)
     }
-    var imageName: String!
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let detailController = segue.destination as! Details
-        if let indexPath = self.tableView.indexPathForSelectedRow{
-            imageName = data.places[indexPath.row].restImage
-            detailController.restaurantName = data.places[indexPath.row].title
-            detailController.imageName = imageName
-        }
-    }
+    //var imageName: String!
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let detailController = segue.destination as! Details
+//        if let indexPath = self.tableView.indexPathForSelectedRow{
+//            imageName = data.places[indexPath.row].restImage
+//            detailController.restaurantName = data.places[indexPath.row].title
+//            detailController.imageName = imageName
+//        }
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorColor = .clear
         tableView.backgroundColor = .clear
-    }
-    
-    @IBAction func unwindToViewController (sender: UIStoryboardSegue){
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

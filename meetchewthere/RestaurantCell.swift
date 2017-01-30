@@ -22,7 +22,7 @@ class RestaurantCell: UITableViewCell {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = (restImage?.bounds)!
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurEffectView.alpha = 0.6
+        blurEffectView.alpha = 0.7
         restImage?.addSubview(blurEffectView)
         
         // Initialization code

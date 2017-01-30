@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E2A7DAA1E3D5AE600B2CE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DA91E3D5AE600B2CE15 /* AppDelegate.swift */; };
-		5E2A7DAC1E3D5AE600B2CE15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DAB1E3D5AE600B2CE15 /* ViewController.swift */; };
+		5E2A7DAC1E3D5AE600B2CE15 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DAB1E3D5AE600B2CE15 /* Profile.swift */; };
 		5E2A7DAF1E3D5AE600B2CE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DAD1E3D5AE600B2CE15 /* Main.storyboard */; };
 		5E2A7DB11E3D5AE600B2CE15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DB01E3D5AE600B2CE15 /* Assets.xcassets */; };
 		5E2A7DB41E3D5AE600B2CE15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DB21E3D5AE600B2CE15 /* LaunchScreen.storyboard */; };
@@ -34,6 +34,13 @@
 		F48C58681E3D843300BFFB0C /* UIColor+meetchewthere.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C58671E3D843300BFFB0C /* UIColor+meetchewthere.swift */; };
 		F48C586B1E3DD28600BFFB0C /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C586A1E3DD28600BFFB0C /* UIView+Border.swift */; };
 		F48C58791E3DE40400BFFB0C /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C58781E3DE40400BFFB0C /* UIView+Autolayout.swift */; };
+		5E2A7DEF1E3DA49F00B2CE15 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */; };
+		5EA118B61E3EB36B008772D8 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA118B51E3EB36B008772D8 /* close.png */; };
+		5EA118B81E3EB9EF008772D8 /* RatingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */; };
+		5EA118BA1E3EC1AC008772D8 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA118B91E3EC1AC008772D8 /* Favorites.swift */; };
+		5EA118BC1E3EC3DB008772D8 /* Shake Phone-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA118BB1E3EC3DB008772D8 /* Shake Phone-100.png */; };
+		5EA118BE1E3EC509008772D8 /* Surprise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA118BD1E3EC509008772D8 /* Surprise.swift */; };
+		5EA118C01E3ED165008772D8 /* profile2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA118BF1E3ED165008772D8 /* profile2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +70,7 @@
 /* Begin PBXFileReference section */
 		5E2A7DA61E3D5AE600B2CE15 /* meetchewthere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meetchewthere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2A7DA91E3D5AE600B2CE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5E2A7DAB1E3D5AE600B2CE15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5E2A7DAB1E3D5AE600B2CE15 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		5E2A7DAE1E3D5AE600B2CE15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E2A7DB01E3D5AE600B2CE15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E2A7DB31E3D5AE600B2CE15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,6 +98,14 @@
 		F48C58671E3D843300BFFB0C /* UIColor+meetchewthere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+meetchewthere.swift"; sourceTree = "<group>"; };
 		F48C586A1E3DD28600BFFB0C /* UIView+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 		F48C58781E3DE40400BFFB0C /* UIView+Autolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
+		5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
+		5EA118AE1E3EAFD5008772D8 /* meetchewthere-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "meetchewthere-Bridging-Header.h"; sourceTree = "<group>"; };
+		5EA118B51E3EB36B008772D8 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingsCells.swift; sourceTree = "<group>"; };
+		5EA118B91E3EC1AC008772D8 /* Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		5EA118BB1E3EC3DB008772D8 /* Shake Phone-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shake Phone-100.png"; sourceTree = "<group>"; };
+		5EA118BD1E3EC509008772D8 /* Surprise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Surprise.swift; sourceTree = "<group>"; };
+		5EA118BF1E3ED165008772D8 /* profile2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,14 +151,19 @@
 			children = (
 				5E2A7DA91E3D5AE600B2CE15 /* AppDelegate.swift */,
 				5E2A7DEB1E3D85AC00B2CE15 /* images */,
-				5E2A7DAB1E3D5AE600B2CE15 /* ViewController.swift */,
+				5E2A7DAB1E3D5AE600B2CE15 /* Profile.swift */,
 				5E2A7DE91E3D85A300B2CE15 /* Discover.swift */,
+				5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */,
 				5E2A7DAD1E3D5AE600B2CE15 /* Main.storyboard */,
+				5EA118BD1E3EC509008772D8 /* Surprise.swift */,
+				5EA118B91E3EC1AC008772D8 /* Favorites.swift */,
+				5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */,
 				5E2A7DDD1E3D820600B2CE15 /* Data.swift */,
 				5E2A7DDB1E3D805E00B2CE15 /* RestaurantCell.swift */,
 				5E2A7DB01E3D5AE600B2CE15 /* Assets.xcassets */,
 				5E2A7DB21E3D5AE600B2CE15 /* LaunchScreen.storyboard */,
 				5E2A7DB51E3D5AE600B2CE15 /* Info.plist */,
+				5EA118AE1E3EAFD5008772D8 /* meetchewthere-Bridging-Header.h */,
 			);
 			path = meetchewthere;
 			sourceTree = "<group>";
@@ -151,6 +171,8 @@
 		5E2A7DEB1E3D85AC00B2CE15 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5EA118BB1E3EC3DB008772D8 /* Shake Phone-100.png */,
+				5EA118B51E3EB36B008772D8 /* close.png */,
 				5E2A7DEC1E3D891A00B2CE15 /* ratings.png */,
 				5E2A7DD91E3D664A00B2CE15 /* Settings-100.png */,
 				5E2A7DD51E3D64F500B2CE15 /* Rabbit In Hat-100.png */,
@@ -158,6 +180,7 @@
 				5E2A7DD71E3D65A800B2CE15 /* Star-100.png */,
 				5E2A7DE11E3D855D00B2CE15 /* rest1.png */,
 				5E2A7DE21E3D855D00B2CE15 /* rest2.png */,
+				5EA118BF1E3ED165008772D8 /* profile2.png */,
 				5E2A7DE31E3D855D00B2CE15 /* rest3.png */,
 				5E2A7DE41E3D855D00B2CE15 /* rest4.png */,
 			);
@@ -248,6 +271,7 @@
 					5E2A7DA51E3D5AE600B2CE15 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = F42N7QJG3C;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					F44D9B7E1E3D6E3700566044 = {
@@ -288,10 +312,13 @@
 				5E2A7DB11E3D5AE600B2CE15 /* Assets.xcassets in Resources */,
 				5E2A7DD61E3D64F500B2CE15 /* Rabbit In Hat-100.png in Resources */,
 				5E2A7DAF1E3D5AE600B2CE15 /* Main.storyboard in Resources */,
+				5EA118B61E3EB36B008772D8 /* close.png in Resources */,
+				5EA118BC1E3EC3DB008772D8 /* Shake Phone-100.png in Resources */,
 				5E2A7DE61E3D855D00B2CE15 /* rest2.png in Resources */,
 				5E2A7DE51E3D855D00B2CE15 /* rest1.png in Resources */,
 				5E2A7DE71E3D855D00B2CE15 /* rest3.png in Resources */,
 				5E2A7DD81E3D65A800B2CE15 /* Star-100.png in Resources */,
+				5EA118C01E3ED165008772D8 /* profile2.png in Resources */,
 				5E2A7DDA1E3D664A00B2CE15 /* Settings-100.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,8 +340,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E2A7DDC1E3D805E00B2CE15 /* RestaurantCell.swift in Sources */,
+				5EA118BE1E3EC509008772D8 /* Surprise.swift in Sources */,
 				5E2A7DEA1E3D85A300B2CE15 /* Discover.swift in Sources */,
-				5E2A7DAC1E3D5AE600B2CE15 /* ViewController.swift in Sources */,
+				5EA118B81E3EB9EF008772D8 /* RatingsCells.swift in Sources */,
+				5E2A7DEF1E3DA49F00B2CE15 /* Details.swift in Sources */,
+				5E2A7DAC1E3D5AE600B2CE15 /* Profile.swift in Sources */,
+				5EA118BA1E3EC1AC008772D8 /* Favorites.swift in Sources */,
 				5E2A7DAA1E3D5AE600B2CE15 /* AppDelegate.swift in Sources */,
 				5E2A7DDE1E3D820600B2CE15 /* Data.swift in Sources */,
 			);
@@ -470,11 +501,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = F42N7QJG3C;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = meetchewthere/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.meetchewthere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "meetchewthere/meetchewthere-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -485,11 +519,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = F42N7QJG3C;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = meetchewthere/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.meetchewthere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "meetchewthere/meetchewthere-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
