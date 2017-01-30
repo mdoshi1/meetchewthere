@@ -29,6 +29,9 @@
 		5E2A7DE81E3D855D00B2CE15 /* rest4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DE41E3D855D00B2CE15 /* rest4.png */; };
 		5E2A7DEA1E3D85A300B2CE15 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DE91E3D85A300B2CE15 /* Discover.swift */; };
 		5E2A7DED1E3D891A00B2CE15 /* ratings.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DEC1E3D891A00B2CE15 /* ratings.png */; };
+		5E2A7DEF1E3DA49F00B2CE15 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */; };
+		5EA118B61E3EB36B008772D8 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA118B51E3EB36B008772D8 /* close.png */; };
+		5EA118B81E3EB9EF008772D8 /* RatingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,10 @@
 		5E2A7DE41E3D855D00B2CE15 /* rest4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rest4.png; sourceTree = "<group>"; };
 		5E2A7DE91E3D85A300B2CE15 /* Discover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		5E2A7DEC1E3D891A00B2CE15 /* ratings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ratings.png; sourceTree = "<group>"; };
+		5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
+		5EA118AE1E3EAFD5008772D8 /* meetchewthere-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "meetchewthere-Bridging-Header.h"; sourceTree = "<group>"; };
+		5EA118B51E3EB36B008772D8 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingsCells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,12 +135,15 @@
 				5E2A7DEB1E3D85AC00B2CE15 /* images */,
 				5E2A7DAB1E3D5AE600B2CE15 /* ViewController.swift */,
 				5E2A7DE91E3D85A300B2CE15 /* Discover.swift */,
+				5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */,
 				5E2A7DAD1E3D5AE600B2CE15 /* Main.storyboard */,
+				5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */,
 				5E2A7DDD1E3D820600B2CE15 /* Data.swift */,
 				5E2A7DDB1E3D805E00B2CE15 /* RestaurantCell.swift */,
 				5E2A7DB01E3D5AE600B2CE15 /* Assets.xcassets */,
 				5E2A7DB21E3D5AE600B2CE15 /* LaunchScreen.storyboard */,
 				5E2A7DB51E3D5AE600B2CE15 /* Info.plist */,
+				5EA118AE1E3EAFD5008772D8 /* meetchewthere-Bridging-Header.h */,
 			);
 			path = meetchewthere;
 			sourceTree = "<group>";
@@ -160,6 +170,7 @@
 		5E2A7DEB1E3D85AC00B2CE15 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5EA118B51E3EB36B008772D8 /* close.png */,
 				5E2A7DEC1E3D891A00B2CE15 /* ratings.png */,
 				5E2A7DD91E3D664A00B2CE15 /* Settings-100.png */,
 				5E2A7DD51E3D64F500B2CE15 /* Rabbit In Hat-100.png */,
@@ -225,6 +236,7 @@
 					5E2A7DA51E3D5AE600B2CE15 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = K4DJ8NDU4W;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					5E2A7DBE1E3D5B0700B2CE15 = {
@@ -265,6 +277,7 @@
 				5E2A7DB11E3D5AE600B2CE15 /* Assets.xcassets in Resources */,
 				5E2A7DD61E3D64F500B2CE15 /* Rabbit In Hat-100.png in Resources */,
 				5E2A7DAF1E3D5AE600B2CE15 /* Main.storyboard in Resources */,
+				5EA118B61E3EB36B008772D8 /* close.png in Resources */,
 				5E2A7DE61E3D855D00B2CE15 /* rest2.png in Resources */,
 				5E2A7DE51E3D855D00B2CE15 /* rest1.png in Resources */,
 				5E2A7DE71E3D855D00B2CE15 /* rest3.png in Resources */,
@@ -291,6 +304,8 @@
 			files = (
 				5E2A7DDC1E3D805E00B2CE15 /* RestaurantCell.swift in Sources */,
 				5E2A7DEA1E3D85A300B2CE15 /* Discover.swift in Sources */,
+				5EA118B81E3EB9EF008772D8 /* RatingsCells.swift in Sources */,
+				5E2A7DEF1E3DA49F00B2CE15 /* Details.swift in Sources */,
 				5E2A7DAC1E3D5AE600B2CE15 /* ViewController.swift in Sources */,
 				5E2A7DAA1E3D5AE600B2CE15 /* AppDelegate.swift in Sources */,
 				5E2A7DDE1E3D820600B2CE15 /* Data.swift in Sources */,
@@ -441,12 +456,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = K4DJ8NDU4W;
 				INFOPLIST_FILE = meetchewthere/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.meetchewthere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "meetchewthere/meetchewthere-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -456,12 +474,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = K4DJ8NDU4W;
 				INFOPLIST_FILE = meetchewthere/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.meetchewthere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "meetchewthere/meetchewthere-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -513,6 +533,7 @@
 				5E2A7DBA1E3D5AE600B2CE15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E2A7DCF1E3D5B0700B2CE15 /* Build configuration list for PBXNativeTarget "meetchewthere imessage" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +542,7 @@
 				5E2A7DD11E3D5B0700B2CE15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

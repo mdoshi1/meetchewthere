@@ -22,17 +22,31 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.rating?.image = UIImage(named: entry.ratings)
         cell.distance?.text = entry.distance
         cell.restrictions?.text = entry.restrictions
+        cell.backgroundColor = .clear 
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "details", sender: nil)
+    }
+    var imageName: String!
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailController = segue.destination as! Details
+        if let indexPath = self.tableView.indexPathForSelectedRow{
+            imageName = data.places[indexPath.row].restImage
+            detailController.restaurantName = data.places[indexPath.row].title
+            detailController.imageName = imageName
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorColor = .clear
+        tableView.backgroundColor = .clear
     }
-    override var prefersStatusBarHidden: Bool{
-        return true
+    
+    @IBAction func unwindToViewController (sender: UIStoryboardSegue){
     }
 
     override func didReceiveMemoryWarning() {
