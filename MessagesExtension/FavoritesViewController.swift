@@ -22,6 +22,8 @@ class FavoritesViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorColor = .clear
+        tableView.allowsMultipleSelection = true
         return tableView
     }()
     
@@ -32,6 +34,7 @@ class FavoritesViewController: UIViewController {
         view.addSubview(headerView.usingAutolayout())
         view.addSubview(favoritesTableView.usingAutolayout())
         setUpConstraints()
+        registerReusableCells()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,9 +42,20 @@ class FavoritesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    fileprivate let data = Data()
+    fileprivate var chosenRestaurants: [Int] = [] {
+        didSet {
+            if chosenRestaurants.count > 0 {
+                headerView.activateShare()
+            } else {
+                headerView.deactivateShare()
+            }
+        }
+    }
+    
     // MARK: - Helper Methods
     
-    fileprivate func setUpConstraints() {
+    private func setUpConstraints() {
         
         // headerView constraints
         
@@ -61,6 +75,10 @@ class FavoritesViewController: UIViewController {
             ])
     }
     
+    private func registerReusableCells() {
+        favoritesTableView.register(UINib(nibName: "RestaurantCell", bundle: nil), forCellReuseIdentifier: "RestaurantCell")
+    }
+    
 }
 
 extension FavoritesViewController: UITableViewDelegate {
@@ -69,20 +87,50 @@ extension FavoritesViewController: UITableViewDelegate {
         return 100.0
     }
     
-    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
-    }*/
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? RestaurantCell {
+            if cell.accessoryType == UITableViewCellAccessoryType.none {
+                cell.accessoryType = UITableViewCellAccessoryType.checkmark
+                cell.setChecked(isSelected: true)
+                chosenRestaurants.append(indexPath.row)
+            } else if cell.accessoryType == UITableViewCellAccessoryType.checkmark {
+                cell.accessoryType = UITableViewCellAccessoryType.none
+                cell.setChecked(isSelected: false)
+                chosenRestaurants.remove(object: indexPath.row)
+            }
+        }
+    }
 }
 
 extension FavoritesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
+        let entry = data.places[indexPath.row]
+        cell.backgroundView = UIImageView(image: UIImage(named: entry.restImage))
+        cell.titleLabel.text = entry.title
+        cell.ratingImage.image = UIImage(named: entry.ratings)
+        cell.distanceLabel.text = entry.distance
+        cell.restrictionsLabel.text = entry.restrictions
+        
         return cell
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
+}
+
+extension Array where Element: Equatable {
+    
+    mutating func remove(object: Element) {
+        if let index = index(of: object) {
+            remove(at: index)
+        }
+    }
+    
 }
