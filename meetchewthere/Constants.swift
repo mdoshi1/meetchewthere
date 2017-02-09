@@ -12,6 +12,7 @@ class Constants {
     
     struct Notification {
         static let ReceivedTokenNotification = "ReceivedTokenNotification"
+        static let UpdatedBusinessList = "UpdatedBusinessList"
     }
     
 }

@@ -15,12 +15,15 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let data = FakeData()
-    var businesses: [YLPBusiness]? {
+    fileprivate var businesses: [YLPBusiness]? {
         didSet {
+            let userInfo = ["businesses":businesses]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.UpdatedBusinessList), object: nil, userInfo: userInfo)
+            
             tableView.reloadData()
         }
     }
+    fileprivate let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
     
     // MARK: - DiscoverViewController
     
@@ -32,10 +35,6 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-        
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
     }
     
     deinit {
@@ -49,28 +48,20 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 return
             }
             print("OMG I'm a wizard")
-            self.businesses = search.businesses
+            
+            DispatchQueue.main.async {
+                self.businesses = search.businesses
+            }
         }
     }
     
     func dismissKeyboard() {
+        print("blah")
         searchBar.endEditing(true)
     }
     
     @IBAction func unwindToViewController (sender: UIStoryboardSegue){
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return businesses?.count ?? 0
@@ -93,10 +84,15 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if let restImageURL = business.imageURL {
             Webservice.getImage(withURL: restImageURL, completion: { data in
                 if let data = data {
-                    cell.restImage.image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        cell.restImage.layer.cornerRadius = 5.0
+                        cell.restImage.layer.masksToBounds = true
+                        cell.restImage.image = UIImage(data: data)
+                    }
                 }
             })
         }
+        
         cell.restriction1.text = "Vegan"
         cell.restrictionRating1.image = UIImage(named: "ratings.png")
         cell.restrictionRating2.image = UIImage(named: "ratings.png")
@@ -106,18 +102,18 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "details", sender: nil)
-    }
-    var imageName: String!
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailController = segue.destination as! Details
-        if let indexPath = self.tableView.indexPathForSelectedRow{
-            imageName = data.places[indexPath.row].restImage
-            detailController.restaurantName = data.places[indexPath.row].title
-            detailController.imageName = imageName
+        if let indexPath = self.tableView.indexPathForSelectedRow,
+            let businesses = businesses {
+            
+            if let cell = tableView.cellForRow(at: indexPath) as? BusinessCell {
+                detailController.restImage = cell.restImage.image
+            }
+            
+            detailController.business = businesses[indexPath.row]
         }
-    }*/
+    }
 
 }
 
@@ -125,10 +121,12 @@ extension Discover: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
+        view.addGestureRecognizer(tap)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
+        view.removeGestureRecognizer(tap)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -140,10 +138,14 @@ extension Discover: UISearchBarDelegate {
                     return
                 }
                 print("OMG I'm a wizard")
-                self.businesses = search.businesses
+                
+                DispatchQueue.main.async {
+                    self.businesses = search.businesses
+                }
             }
         }
         
+        view.removeGestureRecognizer(tap)
         searchBar.endEditing(true)
     }
     
@@ -151,6 +153,8 @@ extension Discover: UISearchBarDelegate {
         searchBar.text = ""
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.endEditing(true)
+        
+        view.removeGestureRecognizer(tap)
     }
     
 }
