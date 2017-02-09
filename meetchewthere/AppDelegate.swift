@@ -15,8 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private let appId = "X6SA2_urz3iwprFX7Pxp_A"
     private let secret = "xZKXVQikiQpY1iTXLhvNbOsCAAhLqDqznLahEfg3uJ8C8oyH7jm6j3vTd245XQ5y"
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         YLPClient.sharedYLPClient.authorizeWithAppId(appId, secret: secret) { success in
@@ -24,6 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Yay! It worked")
             } else {
                 print("Boo! It failed")
+            }
+            
+            
+            
+            
+            YLPClient.sharedYLPClient.search(withLocation: "Stanford, CA") { (search, error) in
+                guard let search = search, error == nil else {
+                    print("OMG this sucks")
+                    return
+                }
+                print("OMG I'm a wizard")
             }
         }
         

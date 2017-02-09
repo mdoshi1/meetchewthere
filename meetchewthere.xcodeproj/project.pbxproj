@@ -59,6 +59,10 @@
 		F48C589C1E3EF5A600BFFB0C /* VotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C589B1E3EF5A600BFFB0C /* VotingViewController.swift */; };
 		F48C589E1E3EFAA800BFFB0C /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C589D1E3EFAA800BFFB0C /* ResultsViewController.swift */; };
 		F48C58A01E3F0F3200BFFB0C /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C589F1E3F0F3200BFFB0C /* CheckMark.swift */; };
+		F4FEC2F01E4C40A700112F14 /* YLPClient+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEC2EF1E4C40A700112F14 /* YLPClient+Search.swift */; };
+		F4FEC2F21E4C43AE00112F14 /* YLPQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEC2F11E4C43AE00112F14 /* YLPQuery.swift */; };
+		F4FEC2F41E4C5DAE00112F14 /* YLPSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEC2F31E4C5DAE00112F14 /* YLPSearch.swift */; };
+		F4FEC2F61E4C5F5500112F14 /* YLPBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEC2F51E4C5F5500112F14 /* YLPBusiness.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +146,10 @@
 		F48C589B1E3EF5A600BFFB0C /* VotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingViewController.swift; sourceTree = "<group>"; };
 		F48C589D1E3EFAA800BFFB0C /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		F48C589F1E3F0F3200BFFB0C /* CheckMark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
+		F4FEC2EF1E4C40A700112F14 /* YLPClient+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YLPClient+Search.swift"; sourceTree = "<group>"; };
+		F4FEC2F11E4C43AE00112F14 /* YLPQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLPQuery.swift; sourceTree = "<group>"; };
+		F4FEC2F31E4C5DAE00112F14 /* YLPSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLPSearch.swift; sourceTree = "<group>"; };
+		F4FEC2F51E4C5F5500112F14 /* YLPBusiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLPBusiness.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +197,7 @@
 				5E2A7DEB1E3D85AC00B2CE15 /* images */,
 				5E2A7DAB1E3D5AE600B2CE15 /* Profile.swift */,
 				5E2A7DE91E3D85A300B2CE15 /* Discover.swift */,
-				F480AF731E4BFB6300A23D58 /* YLPClient.swift */,
+				F4FEC2F71E4C70FE00112F14 /* YLPService */,
 				5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */,
 				5E2A7DAD1E3D5AE600B2CE15 /* Main.storyboard */,
 				5EA118BD1E3EC509008772D8 /* Surprise.swift */,
@@ -303,6 +311,18 @@
 				F48C588F1E3DFBFD00BFFB0C /* rest4.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		F4FEC2F71E4C70FE00112F14 /* YLPService */ = {
+			isa = PBXGroup;
+			children = (
+				F480AF731E4BFB6300A23D58 /* YLPClient.swift */,
+				F4FEC2EF1E4C40A700112F14 /* YLPClient+Search.swift */,
+				F4FEC2F31E4C5DAE00112F14 /* YLPSearch.swift */,
+				F4FEC2F51E4C5F5500112F14 /* YLPBusiness.swift */,
+				F4FEC2F11E4C43AE00112F14 /* YLPQuery.swift */,
+			);
+			name = YLPService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,11 +455,15 @@
 				5EA118BE1E3EC509008772D8 /* Surprise.swift in Sources */,
 				5E2A7DEA1E3D85A300B2CE15 /* Discover.swift in Sources */,
 				5EA118B81E3EB9EF008772D8 /* RatingsCells.swift in Sources */,
+				F4FEC2F21E4C43AE00112F14 /* YLPQuery.swift in Sources */,
+				F4FEC2F01E4C40A700112F14 /* YLPClient+Search.swift in Sources */,
 				5E2A7DEF1E3DA49F00B2CE15 /* Details.swift in Sources */,
 				5E2A7DAC1E3D5AE600B2CE15 /* Profile.swift in Sources */,
 				5EA118BA1E3EC1AC008772D8 /* Favorites.swift in Sources */,
 				5E2A7DAA1E3D5AE600B2CE15 /* AppDelegate.swift in Sources */,
 				F480AF741E4BFB6300A23D58 /* YLPClient.swift in Sources */,
+				F4FEC2F61E4C5F5500112F14 /* YLPBusiness.swift in Sources */,
+				F4FEC2F41E4C5DAE00112F14 /* YLPSearch.swift in Sources */,
 				5E2A7DDE1E3D820600B2CE15 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

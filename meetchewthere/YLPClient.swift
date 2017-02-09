@@ -29,6 +29,76 @@ class YLPClient {
             _accessToken = newValue
         }
     }
+    
+    // MARK: - YLPClient
+    
+    func request(withPath path: String, params: [String:String]) -> URLRequest {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = YLPClient.kYLPAPIHost
+        urlComponents.path = path
+        
+        let queryItems = queryItemsForParams(params)
+        if queryItems.count > 0 {
+            urlComponents.queryItems = queryItems
+        }
+        
+        var request = URLRequest(url: urlComponents.url!)
+        request.httpMethod = "GET"
+        let authHeader = String(format: "Bearer %@", accessToken!) // TODO: don't force cast
+        request.setValue(authHeader, forHTTPHeaderField: "Authorization")
+        
+        return request
+    }
+    
+    /*func query(withRequest request: URLRequest, completionHandler: @escaping (Any?, Error?) -> ()) {
+        queryWithRequest(request, completionHandler: completionHandler)
+    }*/
+    
+    // MARK: - Request Utilities
+    
+    func queryWithRequest(_ request: URLRequest, completionHandler: @escaping (Any?, Error?) -> ()) {
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            
+            guard let data = data, error == nil else {
+                completionHandler(nil, error)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Request response is not an HTTPURLResponse")
+                return
+            }
+            guard httpResponse.statusCode == 200 else {
+                print("Request failed with http response code: \(httpResponse)")
+                completionHandler(nil, error)
+                return
+            }
+            
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            completionHandler(responseJSON, error)
+            }.resume()
+    }
+    
+    func queryItemsForParams(_ params: [String:String]) -> [URLQueryItem] {
+        var queryItems = [URLQueryItem]()
+        for pair in params {
+            let queryItem = URLQueryItem(name: pair.key, value: pair.value)
+            queryItems.append(queryItem)
+        }
+        return queryItems
+    }
+    
+    func URLEncodeAllowedCharacters() -> CharacterSet {
+        var allowedCharacters = CharacterSet()
+        allowedCharacters.insert(charactersIn: UnicodeScalar("A")...UnicodeScalar("Z"))
+        allowedCharacters.insert(charactersIn: UnicodeScalar("a")...UnicodeScalar("z"))
+        allowedCharacters.insert(charactersIn: UnicodeScalar("0")...UnicodeScalar("9"))
+        allowedCharacters.insert(charactersIn: "-._~")
+        return allowedCharacters
+    }
 
     // MARK: - Authorization
     
@@ -66,41 +136,5 @@ class YLPClient {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
         return request
-    }
-    
-    // MARK: - Request Utilities
-    
-    func queryWithRequest(_ request: URLRequest, completionHandler: @escaping (Any?, Error?) -> ()) {
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            
-            guard let data = data, error == nil else {
-                completionHandler(nil, error)
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse else {
-                print("Request response is not an HTTPURLResponse")
-                return
-            }
-            guard httpResponse.statusCode == 200 else {
-                print("Request failed with http response code: \(httpResponse)")
-                completionHandler(nil, error)
-                return
-            }
-            
-            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-            completionHandler(responseJSON, error)
-        }.resume()
-    }
-    
-    func URLEncodeAllowedCharacters() -> CharacterSet {
-        var allowedCharacters = CharacterSet()
-        allowedCharacters.insert(charactersIn: UnicodeScalar("A")...UnicodeScalar("Z"))
-        allowedCharacters.insert(charactersIn: UnicodeScalar("a")...UnicodeScalar("z"))
-        allowedCharacters.insert(charactersIn: UnicodeScalar("0")...UnicodeScalar("9"))
-        allowedCharacters.insert(charactersIn: "-._~")
-        return allowedCharacters
     }
 }
