@@ -12,10 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    private let appId = "X6SA2_urz3iwprFX7Pxp_A"
+    private let secret = "xZKXVQikiQpY1iTXLhvNbOsCAAhLqDqznLahEfg3uJ8C8oyH7jm6j3vTd245XQ5y"
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        YLPClient.sharedYLPClient.authorizeWithAppId(appId, secret: secret) { success in
+            if success {
+                print("Yay! It worked")
+            } else {
+                print("Boo! It failed")
+            }
+        }
+        
         return true
     }
 

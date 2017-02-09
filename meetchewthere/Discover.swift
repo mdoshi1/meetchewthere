@@ -9,8 +9,37 @@
 import UIKit
 
 class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: - Properties
+    
     @IBOutlet weak var tableView: UITableView!
     let data = Data()
+    
+    // MARK: - DiscoverViewController
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorColor = .clear
+        tableView.backgroundColor = .clear
+    }
+    
+    @IBAction func unwindToViewController (sender: UIStoryboardSegue){
+    }
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.places.count
     }
@@ -38,31 +67,5 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
             detailController.imageName = imageName
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.separatorColor = .clear
-        tableView.backgroundColor = .clear
-    }
-    
-    @IBAction func unwindToViewController (sender: UIStoryboardSegue){
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
