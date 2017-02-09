@@ -10,7 +10,7 @@ import UIKit
 
 class Favorites: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    let data = Data()
+    let data = FakeData()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }

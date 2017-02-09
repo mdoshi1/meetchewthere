@@ -59,8 +59,7 @@ class YLPClient {
     
     func queryWithRequest(_ request: URLRequest, completionHandler: @escaping (Any?, Error?) -> ()) {
         
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             guard let data = data, error == nil else {
                 completionHandler(nil, error)

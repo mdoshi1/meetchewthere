@@ -1,14 +1,14 @@
 //
-//  Data.swift
+//  FakeData.swift
 //  meetchewthere
 //
-//  Created by Alejandrina Gonzalez on 1/28/17.
+//  Created by Michael-Anthony Doshi on 2/9/17.
 //  Copyright © 2017 Alejandrina Gonzalez Reyes. All rights reserved.
 //
 
 import Foundation
 
-class Data {
+class FakeData {
     class Entry {
         let title : String
         let restrictions : String

@@ -13,16 +13,48 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
-    let data = Data()
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    let data = FakeData()
+    var businesses: [YLPBusiness]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     // MARK: - DiscoverViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(initialSearch), name: NSNotification.Name(rawValue: Constants.Notification.ReceivedTokenNotification), object: nil)
+        
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.separatorColor = .clear
-        tableView.backgroundColor = .clear
+        searchBar.delegate = self
+        
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Constants.Notification.ReceivedTokenNotification), object: nil)
+    }
+    
+    func initialSearch() {
+        YLPClient.sharedYLPClient.search(withLocation: "Stanford, CA", term: "food") { (search, error) in
+            guard let search = search, error == nil else {
+                print("OMG this sucks")
+                return
+            }
+            print("OMG I'm a wizard")
+            self.businesses = search.businesses
+        }
+    }
+    
+    func dismissKeyboard() {
+        searchBar.endEditing(true)
     }
     
     @IBAction func unwindToViewController (sender: UIStoryboardSegue){
@@ -41,21 +73,40 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.places.count
+        return businesses?.count ?? 0
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RestaurantCell
-        let entry = data.places[indexPath.row]
-        cell.title?.text = entry.title
-        cell.restImage?.image = UIImage(named: entry.restImage)
-        cell.rating?.image = UIImage(named: entry.ratings)
-        cell.distance?.text = entry.distance
-        cell.restrictions?.text = entry.restrictions
-        cell.backgroundColor = .clear 
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessCell", for: indexPath) as! BusinessCell
+        guard let businesses = businesses else {
+            print("Businesses array is nil")
+            return cell
+        }
+        let business = businesses[indexPath.row]
+        cell.name.text = business.name
+        cell.price.text = "$$"
+        if let restImageURL = business.imageURL {
+            Webservice.getImage(withURL: restImageURL, completion: { data in
+                if let data = data {
+                    cell.restImage.image = UIImage(data: data)
+                }
+            })
+        }
+        cell.restriction1.text = "Vegan"
+        cell.restrictionRating1.image = UIImage(named: "ratings.png")
+        cell.restrictionRating2.image = UIImage(named: "ratings.png")
+        cell.restriction2.text = "Dairy"
+        cell.distance.text = "3.2 miles"
         
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "details", sender: nil)
     }
     var imageName: String!
@@ -66,6 +117,40 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
             detailController.restaurantName = data.places[indexPath.row].title
             detailController.imageName = imageName
         }
-    }
+    }*/
 
+}
+
+extension Discover: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        if let searchTerm = searchBar.text {
+            YLPClient.sharedYLPClient.search(withLocation: "Stanford, CA", term: searchTerm) { (search, error) in
+                guard let search = search, error == nil else {
+                    print("OMG this sucks")
+                    return
+                }
+                print("OMG I'm a wizard")
+                self.businesses = search.businesses
+            }
+        }
+        
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.endEditing(true)
+    }
+    
 }

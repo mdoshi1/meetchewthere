@@ -21,19 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         YLPClient.sharedYLPClient.authorizeWithAppId(appId, secret: secret) { success in
             if success {
                 print("Yay! It worked")
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.ReceivedTokenNotification), object: nil)
             } else {
                 print("Boo! It failed")
-            }
-            
-            
-            
-            
-            YLPClient.sharedYLPClient.search(withLocation: "Stanford, CA") { (search, error) in
-                guard let search = search, error == nil else {
-                    print("OMG this sucks")
-                    return
-                }
-                print("OMG I'm a wizard")
             }
         }
         

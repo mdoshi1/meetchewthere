@@ -14,7 +14,7 @@ class Surprise: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var restaurant: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleName : UILabel!
-    let data = Data()
+    let data = FakeData()
 
     func randNumber() -> Int {
         return Int(arc4random_uniform(UInt32(data.places.count)))
@@ -32,10 +32,6 @@ class Surprise: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     // shake device to generate random place
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
