@@ -45,6 +45,21 @@ class Details: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print(self.parent)
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     /*override var prefersStatusBarHidden: Bool{
         return true
     }*/
@@ -61,7 +76,7 @@ class Details: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
   
 
-    @IBAction func close(_ sender: UIButton) {
+    /*@IBAction func close(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwind", sender: nil)
-    }
+    }*/
 }

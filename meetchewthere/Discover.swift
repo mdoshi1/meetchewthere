@@ -15,7 +15,7 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    fileprivate var businesses: [YLPBusiness]? {
+    var businesses: [YLPBusiness]? {
         didSet {
             let userInfo = ["businesses":businesses]
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.UpdatedBusinessList), object: nil, userInfo: userInfo)
@@ -56,11 +56,15 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func dismissKeyboard() {
-        print("blah")
         searchBar.endEditing(true)
     }
     
-    @IBAction func unwindToViewController (sender: UIStoryboardSegue){
+    /*@IBAction func unwindToViewController (sender: UIStoryboardSegue) {
+        print("lbah")
+    }*/
+    
+    @IBAction func prepareForUnwind(sender: UIStoryboardSegue) {
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
