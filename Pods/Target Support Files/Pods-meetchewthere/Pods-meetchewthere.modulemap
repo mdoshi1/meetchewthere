@@ -1,0 +1,6 @@
+framework module Pods_meetchewthere {
+  umbrella header "Pods-meetchewthere-umbrella.h"
+
+  export *
+  module * { export * }
+}

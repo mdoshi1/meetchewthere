@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YelpAPI
 
 class Details: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

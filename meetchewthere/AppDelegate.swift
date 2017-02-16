@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YelpAPI
 import Fabric
 import Crashlytics
 
@@ -15,18 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    static var sharedYLPClient: YLPClient!
     private let appId = "X6SA2_urz3iwprFX7Pxp_A"
     private let secret = "xZKXVQikiQpY1iTXLhvNbOsCAAhLqDqznLahEfg3uJ8C8oyH7jm6j3vTd245XQ5y"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        YLPClient.sharedYLPClient.authorizeWithAppId(appId, secret: secret) { success in
-            if success {
-                print("Yay! It worked")
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.ReceivedTokenNotification), object: nil)
-            } else {
-                print("Boo! It failed")
+        YLPClient.authorize(withAppId: appId, secret: secret) { client, error in
+            guard let client = client, error == nil else {
+                
+                // TODO: what to do if can't get client because we force-cast sharedClient
+                print("Error authorizing app to receive a YLPClient: \(error)")
+                return
             }
+            print("Successfully authorized app to receive a YLPClient")
+            AppDelegate.sharedYLPClient = client
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.ReceivedTokenNotification), object: nil)
         }
         
         Fabric.with([Crashlytics.self])

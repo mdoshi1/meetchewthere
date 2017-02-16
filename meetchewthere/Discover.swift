@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YelpAPI
 
 class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -42,17 +43,17 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func initialSearch() {
-        YLPClient.sharedYLPClient.search(withLocation: "Stanford, CA", term: "food") { (search, error) in
+        
+        AppDelegate.sharedYLPClient.search(withLocation: "Stanford, CA", term: "food", limit: 20, offset: 0, sort: .bestMatched, completionHandler: { search, error in
             guard let search = search, error == nil else {
-                print("OMG this sucks")
+                print("Error getting initial search results: \(error)")
                 return
             }
-            print("OMG I'm a wizard")
-            
+            print("Succesfully retrieved initial search results")
             DispatchQueue.main.async {
                 self.businesses = search.businesses
             }
-        }
+        })
     }
     
     func dismissKeyboard() {
@@ -132,17 +133,16 @@ extension Discover: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         if let searchTerm = searchBar.text {
-            YLPClient.sharedYLPClient.search(withLocation: "Stanford, CA", term: searchTerm) { (search, error) in
+            AppDelegate.sharedYLPClient.search(withLocation: "Stanford, CA", term: searchTerm, limit: 20, offset: 0, sort: .bestMatched, completionHandler: { search, error in
                 guard let search = search, error == nil else {
-                    print("OMG this sucks")
+                    print("Error retrieving search results for term \(searchTerm): \(error)")
                     return
                 }
-                print("OMG I'm a wizard")
-                
+                print("Successfully retrieved results for term \(searchTerm)")
                 DispatchQueue.main.async {
                     self.businesses = search.businesses
                 }
-            }
+            })
         }
         
         view.removeGestureRecognizer(tap)

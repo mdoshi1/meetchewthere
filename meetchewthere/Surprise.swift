@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YelpAPI
 
 class Surprise: UIViewController {
     @IBOutlet weak var restaurant: UIImageView!
