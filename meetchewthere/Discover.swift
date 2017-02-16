@@ -59,10 +59,6 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
         searchBar.endEditing(true)
     }
     
-    /*@IBAction func unwindToViewController (sender: UIStoryboardSegue) {
-        print("lbah")
-    }*/
-    
     @IBAction func prepareForUnwind(sender: UIStoryboardSegue) {
         
     }
@@ -98,8 +94,8 @@ class Discover: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.restriction1.text = "Vegan"
-        cell.restrictionRating1.image = UIImage(named: "ratings.png")
-        cell.restrictionRating2.image = UIImage(named: "ratings.png")
+        cell.restrictionRating1.image = UIImage(named: "stars_green.png")
+        cell.restrictionRating2.image = UIImage(named: "stars_green.png")
         cell.restriction2.text = "Dairy"
         cell.distance.text = "3.2 miles"
         

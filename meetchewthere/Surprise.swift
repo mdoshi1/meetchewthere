@@ -70,9 +70,7 @@ class Surprise: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailController = segue.destination as! Details
-        detailController.business = currBusiness
-        
-        print(detailController.parent)
+        detailController.business = currBusiness        
     }
     
     @IBAction func prepareForUnwind(sender: UIStoryboardSegue) {

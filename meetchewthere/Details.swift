@@ -28,6 +28,7 @@ class Details: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         if let business = business {
             titleName.text = business.name
+            print(business.name)
             distance.text = "3.2 miles"
             price.text = "$$"
             hours.text = "10am - 11pm"
@@ -48,9 +49,7 @@ class Details: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        print(self.parent)
-        
+                
         navigationController?.isNavigationBarHidden = true
     }
     
@@ -70,7 +69,7 @@ class Details: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let restrictions = ["Vegan", "Dairy"]
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RatingsCells
-        cell.rating?.image = UIImage(named: "ratings.png")
+        cell.rating?.image = UIImage(named: "stars_green.png")
         cell.restriction?.text = restrictions[indexPath.row]
         return cell
     }

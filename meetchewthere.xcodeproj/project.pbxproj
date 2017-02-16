@@ -59,6 +59,9 @@
 		F48C589E1E3EFAA800BFFB0C /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C589D1E3EFAA800BFFB0C /* ResultsViewController.swift */; };
 		F48C58A01E3F0F3200BFFB0C /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C589F1E3F0F3200BFFB0C /* CheckMark.swift */; };
 		F4C4675B1E4C87F70042CEC8 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4675A1E4C87F70042CEC8 /* FakeData.swift */; };
+		F4C4675D1E4D0E790042CEC8 /* stars_green.png in Resources */ = {isa = PBXBuildFile; fileRef = F4C4675C1E4D0E790042CEC8 /* stars_green.png */; };
+		F4C467611E4D1B080042CEC8 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C4675F1E4D1B080042CEC8 /* Fabric.framework */; };
+		F4C467621E4D1B080042CEC8 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C467601E4D1B080042CEC8 /* Crashlytics.framework */; };
 		F4FEC2F01E4C40A700112F14 /* YLPClient+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEC2EF1E4C40A700112F14 /* YLPClient+Search.swift */; };
 		F4FEC2F21E4C43AE00112F14 /* YLPQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEC2F11E4C43AE00112F14 /* YLPQuery.swift */; };
 		F4FEC2F41E4C5DAE00112F14 /* YLPSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEC2F31E4C5DAE00112F14 /* YLPSearch.swift */; };
@@ -149,6 +152,9 @@
 		F48C589D1E3EFAA800BFFB0C /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		F48C589F1E3F0F3200BFFB0C /* CheckMark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
 		F4C4675A1E4C87F70042CEC8 /* FakeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FakeData.swift; path = meetchewthere/FakeData.swift; sourceTree = "<group>"; };
+		F4C4675C1E4D0E790042CEC8 /* stars_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars_green.png; sourceTree = "<group>"; };
+		F4C4675F1E4D1B080042CEC8 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		F4C467601E4D1B080042CEC8 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		F4FEC2EF1E4C40A700112F14 /* YLPClient+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YLPClient+Search.swift"; sourceTree = "<group>"; };
 		F4FEC2F11E4C43AE00112F14 /* YLPQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLPQuery.swift; sourceTree = "<group>"; };
 		F4FEC2F31E4C5DAE00112F14 /* YLPSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLPSearch.swift; sourceTree = "<group>"; };
@@ -163,6 +169,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4C467621E4D1B080042CEC8 /* Crashlytics.framework in Frameworks */,
+				F4C467611E4D1B080042CEC8 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +192,8 @@
 				5E2A7DA81E3D5AE600B2CE15 /* meetchewthere */,
 				F44D9B831E3D6E3700566044 /* MessagesExtension */,
 				F44D9B801E3D6E3700566044 /* Frameworks */,
+				F4C4675F1E4D1B080042CEC8 /* Fabric.framework */,
+				F4C467601E4D1B080042CEC8 /* Crashlytics.framework */,
 				5E2A7DA71E3D5AE600B2CE15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -228,6 +238,7 @@
 				5EA118BB1E3EC3DB008772D8 /* Shake Phone-100.png */,
 				5EA118B51E3EB36B008772D8 /* close.png */,
 				5E2A7DEC1E3D891A00B2CE15 /* ratings.png */,
+				F4C4675C1E4D0E790042CEC8 /* stars_green.png */,
 				5E2A7DD91E3D664A00B2CE15 /* Settings-100.png */,
 				5E2A7DD51E3D64F500B2CE15 /* Rabbit In Hat-100.png */,
 				5E2A7DD31E3D63BF00B2CE15 /* Near Me-100.png */,
@@ -345,6 +356,7 @@
 				5E2A7DA31E3D5AE600B2CE15 /* Frameworks */,
 				5E2A7DA41E3D5AE600B2CE15 /* Resources */,
 				F44D9B921E3D6E3700566044 /* Embed App Extensions */,
+				F4C4675E1E4D1AA90042CEC8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -385,13 +397,13 @@
 				TargetAttributes = {
 					5E2A7DA51E3D5AE600B2CE15 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = F42N7QJG3C;
+						DevelopmentTeam = 8YJ2342CPM;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					F44D9B7E1E3D6E3700566044 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = F42N7QJG3C;
+						DevelopmentTeam = 8YJ2342CPM;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -435,6 +447,7 @@
 				5E2A7DD81E3D65A800B2CE15 /* Star-100.png in Resources */,
 				5EA118C01E3ED165008772D8 /* profile2.png in Resources */,
 				5E2A7DDA1E3D664A00B2CE15 /* Settings-100.png in Resources */,
+				F4C4675D1E4D0E790042CEC8 /* stars_green.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +467,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F4C4675E1E4D1AA90042CEC8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 7f1570033d88ed3e34e4e86ed8c8b99b104ceb9e 9138ad200d906516b03ad752c7b600f1f61ef69d558638ac53481dd2a5f4db91";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5E2A7DA21E3D5AE600B2CE15 /* Sources */ = {
@@ -641,7 +670,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = F42N7QJG3C;
+				DEVELOPMENT_TEAM = 8YJ2342CPM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = meetchewthere/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -659,7 +692,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = F42N7QJG3C;
+				DEVELOPMENT_TEAM = 8YJ2342CPM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = meetchewthere/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -674,7 +711,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = F42N7QJG3C;
+				DEVELOPMENT_TEAM = 8YJ2342CPM;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.meetchewthere.MessagesExtension;
@@ -688,7 +725,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = F42N7QJG3C;
+				DEVELOPMENT_TEAM = 8YJ2342CPM;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.meetchewthere.MessagesExtension;

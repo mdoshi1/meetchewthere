@@ -333,7 +333,7 @@
                         <outlet property="price" destination="zQH-Bi-4Mg" id="Rzi-yw-OEg"/>
                         <outlet property="restaurant" destination="1pq-P8-UZC" id="jBi-09-Zt3"/>
                         <outlet property="tableView" destination="Ex8-JL-YEV" id="r2R-Ne-0QH"/>
-                        <outlet property="titleName" destination="c4W-2R-yUr" id="lVW-bK-JEA"/>
+                        <outlet property="titleName" destination="oT3-aT-872" id="CGq-p5-acD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLo-oJ-TbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -644,6 +644,6 @@
         <image name="website" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yrr-AB-4h9"/>
+        <segue reference="4so-wC-IQo"/>
     </inferredMetricsTieBreakers>
 </document>

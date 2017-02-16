@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Boo! It failed")
             }
         }
+        
+        Fabric.with([Crashlytics.self])
+
         
         return true
     }
