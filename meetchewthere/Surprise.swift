@@ -44,7 +44,9 @@ class Surprise: UIViewController {
     }
     
     func updateBusinessList(_ notification: Notification) {
-        if let businesses = notification.userInfo?["businesses"] as? [YLPBusiness]? {
+        guard let userInfo = notification.userInfo else { return }
+        
+        if let businesses = userInfo["businesses"] as? [YLPBusiness]? {
             self.businesses = businesses
         }
     }

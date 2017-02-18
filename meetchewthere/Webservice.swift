@@ -18,7 +18,7 @@ final class Webservice {
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
-                print("Error processing HTTP request: \(error)")
+                print("Error processing HTTP request: \(error?.localizedDescription)")
                 print("Error in retrieving image data")
                 completion(nil)
                 return
@@ -36,7 +36,7 @@ final class Webservice {
     class func getImage(withURL url: URL, completion: @escaping (Data?) -> ()) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
-                print("Error processing HTTP request: \(error)")
+                print("Error processing HTTP request: \(error?.localizedDescription)")
                 print("Error in retrieving image data")
                 completion(nil)
                 return
