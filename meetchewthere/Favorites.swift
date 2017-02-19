@@ -79,6 +79,18 @@ class Favorites: UIViewController {
         }
     }
     
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailController = segue.destination as! Details
+        let businessCell = sender as! BusinessCell
+        detailController.business = businessCell.business
+    }
+    
+    @IBAction func prepareForUnwind(sender: UIStoryboardSegue) {
+        
+    }
+    
     // MARK: - Helper Methods
     
     private func initializeFavoritesList() {
@@ -134,28 +146,8 @@ extension Favorites: UITableViewDataSource {
                 print("Error retrieivng business with businessId \(businessId)")
                 return
             }
-            DispatchQueue.main.async {
-                cell.name.text = business.name
-                cell.price.text = "$$"
-            }
-            if let restImageURL = business.imageURL {
-                Webservice.getImage(withURL: restImageURL, completion: { data in
-                    if let data = data {
-                        DispatchQueue.main.async {
-                            cell.restImage.layer.cornerRadius = 5.0
-                            cell.restImage.layer.masksToBounds = true
-                            cell.restImage.image = UIImage(data: data)
-                        }
-                    }
-                })
-            }
+            cell.business = business
         }
-        
-        cell.restriction1.text = "Vegan"
-        cell.restrictionRating1.image = UIImage(named: "stars_green.png")
-        cell.restrictionRating2.image = UIImage(named: "stars_green.png")
-        cell.restriction2.text = "Dairy"
-        cell.distance.text = "3.2 miles"
         
         return cell
     }

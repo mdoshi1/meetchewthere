@@ -67,15 +67,9 @@ class Discover: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailController = segue.destination as! Details
-        if let indexPath = self.tableView.indexPathForSelectedRow,
-            let businesses = businesses {
-            
-            if let cell = tableView.cellForRow(at: indexPath) as? BusinessCell {
-                detailController.restImage = cell.restImage.image
-            }
-            
-            detailController.business = businesses[indexPath.row]
-        }
+        let businessCell = sender as! BusinessCell
+        detailController.business = businessCell.business
+        detailController.restImage = businessCell.restImage.image
     }
     
     fileprivate func saveRestaurant(withBusinessId businessId: String) {
@@ -175,11 +169,12 @@ extension Discover: UITableViewDelegate {
         let action: UITableViewRowAction
         if count == 0 {
             action = UITableViewRowAction(style: .normal, title: "Favorite") { action, index in
-
+                
                 self.saveRestaurant(withBusinessId: businessId)
                 if let cell = tableView.cellForRow(at: indexPath) as? BusinessCell {
                     cell.favoriteView.isHidden = false
                 }
+                action.backgroundColor = .chewGreen
                 
                 self.tableView.setEditing(false, animated: true)
             }
@@ -190,10 +185,12 @@ extension Discover: UITableViewDelegate {
                 if let cell = tableView.cellForRow(at: indexPath) as? BusinessCell {
                     cell.favoriteView.isHidden = true
                 }
+                action.backgroundColor = .lightGray
                 
                 self.tableView.setEditing(false, animated: true)
             }
         }
+        action.backgroundColor = .chewGreen
         
         return [action]
     }
@@ -214,25 +211,27 @@ extension Discover: UITableViewDataSource {
             return cell
         }
         let business = businesses[indexPath.row]
-        cell.name.text = business.name
-        cell.price.text = "$$"
-        if let restImageURL = business.imageURL {
-            Webservice.getImage(withURL: restImageURL, completion: { data in
-                if let data = data {
-                    DispatchQueue.main.async {
-                        cell.restImage.layer.cornerRadius = 5.0
-                        cell.restImage.layer.masksToBounds = true
-                        cell.restImage.image = UIImage(data: data)
-                    }
-                }
-            })
+        cell.business = business
+        
+        // Initialize NSManagedObjectContext
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            print("Unable to get app delegate")
+            return cell
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // Check if businessId has already been stored in Core Data
+        let businessId = business.identifier
+        var count = 0
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Favorite")
+        fetchRequest.predicate = NSPredicate(format: "businessId == %@", businessId)
+        do {
+            count = try managedContext.count(for: fetchRequest)
+        } catch let error as NSError {
+            print("Error while trying to check if object with businessId \(businessId) already exists in Core Data: \(error.localizedDescription)")
         }
         
-        cell.restriction1.text = "Vegan"
-        cell.restrictionRating1.image = UIImage(named: "stars_green.png")
-        cell.restrictionRating2.image = UIImage(named: "stars_green.png")
-        cell.restriction2.text = "Dairy"
-        cell.distance.text = "3.2 miles"
+        cell.favoriteView.isHidden = (count == 0)
         
         return cell
     }
