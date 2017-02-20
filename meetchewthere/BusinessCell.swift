@@ -11,16 +11,36 @@ import YelpAPI
 
 class BusinessCell: UITableViewCell {
     
-    // MARK: - Properties
+    // MARK: - IBOutles
     
     @IBOutlet private weak var name: UILabel!
     @IBOutlet private weak var restriction1: UILabel!
     @IBOutlet private weak var restriction2: UILabel!
-    @IBOutlet private weak var restrictionRating1: UIImageView!
-    @IBOutlet private weak var restrictionRating2: UIImageView!
     @IBOutlet private weak var price: UILabel!
     @IBOutlet private weak var distance: UILabel!
     @IBOutlet weak var restImage: UIImageView!
+    
+    // MARK: - Properties
+    
+    lazy var choiceLabel1: UILabel = {
+        let choiceLabel = RatingLabel(type: .choice, rating: .bad)
+        return choiceLabel
+    }()
+    
+    lazy var choiceLabel2: UILabel = {
+        let choiceLabel = RatingLabel(type: .choice, rating: .good)
+        return choiceLabel
+    }()
+    
+    lazy var safetyLabel1: UILabel = {
+        let choiceLabel = RatingLabel(type: .safety, rating: .okay)
+        return choiceLabel
+    }()
+    
+    lazy var safetyLabel2: UILabel = {
+        let choiceLabel = RatingLabel(type: .safety, rating: .good)
+        return choiceLabel
+    }()
     
     lazy var favoriteView:UIView = {
         let favoriteView = UIView()
@@ -44,8 +64,6 @@ class BusinessCell: UITableViewCell {
                     })
                 }
                 self.restriction1.text = "Vegan"
-                self.restrictionRating1.image = UIImage(named: "stars_green.png")
-                self.restrictionRating2.image = UIImage(named: "stars_green.png")
                 self.restriction2.text = "Dairy"
                 self.distance.text = "3.2 miles"
             }
@@ -61,6 +79,10 @@ class BusinessCell: UITableViewCell {
         restImage.layer.cornerRadius = 5.0
         restImage.layer.masksToBounds = true
         
+        addSubview(choiceLabel1.usingAutolayout())
+        addSubview(choiceLabel2.usingAutolayout())
+        addSubview(safetyLabel1.usingAutolayout())
+        addSubview(safetyLabel2.usingAutolayout())
         addSubview(favoriteView.usingAutolayout())
         setupConstraints()
     }
@@ -79,6 +101,28 @@ class BusinessCell: UITableViewCell {
     // MARK: - Helper methods
     
     func setupConstraints() {
+        
+        // Choice labels
+        NSLayoutConstraint.activate([
+            choiceLabel1.leadingAnchor.constraint(equalTo: restriction1.trailingAnchor, constant: 16.0),
+            choiceLabel1.centerYAnchor.constraint(equalTo: restriction1.centerYAnchor)
+            ])
+        NSLayoutConstraint.activate([
+            choiceLabel2.leadingAnchor.constraint(equalTo: restriction2.trailingAnchor, constant: 16.0),
+            choiceLabel2.centerYAnchor.constraint(equalTo: restriction2.centerYAnchor)
+            ])
+        
+        // Safety labels
+        NSLayoutConstraint.activate([
+            safetyLabel1.leadingAnchor.constraint(equalTo: choiceLabel1.trailingAnchor, constant: 16.0),
+            safetyLabel1.centerYAnchor.constraint(equalTo: restriction1.centerYAnchor)
+            ])
+        NSLayoutConstraint.activate([
+            safetyLabel2.leadingAnchor.constraint(equalTo: choiceLabel2.trailingAnchor, constant: 16.0),
+            safetyLabel2.centerYAnchor.constraint(equalTo: restriction2.centerYAnchor)
+            ])
+        
+        // Favorite view
         NSLayoutConstraint.activate([
             favoriteView.topAnchor.constraint(equalTo: topAnchor),
             favoriteView.rightAnchor.constraint(equalTo: rightAnchor),

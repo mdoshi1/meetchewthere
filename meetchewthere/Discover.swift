@@ -34,6 +34,7 @@ class Discover: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(initialSearch), name: NSNotification.Name(rawValue: Constants.Notification.ReceivedTokenNotification), object: nil)
         
+        // Assign delegates
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
