@@ -63,7 +63,7 @@ class BusinessCell: UITableViewCell {
                         }
                     })
                 }
-                self.restriction1.text = "Vegan"
+                self.restriction1.text = "Nuts"
                 self.restriction2.text = "Dairy"
                 self.distance.text = "3.2 miles"
             }

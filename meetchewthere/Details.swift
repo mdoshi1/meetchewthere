@@ -27,7 +27,7 @@ class Details: UIViewController, UITableViewDelegate {
     var managedContext: NSManagedObjectContext?
     
     // TODO: Remove in favor of real data
-    fileprivate let restrictions = ["Vegan", "Dairy"]
+    fileprivate let restrictions = ["Nuts", "Dairy"]
     
     // MARK: Details
     

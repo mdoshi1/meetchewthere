@@ -15,39 +15,13 @@ class Surprise: UIViewController {
     @IBOutlet weak var titleName : UILabel!
     
     let data = FakeData()
-    var businesses: [YLPBusiness]?
     var currBusiness: YLPBusiness?
 
     func randNumber() -> Int {
-        if let businesses = businesses {
+        if let businesses = BusinessManager.shared.businesses {
             return Int(arc4random_uniform(UInt32(businesses.count)))
         } else {
             return 0
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBusinessList), name: NSNotification.Name(rawValue: Constants.Notification.UpdatedBusinessList), object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        let blah = tabBarController?.viewControllers?[0] as! UINavigationController
-        if let b = blah.topViewController as? Discover {
-            businesses = b.businesses
-        }
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Constants.Notification.UpdatedBusinessList), object: nil)
-    }
-    
-    func updateBusinessList(_ notification: Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        
-        if let businesses = userInfo["businesses"] as? [YLPBusiness]? {
-            self.businesses = businesses
         }
     }
 
@@ -60,7 +34,7 @@ class Surprise: UIViewController {
             print(randPlace)
             
             
-            if let businesses = businesses {
+            if let businesses = BusinessManager.shared.businesses {
                 currBusiness = businesses[randPlace]
                 performSegue(withIdentifier: "toDetails", sender: self)
             }

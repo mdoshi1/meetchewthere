@@ -12,19 +12,13 @@ import YelpAPI
 
 class Discover: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - IBOutlets
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+
+    // MARK: - Properties
     
-    var businesses: [YLPBusiness]? {
-        didSet {
-            let userInfo = ["businesses":businesses]
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.UpdatedBusinessList), object: nil, userInfo: userInfo)
-            
-            tableView.reloadData()
-        }
-    }
     fileprivate let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
     
     // MARK: - DiscoverViewController
@@ -53,7 +47,8 @@ class Discover: UIViewController {
             }
             print("Succesfully retrieved initial search results")
             DispatchQueue.main.async {
-                self.businesses = search.businesses
+                BusinessManager.shared.businesses = search.businesses
+                self.tableView.reloadData()
             }
         })
     }
@@ -144,7 +139,7 @@ extension Discover: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        guard let businesses = self.businesses else {
+        guard let businesses = BusinessManager.shared.businesses else {
             print("No current businesses available")
             return nil
         }
@@ -201,13 +196,13 @@ extension Discover: UITableViewDelegate {
 extension Discover: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return businesses?.count ?? 0
+        return BusinessManager.shared.businesses?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessCell", for: indexPath) as! BusinessCell
-        guard let businesses = businesses else {
+        guard let businesses = BusinessManager.shared.businesses else {
             print("Businesses array is nil")
             return cell
         }
@@ -267,7 +262,8 @@ extension Discover: UISearchBarDelegate {
                 }
                 print("Successfully retrieved results for term \(searchTerm)")
                 DispatchQueue.main.async {
-                    self.businesses = search.businesses
+                    BusinessManager.shared.businesses = search.businesses
+                    self.tableView.reloadData()
                 }
             })
         }
