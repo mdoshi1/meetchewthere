@@ -14,7 +14,6 @@ class Surprise: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleName : UILabel!
     
-    let data = FakeData()
     var currBusiness: YLPBusiness?
 
     func randNumber() -> Int {

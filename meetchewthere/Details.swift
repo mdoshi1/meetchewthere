@@ -189,8 +189,7 @@ extension Details: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RatingsCells
-        cell.rating?.image = UIImage(named: "stars_green.png")
-        cell.restriction?.text = restrictions[indexPath.row]
+        cell.restriction.text = restrictions[indexPath.row]
         return cell
     }
     
