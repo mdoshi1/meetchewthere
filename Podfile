@@ -7,6 +7,7 @@ target 'meetchewthere' do
 
   # Pods for meetchewthere
   pod "YelpAPI"
+  pod 'FacebookLogin'
 
 end
 
