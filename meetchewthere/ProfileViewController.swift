@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FacebookCore
+import FacebookLogin
 
 class ProfileViewController: UIViewController {
     
@@ -39,6 +41,7 @@ class ProfileViewController: UIViewController {
     }()
     
     fileprivate let optionCellIdentifier = "OptionCell"
+    fileprivate var isLoggedOn = false
     
     // MARK: - ProfileViewController
     
@@ -46,6 +49,12 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(optionsTable.usingAutolayout())
         setupConstraints()
+        
+        if let accessToken = AccessToken.current {
+            print("AccessToken \(accessToken)")
+        } else {
+            print("no access toekn")
+        }
     }
     
     // MARK: - Helper Methods
@@ -74,7 +83,17 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = optionsTable.dequeueReusableCell(withIdentifier: optionCellIdentifier) as! OptionCell
-        cell.optionLabel.text = Option(rawValue: indexPath.row)!.string
+        switch Option(rawValue: indexPath.row)! {
+        case .restriction, .review:
+            cell.optionLabel.text = Option(rawValue: indexPath.row)!.string
+        case .logout:
+            let fbLoginButton = LoginButton(readPermissions: [.publicProfile])
+            cell.addSubview(fbLoginButton.usingAutolayout())
+            NSLayoutConstraint.activate([
+                fbLoginButton.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
+                fbLoginButton.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
+                ])
+        }
         return cell
     }
     
