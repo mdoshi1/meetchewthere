@@ -43,6 +43,9 @@
 		F47186F71E3F672400C93EBA /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47186F31E3F672400C93EBA /* ViewManager.swift */; };
 		F47186F81E3F672400C93EBA /* ZLSwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47186F41E3F672400C93EBA /* ZLSwipeableView.swift */; };
 		F47186FA1E3F6A1800C93EBA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47186F91E3F6A1800C93EBA /* CardView.swift */; };
+		F48810C61E6BAACB00A822C4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48810C51E6BAACB00A822C4 /* ProfileViewController.swift */; };
+		F48810C91E6BAAF000A822C4 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48810C71E6BAAF000A822C4 /* OptionCell.swift */; };
+		F48810CA1E6BAAF000A822C4 /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48810C81E6BAAF000A822C4 /* OptionCell.xib */; };
 		F48C58661E3D80FE00BFFB0C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C58651E3D80FE00BFFB0C /* HeaderView.swift */; };
 		F48C58681E3D843300BFFB0C /* UIColor+meetchewthere.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C58671E3D843300BFFB0C /* UIColor+meetchewthere.swift */; };
 		F48C586B1E3DD28600BFFB0C /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C586A1E3DD28600BFFB0C /* UIView+Border.swift */; };
@@ -140,6 +143,9 @@
 		F47186F31E3F672400C93EBA /* ViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
 		F47186F41E3F672400C93EBA /* ZLSwipeableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLSwipeableView.swift; sourceTree = "<group>"; };
 		F47186F91E3F6A1800C93EBA /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		F48810C51E6BAACB00A822C4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F48810C71E6BAAF000A822C4 /* OptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
+		F48810C81E6BAAF000A822C4 /* OptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
 		F48C58651E3D80FE00BFFB0C /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F48C58671E3D843300BFFB0C /* UIColor+meetchewthere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+meetchewthere.swift"; sourceTree = "<group>"; };
 		F48C586A1E3DD28600BFFB0C /* UIView+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
@@ -274,6 +280,9 @@
 				F414909A1E6578EA00B966B6 /* SelectionSheetCell.xib */,
 				F4FEC2FA1E4C7F0700112F14 /* BusinessCell.swift */,
 				F4EE7A4A1E5A650A00DE3DF8 /* RatingLabel.swift */,
+				F48810C51E6BAACB00A822C4 /* ProfileViewController.swift */,
+				F48810C71E6BAAF000A822C4 /* OptionCell.swift */,
+				F48810C81E6BAAF000A822C4 /* OptionCell.xib */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -480,6 +489,7 @@
 				F414909C1E6578EA00B966B6 /* SelectionSheetCell.xib in Resources */,
 				5EA118B61E3EB36B008772D8 /* close.png in Resources */,
 				5EA118BC1E3EC3DB008772D8 /* Shake Phone-100.png in Resources */,
+				F48810CA1E6BAAF000A822C4 /* OptionCell.xib in Resources */,
 				5E2A7DD81E3D65A800B2CE15 /* Star-100.png in Resources */,
 				5EA118C01E3ED165008772D8 /* profile2.png in Resources */,
 				5E2A7DDA1E3D664A00B2CE15 /* Settings-100.png in Resources */,
@@ -603,6 +613,8 @@
 			files = (
 				F4EE7A4B1E5A650A00DE3DF8 /* RatingLabel.swift in Sources */,
 				F4EE7A3C1E57EE9600DE3DF8 /* UIView+Autolayout.swift in Sources */,
+				F48810C91E6BAAF000A822C4 /* OptionCell.swift in Sources */,
+				F48810C61E6BAACB00A822C4 /* ProfileViewController.swift in Sources */,
 				F414909B1E6578EA00B966B6 /* SelectionSheetCell.swift in Sources */,
 				F414909F1E6579A300B966B6 /* InputSheetCell.swift in Sources */,
 				5EA118BE1E3EC509008772D8 /* Surprise.swift in Sources */,

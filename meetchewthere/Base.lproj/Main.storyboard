@@ -40,7 +40,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yKD-PG-haL" id="uO3-7a-wms">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restuarant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjA-cS-ee8">
@@ -176,7 +176,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4o-FB-tCZ" id="YOf-UK-igf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
@@ -322,7 +322,7 @@
         <!--Profile-->
         <scene sceneID="ds0-1p-Ert">
             <objects>
-                <viewController title="Profile" id="fg0-EC-Gta" customClass="LoginViewController" customModule="meetchewthere" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Profile" id="fg0-EC-Gta" customClass="ProfileViewController" customModule="meetchewthere" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lt4-GU-gmW"/>
                         <viewControllerLayoutGuide type="bottom" id="YJi-9Z-G0e"/>
@@ -358,7 +358,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="coc-KI-aEh" id="sxo-7U-scZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restuarant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhC-Tm-kEv">
@@ -576,7 +576,7 @@
                         <inset key="imageInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="a7e-1E-93C">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="a7e-1E-93C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.40391087530000003" green="0.65994161370000004" blue="0.30751979350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
