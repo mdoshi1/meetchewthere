@@ -65,6 +65,7 @@
 		F4C4675D1E4D0E790042CEC8 /* stars_green.png in Resources */ = {isa = PBXBuildFile; fileRef = F4C4675C1E4D0E790042CEC8 /* stars_green.png */; };
 		F4C467611E4D1B080042CEC8 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C4675F1E4D1B080042CEC8 /* Fabric.framework */; };
 		F4C467621E4D1B080042CEC8 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C467601E4D1B080042CEC8 /* Crashlytics.framework */; };
+		F4CDFAA81E6C136D00B058F5 /* UIButton+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CDFAA71E6C136D00B058F5 /* UIButton+Layout.swift */; };
 		F4EE7A191E5660A900DE3DF8 /* meetchewthere.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4EE7A171E5660A900DE3DF8 /* meetchewthere.xcdatamodeld */; };
 		F4EE7A3C1E57EE9600DE3DF8 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EE7A3B1E57EE9600DE3DF8 /* UIView+Autolayout.swift */; };
 		F4EE7A3E1E57EEBF00DE3DF8 /* UIColor+MCT.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EE7A3D1E57EEBF00DE3DF8 /* UIColor+MCT.swift */; };
@@ -165,6 +166,7 @@
 		F4C4675C1E4D0E790042CEC8 /* stars_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars_green.png; sourceTree = "<group>"; };
 		F4C4675F1E4D1B080042CEC8 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		F4C467601E4D1B080042CEC8 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		F4CDFAA71E6C136D00B058F5 /* UIButton+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Layout.swift"; sourceTree = "<group>"; };
 		F4EE7A181E5660A900DE3DF8 /* meetchewthere.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = meetchewthere.xcdatamodel; sourceTree = "<group>"; };
 		F4EE7A3B1E57EE9600DE3DF8 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
 		F4EE7A3D1E57EEBF00DE3DF8 /* UIColor+MCT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MCT.swift"; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 			children = (
 				F4EE7A3B1E57EE9600DE3DF8 /* UIView+Autolayout.swift */,
 				F4EE7A3D1E57EEBF00DE3DF8 /* UIColor+MCT.swift */,
+				F4CDFAA71E6C136D00B058F5 /* UIButton+Layout.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				F4EE7A3E1E57EEBF00DE3DF8 /* UIColor+MCT.swift in Sources */,
 				F4FEC2FB1E4C7F0700112F14 /* BusinessCell.swift in Sources */,
 				5EA118BA1E3EC1AC008772D8 /* Favorites.swift in Sources */,
+				F4CDFAA81E6C136D00B058F5 /* UIButton+Layout.swift in Sources */,
 				F414908C1E651F6300B966B6 /* LoginViewController.swift in Sources */,
 				5E2A7DAA1E3D5AE600B2CE15 /* AppDelegate.swift in Sources */,
 				F4FEC2FD1E4C82B700112F14 /* Webservice.swift in Sources */,

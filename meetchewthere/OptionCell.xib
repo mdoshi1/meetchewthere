@@ -15,23 +15,21 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g9-du-a98">
-                        <rect key="frame" x="139" y="11" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TX-5b-fl1">
+                        <rect key="frame" x="133" y="4" width="54" height="34"/>
+                        <state key="normal" title="Button"/>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="7g9-du-a98" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hmW-hk-Cfd"/>
-                    <constraint firstItem="7g9-du-a98" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="iWy-ew-cX6"/>
+                    <constraint firstItem="5TX-5b-fl1" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="CTv-y9-dRG"/>
+                    <constraint firstItem="5TX-5b-fl1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hQd-Rm-59U"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="optionLabel" destination="7g9-du-a98" id="Dpo-RM-TzV"/>
+                <outlet property="optionButton" destination="5TX-5b-fl1" id="3xt-xk-Dhy"/>
             </connections>
         </tableViewCell>
     </objects>

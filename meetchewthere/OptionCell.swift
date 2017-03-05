@@ -12,13 +12,13 @@ class OptionCell: UITableViewCell {
     
     // MARK: - IBOutles
     
-    @IBOutlet weak var optionLabel: UILabel!
+    @IBOutlet weak var optionButton: UIButton!
     
     // MARK: - OptionCell
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        optionButton.setTitleColor(.black, for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

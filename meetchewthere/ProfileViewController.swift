@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController {
     enum Option: Int {
         case restriction = 0
         case review
-        case logout
+        case login
         
         var string: String {
             switch self {
@@ -23,10 +23,16 @@ class ProfileViewController: UIViewController {
                 return "Edit Restrictions"
             case .review:
                 return "My Reviews"
-            case .logout:
-                return "Logout"
+            case .login:
+                if AccessToken.current != nil {
+                    return "Logout"
+                } else {
+                    return "Login"
+                }
             }
         }
+        
+        static var count: Int { return Option.login.rawValue + 1 }
     }
     
     // MARK: - Properties
@@ -49,17 +55,11 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(optionsTable.usingAutolayout())
         setupConstraints()
-        
-        if let accessToken = AccessToken.current {
-            print("AccessToken \(accessToken)")
-        } else {
-            print("no access toekn")
-        }
     }
     
     // MARK: - Helper Methods
     
-    func setupConstraints() {
+    private func setupConstraints() {
         
         // optionsTable constraints
         NSLayoutConstraint.activate([
@@ -69,30 +69,67 @@ class ProfileViewController: UIViewController {
             optionsTable.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor)
             ])
     }
+    
+    // MARK: - Button Actions
+    
+    func toRestrictions() {
+    
+    }
+    
+    func toReviews() {
+        
+    }
+    
+    func handleLogin() {
+        let fbLoginManager = LoginManager()
+        guard AccessToken.current == nil else {
+            fbLoginManager.logOut()
+            print("Successfully logged out with Facebook")
+            optionsTable.reloadData()
+            return
+        }
+        
+        fbLoginManager.logIn([.publicProfile], viewController: self) { loginResult in
+            switch loginResult {
+            case .failed(let error):
+                print("Failed to login with Facebook: \(error)")
+            case .cancelled:
+                print("Cancelled logging in with Facebook")
+            case .success(_, _, _):
+                print("Successfully logged in with Facebook")
+                DispatchQueue.main.async {
+                    self.optionsTable.reloadData()
+                }
+            }
+        }
+    }
+    
 }
+
+// MARK: - UITableView Methods
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return Option.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / 3.0
+        return tableView.frame.height / CGFloat(Option.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = optionsTable.dequeueReusableCell(withIdentifier: optionCellIdentifier) as! OptionCell
+        cell.optionButton.setTitle(Option(rawValue: indexPath.row)!.string, for: .normal)
         switch Option(rawValue: indexPath.row)! {
-        case .restriction, .review:
-            cell.optionLabel.text = Option(rawValue: indexPath.row)!.string
-        case .logout:
-            let fbLoginButton = LoginButton(readPermissions: [.publicProfile])
-            cell.addSubview(fbLoginButton.usingAutolayout())
-            NSLayoutConstraint.activate([
-                fbLoginButton.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
-                fbLoginButton.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
-                ])
+        case .restriction:
+            cell.optionButton.addTarget(self, action: #selector(toRestrictions), for: .touchUpInside)
+        case .review:
+            cell.optionButton.addTarget(self, action: #selector(toReviews), for: .touchUpInside)
+        case .login:
+            cell.optionButton.setImage(UIImage(named: "facebook_logo"), for: .normal)
+            cell.optionButton.centerContent(withSpacing: 8.0)
+            cell.optionButton.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         }
         return cell
     }
