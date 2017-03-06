@@ -332,7 +332,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.40391087530000003" green="0.65994161370000004" blue="0.30751979350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Mdc-iC-1ri"/>
+                    <navigationItem key="navigationItem" title="meetchewthere" id="Mdc-iC-1ri"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Qb-1u-Apf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -436,14 +436,14 @@
                             <constraint firstAttribute="trailing" secondItem="hWL-da-4iS" secondAttribute="trailing" id="aCx-74-GrY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorites" id="bqS-rz-TJi"/>
+                    <navigationItem key="navigationItem" title="meetchewthere" id="bqS-rz-TJi"/>
                     <connections>
                         <outlet property="tableView" destination="hWL-da-4iS" id="01m-7K-325"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGu-Ou-DjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2970.4000000000001" y="460.11994002998506"/>
+            <point key="canvasLocation" x="2959" y="621"/>
         </scene>
         <!--Surprise Me-->
         <scene sceneID="vVs-zd-HEO">
@@ -576,10 +576,13 @@
                         <inset key="imageInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="a7e-1E-93C">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="a7e-1E-93C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.40391087530000003" green="0.65994161370000004" blue="0.30751979350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -603,6 +606,6 @@
         <image name="website" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4so-wC-IQo"/>
+        <segue reference="ZDc-0s-7UP"/>
     </inferredMetricsTieBreakers>
 </document>

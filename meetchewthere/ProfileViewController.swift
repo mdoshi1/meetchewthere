@@ -9,8 +9,11 @@
 import UIKit
 import FacebookCore
 import FacebookLogin
+import FBSDKCoreKit
 
 class ProfileViewController: UIViewController {
+    
+    // MARK: - Enum
     
     enum Option: Int {
         case restriction = 0
@@ -37,12 +40,18 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Properties
     
+    fileprivate lazy var profileView: ProfileView = {
+        let profileView = ProfileView(userId: "blah")
+        return profileView
+    }()
+    
     fileprivate lazy var optionsTable: UITableView = {
         let optionsTable = UITableView()
         optionsTable.delegate = self
         optionsTable.dataSource = self
         optionsTable.register(UINib(nibName: "OptionCell", bundle: nil), forCellReuseIdentifier: "OptionCell")
         optionsTable.isScrollEnabled = false
+        optionsTable.allowsSelection = false
         return optionsTable
     }()
     
@@ -53,21 +62,52 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Hide navigation bar bottom border
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        // Listen for FB token change
+        UserProfile.updatesOnAccessTokenChange = true
+        
+        // Add subviews
+        view.addSubview(profileView.usingAutolayout())
         view.addSubview(optionsTable.usingAutolayout())
         setupConstraints()
+        
+        // Setup notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(handleProfileChange), name: NSNotification.Name.FBSDKProfileDidChange, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.FBSDKProfileDidChange, object: nil)
     }
     
     // MARK: - Helper Methods
     
     private func setupConstraints() {
         
-        // optionsTable constraints
+        // Profile View
+        NSLayoutConstraint.activate([
+            profileView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
+            profileView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            profileView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            profileView.bottomAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
+        
+        // Options Table
         NSLayoutConstraint.activate([
             optionsTable.topAnchor.constraint(equalTo: view.centerYAnchor),
             optionsTable.leftAnchor.constraint(equalTo: view.leftAnchor),
             optionsTable.rightAnchor.constraint(equalTo: view.rightAnchor),
             optionsTable.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor)
             ])
+    }
+    
+    // MARK: - Notification Actions
+    
+    func handleProfileChange(_ notification: Notification) {
+        profileView.update()
     }
     
     // MARK: - Button Actions
