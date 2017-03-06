@@ -21,7 +21,6 @@
 		5EA118B81E3EB9EF008772D8 /* RatingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */; };
 		5EA118BA1E3EC1AC008772D8 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA118B91E3EC1AC008772D8 /* Favorites.swift */; };
 		5EA118BC1E3EC3DB008772D8 /* Shake Phone-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA118BB1E3EC3DB008772D8 /* Shake Phone-100.png */; };
-		5EA118BE1E3EC509008772D8 /* Surprise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA118BD1E3EC509008772D8 /* Surprise.swift */; };
 		5EA118C01E3ED165008772D8 /* profile2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA118BF1E3ED165008772D8 /* profile2.png */; };
 		AB7EC86E4F62EC428A51CAAC /* Pods_meetchewthere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC8A2D6628C0F9E82424AB1 /* Pods_meetchewthere.framework */; };
 		BB4EAA0A343819CBC110273E /* Pods_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82676DF68BDC621CD9A54C55 /* Pods_MessagesExtension.framework */; };
@@ -120,7 +119,6 @@
 		5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingsCells.swift; sourceTree = "<group>"; };
 		5EA118B91E3EC1AC008772D8 /* Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		5EA118BB1E3EC3DB008772D8 /* Shake Phone-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shake Phone-100.png"; sourceTree = "<group>"; };
-		5EA118BD1E3EC509008772D8 /* Surprise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Surprise.swift; sourceTree = "<group>"; };
 		5EA118BF1E3ED165008772D8 /* profile2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile2.png; sourceTree = "<group>"; };
 		7650904B4BFF06D1CFDE99C0 /* Pods-MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		82676DF68BDC621CD9A54C55 /* Pods_MessagesExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessagesExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,7 +272,6 @@
 				5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */,
 				F414908F1E6523B300B966B6 /* SheetTableView.swift */,
 				F414908B1E651F6300B966B6 /* LoginViewController.swift */,
-				5EA118BD1E3EC509008772D8 /* Surprise.swift */,
 				5EA118B91E3EC1AC008772D8 /* Favorites.swift */,
 				5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */,
 				F41490991E6578EA00B966B6 /* SelectionSheetCell.swift */,
@@ -628,7 +625,6 @@
 				F48810C61E6BAACB00A822C4 /* ProfileViewController.swift in Sources */,
 				F414909B1E6578EA00B966B6 /* SelectionSheetCell.swift in Sources */,
 				F414909F1E6579A300B966B6 /* InputSheetCell.swift in Sources */,
-				5EA118BE1E3EC509008772D8 /* Surprise.swift in Sources */,
 				5E2A7DEA1E3D85A300B2CE15 /* Discover.swift in Sources */,
 				5EA118B81E3EB9EF008772D8 /* RatingsCells.swift in Sources */,
 				F41490901E6523B300B966B6 /* SheetTableView.swift in Sources */,

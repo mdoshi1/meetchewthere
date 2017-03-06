@@ -20,12 +20,18 @@ class Discover: UIViewController {
     // MARK: - Properties
     
     fileprivate let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+    var business: YLPBusiness?
     
     // MARK: - DiscoverViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide navigation bar bottom border
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        // Setup notifications
         NotificationCenter.default.addObserver(self, selector: #selector(initialSearch), name: NSNotification.Name(rawValue: Constants.Notification.ReceivedTokenNotification), object: nil)
         
         // Assign delegates
@@ -37,6 +43,30 @@ class Discover: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Constants.Notification.ReceivedTokenNotification), object: nil)
     }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            let businessIndex = randBusiness()
+            if let cell = tableView.cellForRow(at: IndexPath(row: businessIndex, section: 0)) {
+                performSegue(withIdentifier: "details", sender: cell)
+            } else if let businesses = BusinessManager.shared.businesses {
+                business = businesses[businessIndex]
+                performSegue(withIdentifier: "details", sender: nil)
+            }
+        }
+    }
+    
+    // MARK: - Helper Methods
+    
+    func randBusiness() -> Int {
+        if let businesses = BusinessManager.shared.businesses {
+            return Int(arc4random_uniform(UInt32(businesses.count)))
+        } else {
+            return 0
+        }
+    }
+    
+    // MARK: - Notification Actions
     
     func initialSearch() {
         
@@ -57,16 +87,23 @@ class Discover: UIViewController {
         searchBar.endEditing(true)
     }
     
+    // MARK: - Navigation
+    
     @IBAction func prepareForUnwind(sender: UIStoryboardSegue) {
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailController = segue.destination as! Details
-        let businessCell = sender as! BusinessCell
-        detailController.business = businessCell.business
-        detailController.restImage = businessCell.restImage.image
+        if let businessCell = sender as? BusinessCell {
+            detailController.business = businessCell.business
+            detailController.restImage = businessCell.restImage.image
+        } else {
+            detailController.business = business
+        }
     }
+    
+    // MARK: - Core Data
     
     fileprivate func saveRestaurant(withBusinessId businessId: String) {
         
@@ -237,7 +274,6 @@ extension Discover: UITableViewDataSource {
     }
     
 }
-
 
 // MARK: - UISearchBarDelegate
 extension Discover: UISearchBarDelegate {
