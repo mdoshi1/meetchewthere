@@ -101,7 +101,7 @@ class ProfileView: UIView {
             // Update restrictions
             Webservice.getRestrictions(forUserId: userProfile.userId, completion: { jsonDictionary in
                 guard let dictionary = jsonDictionary else {
-                    print("fail")
+                    print("Restrictions response could not be parsed as a JSON dictionary")
                     return
                 }
                 DispatchQueue.main.async {

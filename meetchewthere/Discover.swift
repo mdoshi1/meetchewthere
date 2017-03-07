@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import YelpAPI
+import FacebookCore
 
 class Discover: UIViewController {
     
@@ -70,7 +71,35 @@ class Discover: UIViewController {
     
     func initialSearch() {
         
-        AppDelegate.sharedYLPClient.search(withLocation: "Stanford, CA", term: "food", limit: 20, offset: 0, sort: .bestMatched, completionHandler: { search, error in
+        var searchTerm = "food"
+        if let userId = UserProfile.current?.userId {
+            Webservice.getRestrictions(forUserId: userId, completion: { jsonDictionary in
+                guard let dictionary = jsonDictionary else {
+                    print("Restrictions response could not be parsed as a JSON dictionary")
+                    return
+                }
+                DispatchQueue.main.async {
+                    if let restrictionsArray = dictionary["rows"] as? [JSONDictionary], restrictionsArray.count > 0 {
+                        searchTerm = ""
+                        for index in 0..<restrictionsArray.count {
+                            let restriction = restrictionsArray[index]["restriction"] as! String
+                            searchTerm += "\(restriction) "
+                        }
+                        self.yelpSearch(withLocation: "Stanford, CA", term: searchTerm, limit: 20, offset: 0)
+                        
+                    } else {
+                        self.yelpSearch(withLocation: "Stanford, CA", term: searchTerm, limit: 20, offset: 0)
+                    }
+                }
+            })
+        } else {
+            yelpSearch(withLocation: "Stanford, CA", term: searchTerm, limit: 20, offset: 0)
+        }
+    }
+    
+    func yelpSearch(withLocation location: String, term: String, limit: UInt, offset: UInt) {
+        searchBar.text = term
+        AppDelegate.sharedYLPClient.search(withLocation: location, term: term, limit: limit, offset: offset, sort: .bestMatched, completionHandler: { search, error in
             guard let search = search, error == nil else {
                 print("Error getting initial search results: \(error?.localizedDescription)")
                 return
