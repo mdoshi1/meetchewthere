@@ -169,7 +169,7 @@
                                 <state key="normal" image="website"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ex8-JL-YEV">
-                                <rect key="frame" x="0.0" y="368" width="375" height="186"/>
+                                <rect key="frame" x="0.0" y="368" width="375" height="136"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="65" id="M4o-FB-tCZ" customClass="RatingsCells" customModule="meetchewthere" customModuleProvider="target">
@@ -245,6 +245,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dY-67-sqz">
+                                <rect key="frame" x="0.0" y="504" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.40391087530000003" green="0.65994161370000004" blue="0.30751979350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="v2y-97-Ucf"/>
+                                </constraints>
+                                <state key="normal" title="Leave A Review">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="reviewRestaurant:" destination="Kho-vH-lGe" eventType="touchUpInside" id="l6H-BX-cVH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -252,19 +265,21 @@
                             <constraint firstItem="oT3-aT-872" firstAttribute="top" secondItem="1pq-P8-UZC" secondAttribute="bottom" constant="12" id="5uK-R2-lB9"/>
                             <constraint firstItem="OMZ-Sb-Cxe" firstAttribute="centerX" secondItem="xDN-9g-8km" secondAttribute="centerX" id="7SO-k9-DFi"/>
                             <constraint firstItem="1pq-P8-UZC" firstAttribute="top" secondItem="mgM-8X-NfW" secondAttribute="bottom" id="8BK-Ne-ZFv"/>
+                            <constraint firstItem="0dY-67-sqz" firstAttribute="top" secondItem="Ex8-JL-YEV" secondAttribute="bottom" id="8T5-fK-Bj3"/>
                             <constraint firstItem="zQH-Bi-4Mg" firstAttribute="leading" secondItem="xDN-9g-8km" secondAttribute="trailing" constant="29" id="ANL-yl-meQ"/>
+                            <constraint firstAttribute="trailing" secondItem="0dY-67-sqz" secondAttribute="trailing" id="Ez7-Fu-S8h"/>
                             <constraint firstAttribute="trailing" secondItem="1pq-P8-UZC" secondAttribute="trailing" id="Hep-DZ-STH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oT3-aT-872" secondAttribute="trailing" id="Hi0-Yw-wgM"/>
                             <constraint firstItem="9Jt-vf-p9m" firstAttribute="top" secondItem="OMZ-Sb-Cxe" secondAttribute="bottom" id="J76-RG-hiv"/>
                             <constraint firstItem="Mb6-tE-K7V" firstAttribute="leading" secondItem="wTs-pG-DVx" secondAttribute="leadingMargin" id="LNS-zE-K0Z"/>
                             <constraint firstItem="Shl-Zt-zxu" firstAttribute="top" secondItem="7Wc-1v-7e1" secondAttribute="bottom" id="Lje-qE-Gqq"/>
-                            <constraint firstItem="5Bb-xQ-zfc" firstAttribute="top" secondItem="Ex8-JL-YEV" secondAttribute="bottom" id="R8u-io-Smn"/>
                             <constraint firstItem="q88-sU-LHN" firstAttribute="leading" secondItem="zQH-Bi-4Mg" secondAttribute="trailing" constant="39.5" id="T79-6S-Qng"/>
                             <constraint firstItem="gWX-aK-4Cj" firstAttribute="centerY" secondItem="9Jt-vf-p9m" secondAttribute="centerY" id="Tha-Ep-KWI"/>
                             <constraint firstItem="7Wc-1v-7e1" firstAttribute="top" secondItem="q88-sU-LHN" secondAttribute="bottom" id="X0c-18-17x"/>
                             <constraint firstItem="9Jt-vf-p9m" firstAttribute="centerX" secondItem="OMZ-Sb-Cxe" secondAttribute="centerX" id="ZVr-4x-WKy"/>
                             <constraint firstItem="7Wc-1v-7e1" firstAttribute="centerX" secondItem="q88-sU-LHN" secondAttribute="centerX" id="Zzf-Mx-5zY"/>
                             <constraint firstItem="Ex8-JL-YEV" firstAttribute="leading" secondItem="wTs-pG-DVx" secondAttribute="leading" id="bGX-Q0-Tls"/>
+                            <constraint firstItem="0dY-67-sqz" firstAttribute="leading" secondItem="wTs-pG-DVx" secondAttribute="leading" id="dfh-2R-5ja"/>
                             <constraint firstItem="Ex8-JL-YEV" firstAttribute="top" secondItem="gWX-aK-4Cj" secondAttribute="bottom" constant="13" id="fA7-zo-5za"/>
                             <constraint firstItem="zQH-Bi-4Mg" firstAttribute="top" secondItem="oT3-aT-872" secondAttribute="bottom" constant="8" id="fwW-dD-U73"/>
                             <constraint firstAttribute="leadingMargin" secondItem="oT3-aT-872" secondAttribute="leading" id="g1a-R8-uy5"/>
@@ -277,6 +292,7 @@
                             <constraint firstItem="zQH-Bi-4Mg" firstAttribute="centerX" secondItem="wTs-pG-DVx" secondAttribute="centerX" id="ph7-gT-eUp"/>
                             <constraint firstItem="zQH-Bi-4Mg" firstAttribute="centerY" secondItem="xDN-9g-8km" secondAttribute="centerY" id="pqR-AO-cj0"/>
                             <constraint firstItem="gWX-aK-4Cj" firstAttribute="centerX" secondItem="hyT-4M-yVE" secondAttribute="centerX" id="rvv-mc-jpn"/>
+                            <constraint firstItem="5Bb-xQ-zfc" firstAttribute="top" secondItem="0dY-67-sqz" secondAttribute="bottom" id="sxG-xi-J9v"/>
                             <constraint firstItem="Shl-Zt-zxu" firstAttribute="centerX" secondItem="7Wc-1v-7e1" secondAttribute="centerX" id="tZ0-JA-467"/>
                             <constraint firstItem="hyT-4M-yVE" firstAttribute="centerX" secondItem="wTs-pG-DVx" secondAttribute="centerX" id="y6u-mQ-Auq"/>
                             <constraint firstItem="q88-sU-LHN" firstAttribute="top" secondItem="oT3-aT-872" secondAttribute="bottom" constant="8" id="yLf-5J-Hhs"/>
@@ -288,14 +304,64 @@
                         <outlet property="hours" destination="q88-sU-LHN" id="HzO-zZ-smq"/>
                         <outlet property="price" destination="zQH-Bi-4Mg" id="Rzi-yw-OEg"/>
                         <outlet property="restaurant" destination="1pq-P8-UZC" id="jBi-09-Zt3"/>
+                        <outlet property="reviewButton" destination="0dY-67-sqz" id="PZw-xs-lLZ"/>
                         <outlet property="tableView" destination="Ex8-JL-YEV" id="r2R-Ne-0QH"/>
                         <outlet property="titleName" destination="oT3-aT-872" id="CGq-p5-acD"/>
+                        <segue destination="c2v-QW-5zf" kind="presentation" identifier="toReview" id="YtS-90-8rH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLo-oJ-TbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="9zh-sp-Pk5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2054" y="-636"/>
+            <point key="canvasLocation" x="2053.5999999999999" y="-636.4317841079461"/>
+        </scene>
+        <!--Review View Controller-->
+        <scene sceneID="Do8-x3-VY2">
+            <objects>
+                <viewController id="c2v-QW-5zf" customClass="ReviewViewController" customModule="meetchewthere" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sht-N7-EXc"/>
+                        <viewControllerLayoutGuide type="bottom" id="w9c-jO-MQy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="878-Bm-2MI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2Y-WY-Dwu">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Akn-df-5hI"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.40391087530000003" green="0.65994161370000004" blue="0.30751979350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Asian Box" id="sAw-43-s8w">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Zyl-9i-ZCg">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="cancel" destination="c2v-QW-5zf" id="n40-fH-zqQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f2Y-WY-Dwu" firstAttribute="leading" secondItem="878-Bm-2MI" secondAttribute="leading" id="IBO-xE-yan"/>
+                            <constraint firstItem="f2Y-WY-Dwu" firstAttribute="top" secondItem="sht-N7-EXc" secondAttribute="bottom" id="KAC-V0-qCb"/>
+                            <constraint firstAttribute="trailing" secondItem="f2Y-WY-Dwu" secondAttribute="trailing" id="XAK-gO-Kwh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="navbar" destination="f2Y-WY-Dwu" id="Om4-B5-xr0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rz0-Tp-5kD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2964" y="-636.4317841079461"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="QGc-dT-Z5M">

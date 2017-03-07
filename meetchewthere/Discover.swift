@@ -23,6 +23,9 @@ class Discover: UIViewController {
     fileprivate let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
     var business: YLPBusiness?
     
+    var restrictionTerms = ""
+    
+    
     // MARK: - DiscoverViewController
     
     override func viewDidLoad() {
@@ -70,7 +73,6 @@ class Discover: UIViewController {
     // MARK: - Notification Actions
     
     func initialSearch() {
-        
         var searchTerm = "food"
         if let userId = UserProfile.current?.userId {
             Webservice.getRestrictions(forUserId: userId, completion: { jsonDictionary in
@@ -81,9 +83,11 @@ class Discover: UIViewController {
                 DispatchQueue.main.async {
                     if let restrictionsArray = dictionary["rows"] as? [JSONDictionary], restrictionsArray.count > 0 {
                         searchTerm = ""
+                        self.restrictionTerms = ""
                         for index in 0..<restrictionsArray.count {
                             let restriction = restrictionsArray[index]["restriction"] as! String
                             searchTerm += "\(restriction) "
+                            self.restrictionTerms += "\(restriction) "
                         }
                         self.yelpSearch(withLocation: "Stanford, CA", term: searchTerm, limit: 20, offset: 0)
                         
@@ -319,18 +323,10 @@ extension Discover: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+        //if searchBar.text != nil {
         if let searchTerm = searchBar.text {
-            AppDelegate.sharedYLPClient.search(withLocation: "Stanford, CA", term: searchTerm, limit: 20, offset: 0, sort: .bestMatched, completionHandler: { search, error in
-                guard let search = search, error == nil else {
-                    print("Error retrieving search results for term \(searchTerm): \(error?.localizedDescription)")
-                    return
-                }
-                print("Successfully retrieved results for term \(searchTerm)")
-                DispatchQueue.main.async {
-                    BusinessManager.shared.businesses = search.businesses
-                    self.tableView.reloadData()
-                }
-            })
+            //let searchTerm = searchBar.text! + " \(restrictionTerms)"
+            yelpSearch(withLocation: "Stanford, CA", term: searchTerm, limit: 20, offset: 0)
         }
         
         view.removeGestureRecognizer(tap)

@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import YelpAPI
+import FacebookCore
 
 class Details: UIViewController, UITableViewDelegate {
 
@@ -21,6 +22,7 @@ class Details: UIViewController, UITableViewDelegate {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var hours: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var reviewButton: UIButton!
     
     var business: YLPBusiness?
     var restImage: UIImage?
@@ -103,7 +105,27 @@ class Details: UIViewController, UITableViewDelegate {
         navigationController?.isNavigationBarHidden = false
     }
     
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toReview" {
+            let destinationVC = segue.destination as! ReviewViewController
+            destinationVC.restaurantName = titleName.text!
+        }
+    }
+    
     // MARK: IBActions
+    
+    @IBAction func reviewRestaurant(_ sender: UIButton) {
+        if UserProfile.current != nil {
+            performSegue(withIdentifier: "toReview", sender: nil)
+        } else {
+            let alertController = UIAlertController(title: "You're not logged in", message: "Log in to leave a review for this restaurant", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+        }
+    }
     
     @IBAction func saveRestaurant(_ sender: UIButton) {
         
