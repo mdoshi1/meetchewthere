@@ -14,6 +14,34 @@ final class Webservice {
     
     private static let apiURL = "http://mrsiva26.tech/senthil"
     
+    class func postRestrictions(forUserId userId: String, restriction: String, completion: @escaping(Bool) -> ()) {
+        let urlString = apiURL + "/restrictions_insert_email_restriction.php"
+        guard let url = URL(string: urlString) else {
+            print("Error generating URL from string: \(urlString)")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let params = "userid=\(userId)&restriction=\(restriction)"
+        request.httpBody = params.data(using: .utf8)
+        
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            guard error == nil else {
+                print("Error processing HTTP request: \(error?.localizedDescription)")
+                print("Error in retrieving image data")
+                completion(false)
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("Status code should be 200, but is \(httpStatus.statusCode)")
+            }
+            
+            completion(true)
+            }.resume()
+    }
+    
     class func getRestrictions(forUserId userId: String, completion: @escaping (JSONDictionary?) -> ()) {
         
         let urlString = apiURL + "/restrictions_select_email.php"
@@ -46,27 +74,36 @@ final class Webservice {
                 completion(nil)
                 return
             }
-            print("dict: \(dictionary)")
             completion(dictionary)
             }.resume()
+    }
+    
+    class func deleteRestrictions(forUserId userId: String, completion: @escaping (Bool) -> ()) {
         
-        /*let resource = Resource<Token>(urlRequest: request, parseJSON: { json in
-            guard let dictionary = json as? JSONDictionary else {
-                print("Failed to cast JSON response as an array of JSONDictionary")
-                return nil
-            }
-            return Token(dictionary: dictionary)
-        })
+        let urlString = apiURL + "/restrictions_delete_email.php"
+        guard let url = URL(string: urlString) else {
+            print("Error generating URL from string: \(urlString)")
+            return
+        }
         
-        load(resource: resource) { token in
-            guard let token = token else {
-                print("Error in retrieving an access token")
-                completion(nil)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let params = "userid=\(userId)"
+        request.httpBody = params.data(using: .utf8)
+        
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            guard error == nil else {
+                print("Error processing HTTP request: \(error?.localizedDescription)")
+                print("Error in retrieving image data")
+                completion(false)
                 return
             }
-            print("Success in retrieving an access token")
-            completion(token)
-        }*/
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("Status code should be 200, but is \(httpStatus.statusCode)")
+            }
+            completion(true)
+            }.resume()
     }
     
     class func getImage(withURLString urlString: String, completion: @escaping (Data?) -> ()) {

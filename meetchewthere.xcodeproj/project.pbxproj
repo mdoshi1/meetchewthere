@@ -23,7 +23,8 @@
 		AB7EC86E4F62EC428A51CAAC /* Pods_meetchewthere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC8A2D6628C0F9E82424AB1 /* Pods_meetchewthere.framework */; };
 		BB4EAA0A343819CBC110273E /* Pods_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82676DF68BDC621CD9A54C55 /* Pods_MessagesExtension.framework */; };
 		F4049ABC1E6E522400B52F43 /* RestrictionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049ABB1E6E522400B52F43 /* RestrictionViewController.swift */; };
-		F4049ABE1E6E7D1900B52F43 /* MTCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049ABD1E6E7D1900B52F43 /* MTCButton.swift */; };
+		F4049AC01E6E7F9300B52F43 /* MCTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049ABF1E6E7F9300B52F43 /* MCTButton.swift */; };
+		F4049AC61E6EC90B00B52F43 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AC51E6EC90B00B52F43 /* UIImage+Resize.swift */; };
 		F414908C1E651F6300B966B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414908B1E651F6300B966B6 /* LoginViewController.swift */; };
 		F41490901E6523B300B966B6 /* SheetTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414908F1E6523B300B966B6 /* SheetTableView.swift */; };
 		F414909B1E6578EA00B966B6 /* SelectionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41490991E6578EA00B966B6 /* SelectionSheetCell.swift */; };
@@ -122,7 +123,8 @@
 		82676DF68BDC621CD9A54C55 /* Pods_MessagesExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessagesExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E761A352AC2962A131B09A /* Pods-MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
 		F4049ABB1E6E522400B52F43 /* RestrictionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestrictionViewController.swift; sourceTree = "<group>"; };
-		F4049ABD1E6E7D1900B52F43 /* MTCButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCButton.swift; sourceTree = "<group>"; };
+		F4049ABF1E6E7F9300B52F43 /* MCTButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCTButton.swift; sourceTree = "<group>"; };
+		F4049AC51E6EC90B00B52F43 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		F414908B1E651F6300B966B6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F414908F1E6523B300B966B6 /* SheetTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetTableView.swift; sourceTree = "<group>"; };
 		F41490991E6578EA00B966B6 /* SelectionSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionSheetCell.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 		F41490931E6577D300B966B6 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				F4049ABF1E6E7F9300B52F43 /* MCTButton.swift */,
 				F414909D1E6579A300B966B6 /* InputSheetCell.swift */,
 				F414909E1E6579A300B966B6 /* InputSheetCell.xib */,
 				5E2A7DE91E3D85A300B2CE15 /* Discover.swift */,
@@ -276,7 +279,6 @@
 				F414909A1E6578EA00B966B6 /* SelectionSheetCell.xib */,
 				F4FEC2FA1E4C7F0700112F14 /* BusinessCell.swift */,
 				F4EE7A4A1E5A650A00DE3DF8 /* RatingLabel.swift */,
-				F4049ABD1E6E7D1900B52F43 /* MTCButton.swift */,
 				F4CDFAAB1E6CDDF000B058F5 /* Profile */,
 			);
 			name = Interface;
@@ -393,6 +395,7 @@
 				F4EE7A3B1E57EE9600DE3DF8 /* UIView+Autolayout.swift */,
 				F4EE7A3D1E57EEBF00DE3DF8 /* UIColor+MCT.swift */,
 				F4CDFAA71E6C136D00B058F5 /* UIButton+Layout.swift */,
+				F4049AC51E6EC90B00B52F43 /* UIImage+Resize.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -617,12 +620,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4049ABE1E6E7D1900B52F43 /* MTCButton.swift in Sources */,
 				F4EE7A4B1E5A650A00DE3DF8 /* RatingLabel.swift in Sources */,
 				F4EE7A3C1E57EE9600DE3DF8 /* UIView+Autolayout.swift in Sources */,
 				F48810C91E6BAAF000A822C4 /* OptionCell.swift in Sources */,
 				F48810C61E6BAACB00A822C4 /* ProfileViewController.swift in Sources */,
 				F414909B1E6578EA00B966B6 /* SelectionSheetCell.swift in Sources */,
+				F4049AC61E6EC90B00B52F43 /* UIImage+Resize.swift in Sources */,
 				F4049ABC1E6E522400B52F43 /* RestrictionViewController.swift in Sources */,
 				F414909F1E6579A300B966B6 /* InputSheetCell.swift in Sources */,
 				5E2A7DEA1E3D85A300B2CE15 /* Discover.swift in Sources */,
@@ -636,6 +639,7 @@
 				5EA118BA1E3EC1AC008772D8 /* Favorites.swift in Sources */,
 				F4CDFAAD1E6CDE6C00B058F5 /* ProfileView.swift in Sources */,
 				F4CDFAA81E6C136D00B058F5 /* UIButton+Layout.swift in Sources */,
+				F4049AC01E6E7F9300B52F43 /* MCTButton.swift in Sources */,
 				F414908C1E651F6300B966B6 /* LoginViewController.swift in Sources */,
 				5E2A7DAA1E3D5AE600B2CE15 /* AppDelegate.swift in Sources */,
 				F4FEC2FD1E4C82B700112F14 /* Webservice.swift in Sources */,

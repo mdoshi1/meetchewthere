@@ -7,53 +7,54 @@
 //
 
 import UIKit
+import FacebookCore
 
-class RestrictionViewController: UIViewController {
+// MARK: - Enum
+
+enum Restriction: Int {
+    case dairy = 0
+    case egg
+    case fish
+    case gluten
+    case peaunt
+    case shellfish
+    case soy
+    case treenut
+    case vegetarian
+    case wheat
+    case vegan
     
-    // MARK: - Enum
+    static var count: Int { return Restriction.vegan.rawValue + 1 }
     
-    enum Restriction: Int {
-        case dairy = 0
-        case egg
-        case fish
-        case gluten
-        case peaunt
-        case shellfish
-        case soy
-        case treenut
-        case vegetarian
-        case wheat
-        case vegan
-        
-        static var count: Int { return Restriction.vegan.rawValue + 1 }
-        
-        var description: String {
-            switch self {
-            case .dairy:
-                return "Dairy Free"
-            case .egg:
-                return "Egg Free"
-            case .fish:
-                return "Fish Free"
-            case .gluten:
-                return "Gluten Free"
-            case .peaunt:
-                return "Peanut Free"
-            case .shellfish:
-                return "Shellfish Free"
-            case .soy:
-                return "Soy Free"
-            case .treenut:
-                return "Tree Nut Free"
-            case .vegetarian:
-                return "Vegetarian"
-            case .wheat:
-                return "Wheat Free"
-            case .vegan:
-                return "Vegan"
-            }
+    var description: String {
+        switch self {
+        case .dairy:
+            return "Dairy Free"
+        case .egg:
+            return "Egg Free"
+        case .fish:
+            return "Fish Free"
+        case .gluten:
+            return "Gluten Free"
+        case .peaunt:
+            return "Peanut Free"
+        case .shellfish:
+            return "Shellfish Free"
+        case .soy:
+            return "Soy Free"
+        case .treenut:
+            return "Tree Nut Free"
+        case .vegetarian:
+            return "Vegetarian"
+        case .wheat:
+            return "Wheat Free"
+        case .vegan:
+            return "Vegan"
         }
     }
+}
+
+class RestrictionViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -62,31 +63,78 @@ class RestrictionViewController: UIViewController {
         restrictionsTable.delegate = self
         restrictionsTable.dataSource = self
         restrictionsTable.allowsMultipleSelection = true
+        restrictionsTable.isScrollEnabled = false
         return restrictionsTable
     }()
     
     private lazy var doneButton: UIButton = {
-        let doneButton = UIButton()
+        let doneButton = MCTButton(type: .primary)
+        doneButton.setTitle("Done", for: .normal)
+        doneButton.addTarget(self, action: #selector(unwindToProfile), for: .touchUpInside)
         return doneButton
     }()
+    
+    var restrictions = [String]()
     
     // MARK: - RestrictionViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
         view.addSubview(restrictionsTable.usingAutolayout())
+        view.addSubview(doneButton.usingAutolayout())
         setupConstraints()
     }
     
     // MARK: - Helper Methods
     
     private func setupConstraints() {
+        
+        // Restrictions Table
         NSLayoutConstraint.activate([
             restrictionsTable.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
             restrictionsTable.leftAnchor.constraint(equalTo: view.leftAnchor),
             restrictionsTable.rightAnchor.constraint(equalTo: view.rightAnchor),
-            restrictionsTable.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor)
+            restrictionsTable.bottomAnchor.constraint(equalTo: doneButton.topAnchor, constant: -16.0)
             ])
+        
+        // Done Button
+        NSLayoutConstraint.activate([
+            doneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            doneButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -16.0)
+            ])
+    }
+    
+    // MARK: - UIButton Actions
+    
+    func unwindToProfile() {
+        if let indexPathsForSelectedRows = restrictionsTable.indexPathsForSelectedRows,
+            let userProfile = UserProfile.current {
+            for index in 0..<indexPathsForSelectedRows.count {
+                let restriction = Restriction(rawValue: indexPathsForSelectedRows[index].row)!.description
+                
+                Webservice.deleteRestrictions(forUserId: userProfile.userId, completion: { success in
+                    if success {
+                        print("Successfully deleted all restrictions")
+                        Webservice.postRestrictions(forUserId: userProfile.userId, restriction: restriction) { success in
+                            if success {
+                                print("Successfully added restriction: \(restriction)")
+                            } else {
+                                print("Failed to add restriction: \(restriction)")
+                            }
+                            DispatchQueue.main.async {
+                                if index == indexPathsForSelectedRows.count - 1 {
+                                    _ = self.navigationController?.popViewController(animated: true)
+                                }
+                            }
+                        }
+                    } else {
+                        print("Failed to delete restrictions")
+                        _ = self.navigationController?.popViewController(animated: true)
+                    }
+                })
+            }
+        }
     }
 }
 
@@ -111,16 +159,15 @@ extension RestrictionViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
-            //tableView.deselectRow(at: indexPath, animated: true)
+            cell.textLabel?.textColor = .chewGreen
             cell.accessoryType = .checkmark
         }
-        print("selected rows \(tableView.indexPathsForSelectedRows)")
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
+            cell.textLabel?.textColor = .black
             cell.accessoryType = .none
         }
-        print("selected rows \(tableView.indexPathsForSelectedRows)")
     }
 }

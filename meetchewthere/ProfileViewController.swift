@@ -118,16 +118,25 @@ class ProfileViewController: UIViewController {
     // MARK: - Button Actions
     
     func toRestrictions() {
-        /*if let userId = UserProfile.current?.userId {
-            Webservice.getRestrictions(forUserId: userId) { _ in
-                print("here")
-            }
-        }*/
-        performSegue(withIdentifier: "toRestrictions", sender: nil)
+        if UserProfile.current != nil {
+            performSegue(withIdentifier: "toRestrictions", sender: nil)
+        } else {
+            let alertController = UIAlertController(title: "You're not logged in", message: "Log in to edit your dietary restrictions", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+        }
     }
     
     func toReviews() {
-        
+        if UserProfile.current != nil {
+            // TODO: segue to user reviews
+        } else {
+            let alertController = UIAlertController(title: "You're not logged in", message: "Log in to view your restaurant reviews", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+        }
     }
     
     func handleLogin() {

@@ -22,4 +22,6 @@ extension UIColor {
     // #F5F614
     @nonobjc static let chewYellow = UIColor(red: 0.961, green: 0.965, blue: 0.078, alpha: 1.0)
     
+    // #9B9B9B
+    @nonobjc static let chewDarkGray = UIColor(red: 0.608, green: 0.608, blue: 0.608, alpha: 1.0)
 }

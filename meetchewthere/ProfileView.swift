@@ -15,8 +15,8 @@ class ProfileView: UIView {
     
     private lazy var profileImage: UIImageView = {
         let profileImage = UIImageView()
-        profileImage.contentMode = .scaleAspectFit
-        profileImage.backgroundColor = .chewGray
+        profileImage.contentMode = .center
+        profileImage.backgroundColor = .chewDarkGray
         profileImage.layer.cornerRadius = Constants.UI.ProfileImageWidth / 2.0
         profileImage.layer.masksToBounds = true
         return profileImage
@@ -25,6 +25,7 @@ class ProfileView: UIView {
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.textColor = .white
+        nameLabel.font = UIFont.systemFont(ofSize: 24.0)
         return nameLabel
     }()
     
@@ -34,10 +35,13 @@ class ProfileView: UIView {
         return restrictionsLabel
     }()
     
+    var restrictions = [String]()
+    
     // MARK: - ProfileView
     
     init(userId: String) {
         super.init(frame: CGRect.zero)
+        //self.backgroundColor = UIColor(patternImage: UIImage(named: "food_wallpaper")!)
         self.backgroundColor = .clear
         self.addSubview(profileImage.usingAutolayout())
         self.addSubview(nameLabel.usingAutolayout())
@@ -55,7 +59,7 @@ class ProfileView: UIView {
         // Profile Image
         NSLayoutConstraint.activate([
             profileImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            profileImage.topAnchor.constraint(equalTo: topAnchor, constant: 32.0),
+            profileImage.topAnchor.constraint(equalTo: topAnchor, constant: 16.0),
             profileImage.widthAnchor.constraint(equalToConstant: Constants.UI.ProfileImageWidth),
             profileImage.heightAnchor.constraint(equalTo: profileImage.widthAnchor)
             ])
@@ -74,6 +78,7 @@ class ProfileView: UIView {
     }
     
     func update() {
+        restrictions.removeAll()
         if let userProfile = UserProfile.current {
             
             // Update profile image
@@ -100,8 +105,14 @@ class ProfileView: UIView {
                     return
                 }
                 DispatchQueue.main.async {
-                    if let restrictionsArray = dictionary["rows"], restrictionsArray.count > 0 {
-                        self.restrictionsLabel.text = "Restrictions"
+                    if let restrictionsArray = dictionary["rows"] as? [JSONDictionary], restrictionsArray.count > 0 {
+                        var restriction = restrictionsArray[0]["restriction"] as! String
+                        self.restrictionsLabel.text = restriction
+                        self.restrictions.append(restriction)
+                        for index in 1..<restrictionsArray.count {
+                            restriction = restrictionsArray[index]["restriction"] as! String
+                            self.restrictionsLabel.text! += ", \(restriction)"
+                        }
                     } else {
                         self.restrictionsLabel.text = "No dietary restrictions"
                     }
@@ -110,7 +121,7 @@ class ProfileView: UIView {
         } else {
             
             // Reset profile image
-            profileImage.image = UIImage(named: "no_profile_image")
+            profileImage.image = UIImage(named: "no_profile_image")?.scaled(toSize: CGSize(width: 80.0, height: 124.0))
             
             // Reset name
             nameLabel.text = "You are not logged in"
