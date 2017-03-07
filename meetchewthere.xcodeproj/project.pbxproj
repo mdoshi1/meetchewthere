@@ -12,7 +12,6 @@
 		5E2A7DB11E3D5AE600B2CE15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DB01E3D5AE600B2CE15 /* Assets.xcassets */; };
 		5E2A7DB41E3D5AE600B2CE15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DB21E3D5AE600B2CE15 /* LaunchScreen.storyboard */; };
 		5E2A7DD41E3D63BF00B2CE15 /* Near Me-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DD31E3D63BF00B2CE15 /* Near Me-100.png */; };
-		5E2A7DD61E3D64F500B2CE15 /* Rabbit In Hat-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DD51E3D64F500B2CE15 /* Rabbit In Hat-100.png */; };
 		5E2A7DD81E3D65A800B2CE15 /* Star-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DD71E3D65A800B2CE15 /* Star-100.png */; };
 		5E2A7DDA1E3D664A00B2CE15 /* Settings-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2A7DD91E3D664A00B2CE15 /* Settings-100.png */; };
 		5E2A7DEA1E3D85A300B2CE15 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2A7DE91E3D85A300B2CE15 /* Discover.swift */; };
@@ -21,9 +20,10 @@
 		5EA118B81E3EB9EF008772D8 /* RatingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */; };
 		5EA118BA1E3EC1AC008772D8 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA118B91E3EC1AC008772D8 /* Favorites.swift */; };
 		5EA118BC1E3EC3DB008772D8 /* Shake Phone-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA118BB1E3EC3DB008772D8 /* Shake Phone-100.png */; };
-		5EA118C01E3ED165008772D8 /* profile2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA118BF1E3ED165008772D8 /* profile2.png */; };
 		AB7EC86E4F62EC428A51CAAC /* Pods_meetchewthere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC8A2D6628C0F9E82424AB1 /* Pods_meetchewthere.framework */; };
 		BB4EAA0A343819CBC110273E /* Pods_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82676DF68BDC621CD9A54C55 /* Pods_MessagesExtension.framework */; };
+		F4049ABC1E6E522400B52F43 /* RestrictionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049ABB1E6E522400B52F43 /* RestrictionViewController.swift */; };
+		F4049ABE1E6E7D1900B52F43 /* MTCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049ABD1E6E7D1900B52F43 /* MTCButton.swift */; };
 		F414908C1E651F6300B966B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414908B1E651F6300B966B6 /* LoginViewController.swift */; };
 		F41490901E6523B300B966B6 /* SheetTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414908F1E6523B300B966B6 /* SheetTableView.swift */; };
 		F414909B1E6578EA00B966B6 /* SelectionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41490991E6578EA00B966B6 /* SelectionSheetCell.swift */; };
@@ -110,7 +110,6 @@
 		5E2A7DB31E3D5AE600B2CE15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E2A7DB51E3D5AE600B2CE15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2A7DD31E3D63BF00B2CE15 /* Near Me-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Near Me-100.png"; sourceTree = "<group>"; };
-		5E2A7DD51E3D64F500B2CE15 /* Rabbit In Hat-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rabbit In Hat-100.png"; sourceTree = "<group>"; };
 		5E2A7DD71E3D65A800B2CE15 /* Star-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star-100.png"; sourceTree = "<group>"; };
 		5E2A7DD91E3D664A00B2CE15 /* Settings-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-100.png"; sourceTree = "<group>"; };
 		5E2A7DE91E3D85A300B2CE15 /* Discover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
@@ -119,10 +118,11 @@
 		5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingsCells.swift; sourceTree = "<group>"; };
 		5EA118B91E3EC1AC008772D8 /* Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		5EA118BB1E3EC3DB008772D8 /* Shake Phone-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shake Phone-100.png"; sourceTree = "<group>"; };
-		5EA118BF1E3ED165008772D8 /* profile2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile2.png; sourceTree = "<group>"; };
 		7650904B4BFF06D1CFDE99C0 /* Pods-MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		82676DF68BDC621CD9A54C55 /* Pods_MessagesExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessagesExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E761A352AC2962A131B09A /* Pods-MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesExtension/Pods-MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
+		F4049ABB1E6E522400B52F43 /* RestrictionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestrictionViewController.swift; sourceTree = "<group>"; };
+		F4049ABD1E6E7D1900B52F43 /* MTCButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCButton.swift; sourceTree = "<group>"; };
 		F414908B1E651F6300B966B6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F414908F1E6523B300B966B6 /* SheetTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetTableView.swift; sourceTree = "<group>"; };
 		F41490991E6578EA00B966B6 /* SelectionSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionSheetCell.swift; sourceTree = "<group>"; };
@@ -255,10 +255,8 @@
 				5EA118B51E3EB36B008772D8 /* close.png */,
 				F4C4675C1E4D0E790042CEC8 /* stars_green.png */,
 				5E2A7DD91E3D664A00B2CE15 /* Settings-100.png */,
-				5E2A7DD51E3D64F500B2CE15 /* Rabbit In Hat-100.png */,
 				5E2A7DD31E3D63BF00B2CE15 /* Near Me-100.png */,
 				5E2A7DD71E3D65A800B2CE15 /* Star-100.png */,
-				5EA118BF1E3ED165008772D8 /* profile2.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -278,6 +276,7 @@
 				F414909A1E6578EA00B966B6 /* SelectionSheetCell.xib */,
 				F4FEC2FA1E4C7F0700112F14 /* BusinessCell.swift */,
 				F4EE7A4A1E5A650A00DE3DF8 /* RatingLabel.swift */,
+				F4049ABD1E6E7D1900B52F43 /* MTCButton.swift */,
 				F4CDFAAB1E6CDDF000B058F5 /* Profile */,
 			);
 			name = Interface;
@@ -380,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				F48810C51E6BAACB00A822C4 /* ProfileViewController.swift */,
+				F4049ABB1E6E522400B52F43 /* RestrictionViewController.swift */,
 				F48810C71E6BAAF000A822C4 /* OptionCell.swift */,
 				F48810C81E6BAAF000A822C4 /* OptionCell.xib */,
 				F4CDFAAC1E6CDE6C00B058F5 /* ProfileView.swift */,
@@ -492,14 +492,12 @@
 				5E2A7DD41E3D63BF00B2CE15 /* Near Me-100.png in Resources */,
 				5E2A7DB41E3D5AE600B2CE15 /* LaunchScreen.storyboard in Resources */,
 				5E2A7DB11E3D5AE600B2CE15 /* Assets.xcassets in Resources */,
-				5E2A7DD61E3D64F500B2CE15 /* Rabbit In Hat-100.png in Resources */,
 				5E2A7DAF1E3D5AE600B2CE15 /* Main.storyboard in Resources */,
 				F414909C1E6578EA00B966B6 /* SelectionSheetCell.xib in Resources */,
 				5EA118B61E3EB36B008772D8 /* close.png in Resources */,
 				5EA118BC1E3EC3DB008772D8 /* Shake Phone-100.png in Resources */,
 				F48810CA1E6BAAF000A822C4 /* OptionCell.xib in Resources */,
 				5E2A7DD81E3D65A800B2CE15 /* Star-100.png in Resources */,
-				5EA118C01E3ED165008772D8 /* profile2.png in Resources */,
 				5E2A7DDA1E3D664A00B2CE15 /* Settings-100.png in Resources */,
 				F41490A01E6579A300B966B6 /* InputSheetCell.xib in Resources */,
 				F4C4675D1E4D0E790042CEC8 /* stars_green.png in Resources */,
@@ -619,11 +617,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4049ABE1E6E7D1900B52F43 /* MTCButton.swift in Sources */,
 				F4EE7A4B1E5A650A00DE3DF8 /* RatingLabel.swift in Sources */,
 				F4EE7A3C1E57EE9600DE3DF8 /* UIView+Autolayout.swift in Sources */,
 				F48810C91E6BAAF000A822C4 /* OptionCell.swift in Sources */,
 				F48810C61E6BAACB00A822C4 /* ProfileViewController.swift in Sources */,
 				F414909B1E6578EA00B966B6 /* SelectionSheetCell.swift in Sources */,
+				F4049ABC1E6E522400B52F43 /* RestrictionViewController.swift in Sources */,
 				F414909F1E6579A300B966B6 /* InputSheetCell.swift in Sources */,
 				5E2A7DEA1E3D85A300B2CE15 /* Discover.swift in Sources */,
 				5EA118B81E3EB9EF008772D8 /* RatingsCells.swift in Sources */,

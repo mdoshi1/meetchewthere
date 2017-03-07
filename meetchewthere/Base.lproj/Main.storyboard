@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6DG-c2-V2U">
@@ -40,7 +40,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yKD-PG-haL" id="uO3-7a-wms">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restuarant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjA-cS-ee8">
@@ -140,7 +140,7 @@
                         <viewControllerLayoutGuide type="bottom" id="5Bb-xQ-zfc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wTs-pG-DVx">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1pq-P8-UZC">
@@ -176,7 +176,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4o-FB-tCZ" id="YOf-UK-igf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
@@ -302,11 +302,10 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Hnh-xO-9RF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="ioe-cg-B0O">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="ioe-cg-B0O">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.40391087530000003" green="0.65994161370000004" blue="0.30751979350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.40391087530000003" green="0.65994161370000004" blue="0.30751979350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ZVq-LX-WVS" kind="relationship" relationship="viewControllers" id="nYm-Pq-e2t"/>
@@ -327,15 +326,36 @@
                         <viewControllerLayoutGuide type="bottom" id="YJi-9Z-G0e"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vZb-J2-f8z">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.40391087530000003" green="0.65994161370000004" blue="0.30751979350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="meetchewthere" id="Mdc-iC-1ri"/>
+                    <connections>
+                        <segue destination="SLc-R1-qln" kind="show" identifier="toRestrictions" id="wfV-6Z-GkN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Qb-1u-Apf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="857.72113943028489"/>
+        </scene>
+        <!--Restriction View Controller-->
+        <scene sceneID="2ol-OR-cyi">
+            <objects>
+                <viewController id="SLc-R1-qln" customClass="RestrictionViewController" customModule="meetchewthere" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HVb-9s-MFw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Viq-mG-AFd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0g5-34-2d7">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2As-Uh-AAQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2054" y="858"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="3Fm-ny-HCG">
@@ -346,7 +366,7 @@
                         <viewControllerLayoutGuide type="bottom" id="k6Q-uK-7Ih"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ntr-Ae-a6d">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hWL-da-4iS">
@@ -357,7 +377,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="coc-KI-aEh" id="sxo-7U-scZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restuarant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhC-Tm-kEv">
@@ -448,9 +468,8 @@
         <scene sceneID="rPJ-6Z-nKq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZVq-LX-WVS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" image="Near Me-100.png" id="Yiw-gI-nHC">
+                    <tabBarItem key="tabBarItem" title="Discover" image="discover" id="Yiw-gI-nHC">
                         <inset key="imageInsets" minX="3" minY="3" maxX="3" maxY="3"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="WRM-e9-k6Z">
@@ -499,7 +518,7 @@
         <scene sceneID="lVb-ks-znl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uAc-NT-NXr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="Settings-100.png" id="5ZK-gP-XWv">
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="5ZK-gP-XWv">
                         <inset key="imageInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -522,15 +541,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Near Me-100.png" width="40" height="40"/>
-        <image name="Settings-100.png" width="40" height="40"/>
         <image name="Star-100.png" width="40" height="40"/>
         <image name="close.png" width="50" height="50"/>
+        <image name="discover" width="34" height="33"/>
         <image name="heart_empty" width="53" height="51"/>
         <image name="phone" width="30" height="30"/>
+        <image name="profile" width="20" height="31"/>
         <image name="website" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZDc-0s-7UP"/>
+        <segue reference="4so-wC-IQo"/>
     </inferredMetricsTieBreakers>
 </document>

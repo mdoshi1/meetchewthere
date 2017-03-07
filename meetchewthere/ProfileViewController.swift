@@ -79,6 +79,11 @@ class ProfileViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleProfileChange), name: NSNotification.Name.FBSDKProfileDidChange, object: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        profileView.update()
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.FBSDKProfileDidChange, object: nil)
     }
@@ -92,12 +97,12 @@ class ProfileViewController: UIViewController {
             profileView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
             profileView.leftAnchor.constraint(equalTo: view.leftAnchor),
             profileView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            profileView.bottomAnchor.constraint(equalTo: view.centerYAnchor)
+            profileView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -22.0)
             ])
         
         // Options Table
         NSLayoutConstraint.activate([
-            optionsTable.topAnchor.constraint(equalTo: view.centerYAnchor),
+            optionsTable.topAnchor.constraint(equalTo: profileView.bottomAnchor),
             optionsTable.leftAnchor.constraint(equalTo: view.leftAnchor),
             optionsTable.rightAnchor.constraint(equalTo: view.rightAnchor),
             optionsTable.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor)
@@ -113,7 +118,12 @@ class ProfileViewController: UIViewController {
     // MARK: - Button Actions
     
     func toRestrictions() {
-    
+        /*if let userId = UserProfile.current?.userId {
+            Webservice.getRestrictions(forUserId: userId) { _ in
+                print("here")
+            }
+        }*/
+        performSegue(withIdentifier: "toRestrictions", sender: nil)
     }
     
     func toReviews() {
@@ -142,6 +152,12 @@ class ProfileViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    // MARK: - Navigation
+    
+    @IBAction func prepareForUnwind(sender: UIStoryboardSegue) {
+        
     }
     
 }

@@ -15,17 +15,8 @@ class ProfileView: UIView {
     
     private lazy var profileImage: UIImageView = {
         let profileImage = UIImageView()
+        profileImage.contentMode = .scaleAspectFit
         profileImage.backgroundColor = .chewGray
-        if let userProfile = UserProfile.current {
-            let profileImageURL = userProfile.imageURLWith(.square, size: CGSize(width: Constants.UI.ProfileImageWidth, height: Constants.UI.ProfileImageWidth))
-            Webservice.getImage(withURL: profileImageURL) { data in
-                if let data = data {
-                    DispatchQueue.main.async {
-                        self.profileImage.image = UIImage(data: data)
-                    }
-                }
-            }
-        }
         profileImage.layer.cornerRadius = Constants.UI.ProfileImageWidth / 2.0
         profileImage.layer.masksToBounds = true
         return profileImage
@@ -34,23 +25,12 @@ class ProfileView: UIView {
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.textColor = .white
-        if let userProfile = UserProfile.current,
-            let userName = userProfile.fullName {
-            nameLabel.text = userName
-        } else {
-            nameLabel.text = "You are not logged in"
-        }
         return nameLabel
     }()
     
     private lazy var restrictionsLabel: UILabel = {
         let restrictionsLabel = UILabel()
         restrictionsLabel.textColor = .white
-        if let userProfile = UserProfile.current {
-            
-        } else {
-            restrictionsLabel.text = ""
-        }
         return restrictionsLabel
     }()
     
@@ -109,11 +89,28 @@ class ProfileView: UIView {
             // Update name
             if let userName = userProfile.fullName {
                 nameLabel.text = userName
+            } else {
+                nameLabel.text = ""
             }
+            
+            // Update restrictions
+            Webservice.getRestrictions(forUserId: userProfile.userId, completion: { jsonDictionary in
+                guard let dictionary = jsonDictionary else {
+                    print("fail")
+                    return
+                }
+                DispatchQueue.main.async {
+                    if let restrictionsArray = dictionary["rows"], restrictionsArray.count > 0 {
+                        self.restrictionsLabel.text = "Restrictions"
+                    } else {
+                        self.restrictionsLabel.text = "No dietary restrictions"
+                    }
+                }
+            })
         } else {
             
             // Reset profile image
-            profileImage.image = nil
+            profileImage.image = UIImage(named: "no_profile_image")
             
             // Reset name
             nameLabel.text = "You are not logged in"
