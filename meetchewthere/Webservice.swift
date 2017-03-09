@@ -12,7 +12,66 @@ typealias JSONDictionary = [String: AnyObject]
 
 final class Webservice {
     
-    private static let apiURL = "http://mrsiva26.tech/senthil"
+    private static let apiURL = "https://hashtag.butler-demos.com/senthil"
+    
+    class func postReview(forUserId userId: String, businessId: String, reviewText: String, choiceRating: String, safetyRating: String, completion: @escaping(Bool) -> ()) {
+        
+        let urlString = apiURL + "/reviews_insert_bizid_reviewtxt_choice_safety_email.php"
+        guard let url = URL(string: urlString) else {
+            print("Error generating URL from string: \(urlString)")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let params = "userid=\(userId)&bizid=\(businessId)&reviewtxt=\(reviewText)&choice=\(choiceRating)&safety=\(safetyRating)"
+        request.httpBody = params.data(using: .utf8)
+        
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            guard error == nil else {
+                print("Error processing HTTP request: \(error?.localizedDescription)")
+                print("Error in retrieving image data")
+                completion(false)
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("Status code should be 200, but is \(httpStatus.statusCode)")
+            }
+            
+            completion(true)
+            }.resume()
+
+    }
+    
+    class func deleteReview(forUserId userId: String, businessId: String, reviewText: String, choiceRating: String, safetyRating: String, completion: @escaping (Bool) -> ()) {
+        
+        let urlString = apiURL + "/reviews_delete_bizid_reviewtxt_choice_safety_email.php"
+        guard let url = URL(string: urlString) else {
+            print("Error generating URL from string: \(urlString)")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let params = "userid=\(userId)&bizid=\(businessId)&reviewtxt=\(reviewText)&choice=\(choiceRating)&safety=\(safetyRating)"
+        request.httpBody = params.data(using: .utf8)
+        
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            guard error == nil else {
+                print("Error processing HTTP request: \(error?.localizedDescription)")
+                print("Error in retrieving image data")
+                completion(false)
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("Status code should be 200, but is \(httpStatus.statusCode)")
+            }
+            
+            completion(true)
+            }.resume()
+    }
     
     class func postRestrictions(forUserId userId: String, restriction: String, completion: @escaping(Bool) -> ()) {
         let urlString = apiURL + "/restrictions_insert_email_restriction.php"

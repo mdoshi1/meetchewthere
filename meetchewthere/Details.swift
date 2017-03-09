@@ -113,6 +113,11 @@ class Details: UIViewController, UITableViewDelegate {
             let reviewVC = destinationVC.childViewControllers[0] as! ReviewViewController
             reviewVC.navigationItem.title = titleName.text
             reviewVC.restrictions = restrictions
+            if let businessId = business?.identifier {
+                reviewVC.businessId = businessId
+            } else {
+                print("Business doesn't have an identifier")
+            }
         }
     }
     

@@ -24,6 +24,10 @@ class ReviewCell: UITableViewCell {
     
     @IBOutlet weak var restrictionLabel: UILabel!
     
+    // MARK: - Properties
+    
+    weak var delegate: ReviewCellDelegate?
+    
     // MARK: - ReviewCell
 
     override func awakeFromNib() {
@@ -98,25 +102,60 @@ class ReviewCell: UITableViewCell {
         case 1:
             (viewWithTag(2) as! UIButton).isSelected = false
             (viewWithTag(3) as! UIButton).isSelected = false
+            if sender.isSelected {
+                delegate?.updateChoiceRating(choice: "2")
+            } else {
+                delegate?.updateChoiceRating(choice: "-1")
+            }
         case 2:
             (viewWithTag(1) as! UIButton).isSelected = false
             (viewWithTag(3) as! UIButton).isSelected = false
+            if sender.isSelected {
+                delegate?.updateChoiceRating(choice: "1")
+            } else {
+                delegate?.updateChoiceRating(choice: "-1")
+            }
         case 3:
             (viewWithTag(1) as! UIButton).isSelected = false
             (viewWithTag(2) as! UIButton).isSelected = false
+            if sender.isSelected {
+                delegate?.updateChoiceRating(choice: "0")
+            } else {
+                delegate?.updateChoiceRating(choice: "-1")
+            }
         case 4:
             (viewWithTag(5) as! UIButton).isSelected = false
             (viewWithTag(6) as! UIButton).isSelected = false
+            if sender.isSelected {
+                delegate?.updateSafetyRating(safety: "2")
+            } else {
+                delegate?.updateSafetyRating(safety: "-1")
+            }
         case 5:
             (viewWithTag(4) as! UIButton).isSelected = false
             (viewWithTag(6) as! UIButton).isSelected = false
+            if sender.isSelected {
+                delegate?.updateSafetyRating(safety: "1")
+            } else {
+                delegate?.updateSafetyRating(safety: "-1")
+            }
         case 6:
             (viewWithTag(4) as! UIButton).isSelected = false
             (viewWithTag(5) as! UIButton).isSelected = false
+            if sender.isSelected {
+                delegate?.updateSafetyRating(safety: "0")
+            } else {
+                delegate?.updateSafetyRating(safety: "-1")
+            }
         default:
             break
         }
         
         
     }
+}
+
+protocol ReviewCellDelegate: class {
+    func updateChoiceRating(choice: String)
+    func updateSafetyRating(safety: String)
 }

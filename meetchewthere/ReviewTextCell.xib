@@ -25,6 +25,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="167.5" id="SMr-uw-QFd"/>
                         </constraints>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
