@@ -132,7 +132,7 @@ class ReviewViewController: UIViewController {
             present(alertController, animated: true, completion: nil)
         } else {
             if let userId = UserProfile.current?.userId {
-                Webservice.deleteReview(forUserId: userId, businessId: businessId, reviewText: reviewText, choiceRating: choiceRating, safetyRating: safetyRating) { success in
+                Webservice.deleteReview(forUserId: userId, businessId: businessId) { success in
                     guard success else {
                         print("Failed to delete user review")
                         DispatchQueue.main.async {

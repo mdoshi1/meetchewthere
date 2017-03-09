@@ -31,9 +31,8 @@ class Discover: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Hide navigation bar bottom border
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        // Set custom back button
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
         // Setup notifications
         NotificationCenter.default.addObserver(self, selector: #selector(initialSearch), name: NSNotification.Name(rawValue: Constants.Notification.ReceivedTokenNotification), object: nil)

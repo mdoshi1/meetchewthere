@@ -36,6 +36,9 @@ class Details: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Change back button to white
+        navigationController?.navigationBar.tintColor = .white
+        
         // Initialize NSManagedObjectContext
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             managedContext = appDelegate.persistentContainer.viewContext
@@ -72,7 +75,6 @@ class Details: UIViewController, UITableViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
         
         guard let business = business else {
             print("Business is nil")
@@ -102,7 +104,7 @@ class Details: UIViewController, UITableViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.isNavigationBarHidden = false
+        //navigationController?.isNavigationBarHidden = false
     }
     
     // MARK: Navigation
