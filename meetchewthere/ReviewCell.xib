@@ -13,103 +13,145 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ReviewCell" customModule="meetchewthere" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVd-pW-FRe">
-                        <rect key="frame" x="8" y="8" width="42" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restriction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVd-pW-FRe">
+                        <rect key="frame" x="16" y="16" width="288" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="oRt-rA-mSK">
-                        <rect key="frame" x="28.5" y="19" width="263" height="62"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Was there a variety of menu options for your restriction?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4I-bw-h5p">
+                        <rect key="frame" x="16" y="51.5" width="288" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is it safe to eat here with your restriction?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQl-iC-5pJ">
+                        <rect key="frame" x="16" y="119" width="288" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DFN-i2-DMl">
+                        <rect key="frame" x="8" y="142" width="304" height="29"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DFN-fH-CgM">
-                                <rect key="frame" x="0.0" y="0.0" width="74" height="62"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lf3-fR-NgE">
-                                        <rect key="frame" x="0.0" y="0.0" width="74" height="27"/>
-                                        <color key="backgroundColor" red="0.40391087530000003" green="0.65994161370000004" blue="0.30751979350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Good Choice">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0g-Yu-KbT">
-                                        <rect key="frame" x="0.0" y="35" width="74" height="27"/>
-                                        <color key="backgroundColor" red="0.40391087530000003" green="0.65994161370000004" blue="0.30751979350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Good Safety">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rnA-vY-BUM">
-                                <rect key="frame" x="106" y="0.0" width="60" height="62"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfi-jw-Wgs">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="27"/>
-                                        <color key="backgroundColor" red="0.9620169997215271" green="0.96433979272842407" blue="0.076025627553462982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="OK Choice">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilu-pW-HBz">
-                                        <rect key="frame" x="0.0" y="35" width="60" height="27"/>
-                                        <color key="backgroundColor" red="0.96201699969999999" green="0.96433979270000003" blue="0.076025627550000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="OK Safety">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UjV-PN-plp">
-                                <rect key="frame" x="198" y="0.0" width="65" height="62"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFw-c1-suy">
-                                        <rect key="frame" x="0.0" y="0.0" width="65" height="27"/>
-                                        <color key="backgroundColor" red="0.92347633838653564" green="0.27643013000488281" blue="0.21695476770401001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Bad Choice">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpj-Fh-X9Z">
-                                        <rect key="frame" x="0.0" y="35" width="65" height="27"/>
-                                        <color key="backgroundColor" red="0.92347633839999999" green="0.27643013" blue="0.2169547677" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Bad Safety">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8g-RN-X44">
+                                <rect key="frame" x="0.0" y="0.0" width="96" height="29"/>
+                                <color key="backgroundColor" red="0.80383342499999999" green="0.80397236350000001" blue="0.80382460359999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Good Safety">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectRating:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="EaF-G7-Wkl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f25-go-QpK">
+                                <rect key="frame" x="104" y="0.0" width="96" height="29"/>
+                                <color key="backgroundColor" red="0.80383342499999999" green="0.80397236350000001" blue="0.80382460359999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="OK Safety">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectRating:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Pea-30-pWQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZ9-Xy-4Ac">
+                                <rect key="frame" x="208" y="0.0" width="96" height="29"/>
+                                <color key="backgroundColor" red="0.80383342499999999" green="0.80397236350000001" blue="0.80382460359999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Bad Safety">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectRating:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VDl-Py-Ov3"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="f25-go-QpK" firstAttribute="width" secondItem="UZ9-Xy-4Ac" secondAttribute="width" id="Fgj-0m-7vs"/>
+                            <constraint firstItem="a8g-RN-X44" firstAttribute="width" secondItem="f25-go-QpK" secondAttribute="width" id="gwM-zv-xT0"/>
+                        </constraints>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lpr-W0-Emw">
+                        <rect key="frame" x="8" y="74" width="304" height="29"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuU-yR-YLx">
+                                <rect key="frame" x="0.0" y="0.0" width="96" height="29"/>
+                                <color key="backgroundColor" red="0.80383342499999999" green="0.80397236350000001" blue="0.80382460359999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Good Choice">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectRating:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Vi5-8Q-jKr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pef-NQ-Ttv">
+                                <rect key="frame" x="104" y="0.0" width="96" height="29"/>
+                                <color key="backgroundColor" red="0.80383342499999999" green="0.80397236350000001" blue="0.80382460359999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="OK Choice">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectRating:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cql-a3-U9Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M03-Lj-rpy">
+                                <rect key="frame" x="208" y="0.0" width="96" height="29"/>
+                                <color key="backgroundColor" red="0.80383342504501343" green="0.80397236347198486" blue="0.80382460355758667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Bad Choice">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectRating:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ce0-CK-YKI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="nuU-yR-YLx" firstAttribute="width" secondItem="Pef-NQ-Ttv" secondAttribute="width" id="KDJ-ec-p8W"/>
+                            <constraint firstItem="Pef-NQ-Ttv" firstAttribute="width" secondItem="M03-Lj-rpy" secondAttribute="width" id="i4C-Gl-pJ1"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="leadingMargin" secondItem="jVd-pW-FRe" secondAttribute="leading" id="2Ec-uG-Yco"/>
-                    <constraint firstItem="oRt-rA-mSK" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ZR1-Ye-ajS"/>
-                    <constraint firstItem="oRt-rA-mSK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lhc-IR-9Kk"/>
-                    <constraint firstAttribute="topMargin" secondItem="jVd-pW-FRe" secondAttribute="top" id="t0c-s3-mYr"/>
+                    <constraint firstItem="b4I-bw-h5p" firstAttribute="leading" secondItem="jVd-pW-FRe" secondAttribute="leading" id="2bd-mr-O3G"/>
+                    <constraint firstItem="jVd-pW-FRe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="5DL-KJ-wge"/>
+                    <constraint firstItem="DFN-i2-DMl" firstAttribute="top" secondItem="YQl-iC-5pJ" secondAttribute="bottom" constant="8" id="CKi-oK-kMl"/>
+                    <constraint firstItem="Lpr-W0-Emw" firstAttribute="height" secondItem="DFN-i2-DMl" secondAttribute="height" id="Dox-tB-8uM"/>
+                    <constraint firstItem="b4I-bw-h5p" firstAttribute="top" secondItem="jVd-pW-FRe" secondAttribute="bottom" constant="16" id="G8S-TL-Fwf"/>
+                    <constraint firstItem="jVd-pW-FRe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="GsE-lA-TIi"/>
+                    <constraint firstItem="b4I-bw-h5p" firstAttribute="trailing" secondItem="jVd-pW-FRe" secondAttribute="trailing" id="I9p-2J-pJv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="DFN-i2-DMl" secondAttribute="trailing" id="PKo-9U-pmb"/>
+                    <constraint firstItem="YQl-iC-5pJ" firstAttribute="leading" secondItem="jVd-pW-FRe" secondAttribute="leading" id="RoY-hP-HCn"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="jVd-pW-FRe" secondAttribute="trailing" constant="8" id="Tpy-bO-lig"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Lpr-W0-Emw" secondAttribute="trailing" id="gLC-4z-QFz"/>
+                    <constraint firstItem="Lpr-W0-Emw" firstAttribute="top" secondItem="b4I-bw-h5p" secondAttribute="bottom" constant="8" id="hRI-V0-dol"/>
+                    <constraint firstItem="Lpr-W0-Emw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="lB7-FO-rBc"/>
+                    <constraint firstItem="DFN-i2-DMl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="or0-27-sio"/>
+                    <constraint firstItem="YQl-iC-5pJ" firstAttribute="top" secondItem="Lpr-W0-Emw" secondAttribute="bottom" constant="16" id="sKA-gF-hiB"/>
+                    <constraint firstItem="YQl-iC-5pJ" firstAttribute="trailing" secondItem="jVd-pW-FRe" secondAttribute="trailing" id="v1F-ie-30m"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="DFN-i2-DMl" secondAttribute="bottom" constant="8" id="zA4-rI-mkg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="badChoiceLabel" destination="JFw-c1-suy" id="ur1-yH-tXz"/>
-                <outlet property="badSafetyLabel" destination="qpj-Fh-X9Z" id="BG3-Gy-EwX"/>
-                <outlet property="goodChoiceLabel" destination="lf3-fR-NgE" id="hzq-qc-c0L"/>
-                <outlet property="goodSafetyLabel" destination="o0g-Yu-KbT" id="juA-oy-1cJ"/>
-                <outlet property="okChoiceLabel" destination="yfi-jw-Wgs" id="0SW-OM-J4U"/>
-                <outlet property="okSafetyLabel" destination="ilu-pW-HBz" id="GT8-mf-2Hd"/>
+                <outlet property="badChoiceButton" destination="M03-Lj-rpy" id="KYA-Od-EJR"/>
+                <outlet property="badSafetyButton" destination="UZ9-Xy-4Ac" id="iWS-Bw-lap"/>
+                <outlet property="goodChoiceButton" destination="nuU-yR-YLx" id="bog-U7-Khg"/>
+                <outlet property="goodSafetyButton" destination="a8g-RN-X44" id="Qoa-h9-zNE"/>
+                <outlet property="okChoiceButton" destination="Pef-NQ-Ttv" id="xZ4-sx-SM5"/>
+                <outlet property="okSafetyButton" destination="f25-go-QpK" id="l2q-rw-cx9"/>
                 <outlet property="restrictionLabel" destination="jVd-pW-FRe" id="PsV-gw-nvO"/>
             </connections>
+            <point key="canvasLocation" x="34" y="80.5"/>
         </tableViewCell>
     </objects>
 </document>

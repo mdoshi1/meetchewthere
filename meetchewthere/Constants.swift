@@ -17,5 +17,6 @@ class Constants {
     
     struct UI {
         static let ProfileImageWidth: CGFloat = 150.0
+        static let KeyboardOffset: CGFloat = 80.0
     }
 }

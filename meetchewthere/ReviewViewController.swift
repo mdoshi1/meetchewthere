@@ -11,65 +11,49 @@ import FacebookCore
 
 class ReviewViewController: UIViewController {
     
-    // MARK: - IBOutlets
-    
-    @IBOutlet weak var navbar: UINavigationBar!
-    
     // MARK: - Properties
     
-    private lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel()
-        nameLabel.font = UIFont.systemFont(ofSize: 24.0)
-        if let username = UserProfile.current?.fullName {
-            nameLabel.text = username
-        }
-        return nameLabel
+    private lazy var reviewTable: UITableView = {
+        let reviewTable = UITableView()
+        reviewTable.delegate = self
+        reviewTable.dataSource = self
+        reviewTable.bounces = false
+        reviewTable.rowHeight = UITableViewAutomaticDimension
+        reviewTable.register(UINib(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
+        reviewTable.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
+        reviewTable.register(UINib(nibName: "ReviewTextCell", bundle: nil), forCellReuseIdentifier: "ReviewTextCell")
+        
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64.0))
+        let submitButton = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64.0))
+        submitButton.backgroundColor = .chewGreen
+        submitButton.setTitleColor(.white, for: .normal)
+        submitButton.setTitle("Submit Review", for: .normal)
+        submitButton.addTarget(self, action: #selector(submitReview), for: .touchUpInside)
+        footerView.addSubview(submitButton)
+        reviewTable.tableFooterView = footerView
+        
+        return reviewTable
     }()
     
-    private lazy var restrictionTable: UITableView = {
-        let restrictionTable = UITableView()
-        restrictionTable.delegate = self
-        restrictionTable.dataSource = self
-        restrictionTable.isScrollEnabled = false
-        restrictionTable.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
-        return restrictionTable
+    private lazy var cancelButton: UIBarButtonItem = {
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(cancel))
+        cancelButton.tintColor = .white
+        return cancelButton
     }()
     
-    private lazy var reviewText: UITextView = {
-        let reviewText = UITextView()
-        reviewText.isEditable = true
-        reviewText.delegate = self
-        reviewText.font = UIFont.systemFont(ofSize: 18.0)
-        reviewText.text = "Write something..."
-        reviewText.textColor = .chewGray
-        return reviewText
-    }()
-    
-    private lazy var reviewButton: UIButton = {
-        let reviewButton = UIButton()
-        reviewButton.backgroundColor = .chewGreen
-        reviewButton.setTitleColor(.white, for: .normal)
-        reviewButton.setTitle("Submit Review", for: .normal)
-        reviewButton.addTarget(self, action: #selector(submitReview), for: .touchUpInside)
-        return reviewButton
-    }()
-    
-    var restrictions = ["Nut", "Dairy"]
-    var restaurantName = ""
+    var restrictions: [String] = []
     
     // MARK: - ReviewViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navbar.topItem?.title = restaurantName
+        // Tap outside to close keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
-        view.addSubview(nameLabel.usingAutolayout())
-        view.addSubview(restrictionTable.usingAutolayout())
-        view.addSubview(reviewText.usingAutolayout())
-        view.addSubview(reviewButton.usingAutolayout())
+
+        navigationItem.rightBarButtonItem = cancelButton
+        view.addSubview(reviewTable.usingAutolayout())
         setupConstraints()
     }
     
@@ -77,35 +61,12 @@ class ReviewViewController: UIViewController {
     
     func setupConstraints() {
         
-        // Name Label
+        // Review Table
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 52.0),
-            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8.0),
-            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            ])
-        
-        // Restrictions Table
-        NSLayoutConstraint.activate([
-            restrictionTable.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
-            restrictionTable.leftAnchor.constraint(equalTo: view.leftAnchor),
-            restrictionTable.rightAnchor.constraint(equalTo: view.rightAnchor),
-            restrictionTable.bottomAnchor.constraint(equalTo: view.centerYAnchor)
-            ])
-        
-        // Review Text
-        NSLayoutConstraint.activate([
-            reviewText.topAnchor.constraint(equalTo: view.centerYAnchor),
-            reviewText.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            reviewText.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            reviewText.bottomAnchor.constraint(equalTo: reviewButton.topAnchor)
-            ])
-        
-        // Review Button
-        NSLayoutConstraint.activate([
-            reviewButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            reviewButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            reviewButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor),
-            reviewButton.heightAnchor.constraint(equalToConstant: 50.0)
+            reviewTable.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
+            reviewTable.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            reviewTable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            reviewTable.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
     }
     
@@ -129,18 +90,37 @@ class ReviewViewController: UIViewController {
 
 extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / 2.0
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 127.5
+        case restrictions.count:
+            return 200
+        default:
+            return 187
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restrictions.count
+        return restrictions.count + 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell") as! ReviewCell
-        cell.restrictionLabel.text = restrictions[indexPath.row]
-        return cell
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
+            if let username = UserProfile.current?.fullName {
+                cell.username.text = username
+            }
+            return cell
+        case restrictions.count + 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewTextCell") as! ReviewTextCell
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell") as! ReviewCell
+            cell.restrictionLabel.text = restrictions[indexPath.row - 1]
+            return cell
+        }
     }
     
 }

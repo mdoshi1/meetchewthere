@@ -109,8 +109,10 @@ class Details: UIViewController, UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toReview" {
-            let destinationVC = segue.destination as! ReviewViewController
-            destinationVC.restaurantName = titleName.text!
+            let destinationVC = segue.destination as! UINavigationController
+            let reviewVC = destinationVC.childViewControllers[0] as! ReviewViewController
+            reviewVC.navigationItem.title = titleName.text
+            reviewVC.restrictions = restrictions
         }
     }
     

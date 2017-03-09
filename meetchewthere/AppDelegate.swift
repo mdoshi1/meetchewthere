@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // Change status bar text color to white
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        // Get Yelp client
         YLPClient.authorize(withAppId: appId, secret: secret) { client, error in
             guard let client = client, error == nil else {
                 
@@ -36,13 +40,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.ReceivedTokenNotification), object: nil)
         }
         
+        // Allow Facebook login
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        // Setup Crashlytics
         Fabric.with([Crashlytics.self])
         
         return true
     }
     
+    // Needed to dismiss Facebook login modal
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return SDKApplicationDelegate.shared.application(app, open: url, options: options)
     }

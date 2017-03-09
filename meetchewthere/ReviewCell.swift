@@ -12,12 +12,15 @@ class ReviewCell: UITableViewCell {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var goodChoiceLabel: UIButton!
-    @IBOutlet weak var goodSafetyLabel: UIButton!
-    @IBOutlet weak var okChoiceLabel: UIButton!
-    @IBOutlet weak var okSafetyLabel: UIButton!
-    @IBOutlet weak var badChoiceLabel: UIButton!
-    @IBOutlet weak var badSafetyLabel: UIButton!
+    // Choice buttons
+    @IBOutlet weak var goodChoiceButton: UIButton!
+    @IBOutlet weak var okChoiceButton: UIButton!
+    @IBOutlet weak var badChoiceButton: UIButton!
+    
+    // Safety buttons
+    @IBOutlet weak var goodSafetyButton: UIButton!
+    @IBOutlet weak var okSafetyButton: UIButton!
+    @IBOutlet weak var badSafetyButton: UIButton!
     
     @IBOutlet weak var restrictionLabel: UILabel!
     
@@ -37,19 +40,83 @@ class ReviewCell: UITableViewCell {
     // MARK: - Helper Methods
     
     private func setupButtons() {
-        goodChoiceLabel.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
-        goodChoiceLabel.layer.cornerRadius = 5.0
-        okChoiceLabel.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
-        okChoiceLabel.layer.cornerRadius = 5.0
-        badChoiceLabel.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
-        okChoiceLabel.layer.cornerRadius = 5.0
+        goodChoiceButton.tag = 1
+        goodChoiceButton.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
+        goodChoiceButton.layer.cornerRadius = 5.0
+        goodChoiceButton.layer.masksToBounds = true
+        goodChoiceButton.setBackgroundImage(UIImage.withColor(.chewGray), for: .normal)
+        goodChoiceButton.setBackgroundImage(UIImage.withColor(.chewGreen), for: .selected)
+        goodChoiceButton.setTitleColor(.black, for: .selected)
         
-        goodSafetyLabel.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
-        goodSafetyLabel.layer.cornerRadius = 5.0
-        okSafetyLabel.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
-        okSafetyLabel.layer.cornerRadius = 5.0
-        badSafetyLabel.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
-        badSafetyLabel.layer.cornerRadius = 5.0
+        okChoiceButton.tag = 2
+        okChoiceButton.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
+        okChoiceButton.layer.cornerRadius = 5.0
+        okChoiceButton.layer.masksToBounds = true
+        okChoiceButton.setBackgroundImage(UIImage.withColor(.chewGray), for: .normal)
+        okChoiceButton.setBackgroundImage(UIImage.withColor(.chewYellow), for: .selected)
+        okChoiceButton.setTitleColor(.black, for: .selected)
+        
+        badChoiceButton.tag = 3
+        badChoiceButton.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
+        badChoiceButton.layer.cornerRadius = 5.0
+        badChoiceButton.layer.masksToBounds = true
+        badChoiceButton.setBackgroundImage(UIImage.withColor(.chewGray), for: .normal)
+        badChoiceButton.setBackgroundImage(UIImage.withColor(.chewRed), for: .selected)
+        badChoiceButton.setTitleColor(.black, for: .selected)
+        
+        goodSafetyButton.tag = 4
+        goodSafetyButton.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
+        goodSafetyButton.layer.cornerRadius = 5.0
+        goodSafetyButton.layer.masksToBounds = true
+        goodSafetyButton.setBackgroundImage(UIImage.withColor(.chewGray), for: .normal)
+        goodSafetyButton.setBackgroundImage(UIImage.withColor(.chewGreen), for: .selected)
+        goodSafetyButton.setTitleColor(.black, for: .selected)
+        
+        okSafetyButton.tag = 5
+        okSafetyButton.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
+        okSafetyButton.layer.cornerRadius = 5.0
+        okSafetyButton.layer.masksToBounds = true
+        okSafetyButton.setBackgroundImage(UIImage.withColor(.chewGray), for: .normal)
+        okSafetyButton.setBackgroundImage(UIImage.withColor(.chewYellow), for: .selected)
+        okSafetyButton.setTitleColor(.black, for: .selected)
+        
+        badSafetyButton.tag = 6
+        badSafetyButton.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
+        badSafetyButton.layer.cornerRadius = 5.0
+        badSafetyButton.layer.masksToBounds = true
+        badSafetyButton.setBackgroundImage(UIImage.withColor(.chewGray), for: .normal)
+        badSafetyButton.setBackgroundImage(UIImage.withColor(.chewRed), for: .selected)
+        badSafetyButton.setTitleColor(.black, for: .selected)
     }
     
+    // MARK: - Button Actions
+    
+    @IBAction func selectRating(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        switch sender.tag {
+        case 1:
+            (viewWithTag(2) as! UIButton).isSelected = false
+            (viewWithTag(3) as! UIButton).isSelected = false
+        case 2:
+            (viewWithTag(1) as! UIButton).isSelected = false
+            (viewWithTag(3) as! UIButton).isSelected = false
+        case 3:
+            (viewWithTag(1) as! UIButton).isSelected = false
+            (viewWithTag(2) as! UIButton).isSelected = false
+        case 4:
+            (viewWithTag(5) as! UIButton).isSelected = false
+            (viewWithTag(6) as! UIButton).isSelected = false
+        case 5:
+            (viewWithTag(4) as! UIButton).isSelected = false
+            (viewWithTag(6) as! UIButton).isSelected = false
+        case 6:
+            (viewWithTag(4) as! UIButton).isSelected = false
+            (viewWithTag(5) as! UIButton).isSelected = false
+        default:
+            break
+        }
+        
+        
+    }
 }

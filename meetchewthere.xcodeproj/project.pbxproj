@@ -26,6 +26,10 @@
 		F4049AC81E6F324B00B52F43 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AC71E6F324B00B52F43 /* ReviewViewController.swift */; };
 		F4049ACB1E6F3B5300B52F43 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AC91E6F3B5300B52F43 /* ReviewCell.swift */; };
 		F4049ACC1E6F3B5300B52F43 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049ACA1E6F3B5300B52F43 /* ReviewCell.xib */; };
+		F4049AD11E71753900B52F43 /* ReviewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049ACF1E71753900B52F43 /* ReviewTextCell.swift */; };
+		F4049AD21E71753900B52F43 /* ReviewTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049AD01E71753900B52F43 /* ReviewTextCell.xib */; };
+		F4049AD51E717DDE00B52F43 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AD31E717DDE00B52F43 /* HeaderCell.swift */; };
+		F4049AD61E717DDE00B52F43 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049AD41E717DDE00B52F43 /* HeaderCell.xib */; };
 		F41490901E6523B300B966B6 /* SheetTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414908F1E6523B300B966B6 /* SheetTableView.swift */; };
 		F414909B1E6578EA00B966B6 /* SelectionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41490991E6578EA00B966B6 /* SelectionSheetCell.swift */; };
 		F414909C1E6578EA00B966B6 /* SelectionSheetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414909A1E6578EA00B966B6 /* SelectionSheetCell.xib */; };
@@ -125,6 +129,10 @@
 		F4049AC71E6F324B00B52F43 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		F4049AC91E6F3B5300B52F43 /* ReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		F4049ACA1E6F3B5300B52F43 /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		F4049ACF1E71753900B52F43 /* ReviewTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTextCell.swift; sourceTree = "<group>"; };
+		F4049AD01E71753900B52F43 /* ReviewTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewTextCell.xib; sourceTree = "<group>"; };
+		F4049AD31E717DDE00B52F43 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		F4049AD41E717DDE00B52F43 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		F414908F1E6523B300B966B6 /* SheetTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetTableView.swift; sourceTree = "<group>"; };
 		F41490991E6578EA00B966B6 /* SelectionSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionSheetCell.swift; sourceTree = "<group>"; };
 		F414909A1E6578EA00B966B6 /* SelectionSheetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionSheetCell.xib; sourceTree = "<group>"; };
@@ -263,15 +271,27 @@
 			children = (
 				5E2A7DE91E3D85A300B2CE15 /* Discover.swift */,
 				5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */,
-				F4049AC71E6F324B00B52F43 /* ReviewViewController.swift */,
-				F4049AC91E6F3B5300B52F43 /* ReviewCell.swift */,
-				F4049ACA1E6F3B5300B52F43 /* ReviewCell.xib */,
 				5EA118B91E3EC1AC008772D8 /* Favorites.swift */,
 				5EA118B71E3EB9EF008772D8 /* RatingsCells.swift */,
 				F4FEC2FA1E4C7F0700112F14 /* BusinessCell.swift */,
 				F4EE7A4A1E5A650A00DE3DF8 /* RatingLabel.swift */,
+				F4049ACE1E7174AD00B52F43 /* Review */,
 			);
 			name = Restaurant;
+			sourceTree = "<group>";
+		};
+		F4049ACE1E7174AD00B52F43 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				F4049AC71E6F324B00B52F43 /* ReviewViewController.swift */,
+				F4049AC91E6F3B5300B52F43 /* ReviewCell.swift */,
+				F4049ACA1E6F3B5300B52F43 /* ReviewCell.xib */,
+				F4049ACF1E71753900B52F43 /* ReviewTextCell.swift */,
+				F4049AD01E71753900B52F43 /* ReviewTextCell.xib */,
+				F4049AD31E717DDE00B52F43 /* HeaderCell.swift */,
+				F4049AD41E717DDE00B52F43 /* HeaderCell.xib */,
+			);
+			name = Review;
 			sourceTree = "<group>";
 		};
 		F41490931E6577D300B966B6 /* Interface */ = {
@@ -501,7 +521,9 @@
 				5E2A7DB41E3D5AE600B2CE15 /* LaunchScreen.storyboard in Resources */,
 				5E2A7DB11E3D5AE600B2CE15 /* Assets.xcassets in Resources */,
 				5E2A7DAF1E3D5AE600B2CE15 /* Main.storyboard in Resources */,
+				F4049AD61E717DDE00B52F43 /* HeaderCell.xib in Resources */,
 				F414909C1E6578EA00B966B6 /* SelectionSheetCell.xib in Resources */,
+				F4049AD21E71753900B52F43 /* ReviewTextCell.xib in Resources */,
 				F4049ACC1E6F3B5300B52F43 /* ReviewCell.xib in Resources */,
 				5EA118B61E3EB36B008772D8 /* close.png in Resources */,
 				F48810CA1E6BAAF000A822C4 /* OptionCell.xib in Resources */,
@@ -636,6 +658,7 @@
 				F41490901E6523B300B966B6 /* SheetTableView.swift in Sources */,
 				F4FEC2F91E4C754200112F14 /* Constants.swift in Sources */,
 				5E2A7DEF1E3DA49F00B2CE15 /* Details.swift in Sources */,
+				F4049AD51E717DDE00B52F43 /* HeaderCell.swift in Sources */,
 				F4EE7A191E5660A900DE3DF8 /* meetchewthere.xcdatamodeld in Sources */,
 				F4EE7A3E1E57EEBF00DE3DF8 /* UIColor+MCT.swift in Sources */,
 				F4FEC2FB1E4C7F0700112F14 /* BusinessCell.swift in Sources */,
@@ -643,6 +666,7 @@
 				F4049AC81E6F324B00B52F43 /* ReviewViewController.swift in Sources */,
 				F4CDFAAD1E6CDE6C00B058F5 /* ProfileView.swift in Sources */,
 				F4CDFAA81E6C136D00B058F5 /* UIButton+Layout.swift in Sources */,
+				F4049AD11E71753900B52F43 /* ReviewTextCell.swift in Sources */,
 				F4049AC01E6E7F9300B52F43 /* MCTButton.swift in Sources */,
 				5E2A7DAA1E3D5AE600B2CE15 /* AppDelegate.swift in Sources */,
 				F4049ACB1E6F3B5300B52F43 /* ReviewCell.swift in Sources */,
