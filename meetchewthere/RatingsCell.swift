@@ -1,15 +1,15 @@
 //
-//  RatingsCells.swift
+//  RatingsCell.swift
 //  meetchewthere
 //
-//  Created by Alejandrina Gonzalez on 1/29/17.
+//  Created by Michael-Anthony Doshi on 3/11/17.
 //  Copyright © 2017 Alejandrina Gonzalez Reyes. All rights reserved.
 //
 
 import UIKit
 
-class RatingsCells: UITableViewCell {
-    
+class RatingsCell: UITableViewCell {
+
     // MARK: - Properties
     
     lazy var restriction: UILabel = {
@@ -36,10 +36,10 @@ class RatingsCells: UITableViewCell {
         addSubview(safetyLabel.usingAutolayout())
         setupConstraints()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -66,5 +66,5 @@ class RatingsCells: UITableViewCell {
             ])
         
     }
-
+    
 }

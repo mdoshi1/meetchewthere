@@ -142,152 +142,9 @@
                     <view key="view" contentMode="scaleToFill" id="wTs-pG-DVx">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1pq-P8-UZC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Tas-fc-Akw"/>
-                                </constraints>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ex8-JL-YEV">
-                                <rect key="frame" x="0.0" y="379" width="375" height="125"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="65" id="M4o-FB-tCZ" customClass="RatingsCells" customModule="meetchewthere" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4o-FB-tCZ" id="YOf-UK-igf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT3-aT-872">
-                                <rect key="frame" x="16" y="212" width="343" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dY-67-sqz">
-                                <rect key="frame" x="0.0" y="504" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.40391087530000003" green="0.65994161370000004" blue="0.30751979350000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="v2y-97-Ucf"/>
-                                </constraints>
-                                <state key="normal" title="Leave A Review">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="reviewRestaurant:" destination="Kho-vH-lGe" eventType="touchUpInside" id="l6H-BX-cVH"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="xwV-O7-GPE">
-                                <rect key="frame" x="68" y="263" width="239" height="108"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1r5-ty-J7Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="67" height="108"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDN-9g-8km">
-                                                <rect key="frame" x="0.0" y="0.0" width="67" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMZ-Sb-Cxe">
-                                                <rect key="frame" x="18.5" y="20.5" width="30" height="67"/>
-                                                <state key="normal" image="phone"/>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jt-vf-p9m">
-                                                <rect key="frame" x="19" y="87.5" width="29" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8Ba-av-4Ro">
-                                        <rect key="frame" x="86" y="0.0" width="67" height="108"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQH-Bi-4Mg">
-                                                <rect key="frame" x="14" y="0.0" width="39" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyT-4M-yVE">
-                                                <rect key="frame" x="7" y="28.5" width="53" height="51"/>
-                                                <state key="normal" image="heart_empty"/>
-                                                <connections>
-                                                    <action selector="saveRestaurant:" destination="Kho-vH-lGe" eventType="touchUpInside" id="jxU-Oh-A88"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWX-aK-4Cj">
-                                                <rect key="frame" x="3" y="87.5" width="61" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RgC-ff-z55">
-                                        <rect key="frame" x="172" y="0.0" width="67" height="108"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q88-sU-LHN">
-                                                <rect key="frame" x="10.5" y="0.0" width="46" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wc-1v-7e1">
-                                                <rect key="frame" x="19.5" y="20.5" width="28" height="67"/>
-                                                <state key="normal" image="website"/>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shl-Zt-zxu">
-                                                <rect key="frame" x="2.5" y="87.5" width="62" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="1r5-ty-J7Y" firstAttribute="width" secondItem="8Ba-av-4Ro" secondAttribute="width" id="ILD-fz-IbA"/>
-                                    <constraint firstItem="8Ba-av-4Ro" firstAttribute="width" secondItem="RgC-ff-z55" secondAttribute="width" id="iiW-rq-MgA"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Ex8-JL-YEV" secondAttribute="trailing" id="2IB-Lj-ZmG"/>
-                            <constraint firstItem="oT3-aT-872" firstAttribute="top" secondItem="1pq-P8-UZC" secondAttribute="bottom" constant="12" id="5uK-R2-lB9"/>
-                            <constraint firstItem="1pq-P8-UZC" firstAttribute="top" secondItem="mgM-8X-NfW" secondAttribute="bottom" id="8BK-Ne-ZFv"/>
-                            <constraint firstItem="0dY-67-sqz" firstAttribute="top" secondItem="Ex8-JL-YEV" secondAttribute="bottom" id="8T5-fK-Bj3"/>
-                            <constraint firstItem="xwV-O7-GPE" firstAttribute="centerX" secondItem="wTs-pG-DVx" secondAttribute="centerX" id="EEy-9V-n6i"/>
-                            <constraint firstAttribute="trailing" secondItem="0dY-67-sqz" secondAttribute="trailing" id="Ez7-Fu-S8h"/>
-                            <constraint firstAttribute="trailing" secondItem="1pq-P8-UZC" secondAttribute="trailing" id="Hep-DZ-STH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oT3-aT-872" secondAttribute="trailing" id="Hi0-Yw-wgM"/>
-                            <constraint firstItem="xwV-O7-GPE" firstAttribute="top" secondItem="oT3-aT-872" secondAttribute="bottom" constant="8" id="IE6-Ae-BZY"/>
-                            <constraint firstItem="Ex8-JL-YEV" firstAttribute="leading" secondItem="wTs-pG-DVx" secondAttribute="leading" id="bGX-Q0-Tls"/>
-                            <constraint firstItem="0dY-67-sqz" firstAttribute="leading" secondItem="wTs-pG-DVx" secondAttribute="leading" id="dfh-2R-5ja"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="oT3-aT-872" secondAttribute="leading" id="g1a-R8-uy5"/>
-                            <constraint firstItem="Ex8-JL-YEV" firstAttribute="top" secondItem="xwV-O7-GPE" secondAttribute="bottom" constant="8" id="nA4-Lf-bnV"/>
-                            <constraint firstItem="1pq-P8-UZC" firstAttribute="leading" secondItem="wTs-pG-DVx" secondAttribute="leading" id="pdQ-n8-gIl"/>
-                            <constraint firstItem="5Bb-xQ-zfc" firstAttribute="top" secondItem="0dY-67-sqz" secondAttribute="bottom" id="sxG-xi-J9v"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="distance" destination="xDN-9g-8km" id="mU9-1x-HFU"/>
-                        <outlet property="favoriteButton" destination="hyT-4M-yVE" id="dVq-3h-ddZ"/>
-                        <outlet property="hours" destination="q88-sU-LHN" id="HzO-zZ-smq"/>
-                        <outlet property="price" destination="zQH-Bi-4Mg" id="Rzi-yw-OEg"/>
-                        <outlet property="restaurant" destination="1pq-P8-UZC" id="jBi-09-Zt3"/>
-                        <outlet property="reviewButton" destination="0dY-67-sqz" id="PZw-xs-lLZ"/>
-                        <outlet property="tableView" destination="Ex8-JL-YEV" id="r2R-Ne-0QH"/>
-                        <outlet property="titleName" destination="oT3-aT-872" id="CGq-p5-acD"/>
                         <segue destination="z3z-pF-Zn2" kind="presentation" identifier="toReview" id="YtS-90-8rH"/>
                     </connections>
                 </viewController>
@@ -582,10 +439,7 @@
     <resources>
         <image name="Star-100.png" width="40" height="40"/>
         <image name="discover" width="34" height="33"/>
-        <image name="heart_empty" width="53" height="51"/>
-        <image name="phone" width="30" height="30"/>
         <image name="profile" width="20" height="31"/>
-        <image name="website" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4so-wC-IQo"/>
