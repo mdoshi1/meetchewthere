@@ -30,10 +30,9 @@
 		F4049AD51E717DDE00B52F43 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AD31E717DDE00B52F43 /* HeaderCell.swift */; };
 		F4049AD61E717DDE00B52F43 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049AD41E717DDE00B52F43 /* HeaderCell.xib */; };
 		F4049AD81E73FF7A00B52F43 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AD71E73FF7A00B52F43 /* IntrinsicTableView.swift */; };
-		F4049ADB1E74033000B52F43 /* RatingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AD91E74033000B52F43 /* RatingsCell.swift */; };
-		F4049ADC1E74033000B52F43 /* RatingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049ADA1E74033000B52F43 /* RatingsCell.xib */; };
 		F4049AE61E74A57000B52F43 /* RestrictionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AE41E74A57000B52F43 /* RestrictionCell.swift */; };
 		F4049AE71E74A57000B52F43 /* RestrictionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049AE51E74A57000B52F43 /* RestrictionCell.xib */; };
+		F4049AE91E74B9CB00B52F43 /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AE81E74B9CB00B52F43 /* ReviewsViewController.swift */; };
 		F44D9B821E3D6E3700566044 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44D9B811E3D6E3700566044 /* Messages.framework */; };
 		F44D9B851E3D6E3700566044 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D9B841E3D6E3700566044 /* MessagesViewController.swift */; };
 		F44D9B881E3D6E3700566044 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44D9B861E3D6E3700566044 /* MainInterface.storyboard */; };
@@ -132,10 +131,9 @@
 		F4049AD31E717DDE00B52F43 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		F4049AD41E717DDE00B52F43 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		F4049AD71E73FF7A00B52F43 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
-		F4049AD91E74033000B52F43 /* RatingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingsCell.swift; sourceTree = "<group>"; };
-		F4049ADA1E74033000B52F43 /* RatingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingsCell.xib; sourceTree = "<group>"; };
 		F4049AE41E74A57000B52F43 /* RestrictionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestrictionCell.swift; sourceTree = "<group>"; };
 		F4049AE51E74A57000B52F43 /* RestrictionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestrictionCell.xib; sourceTree = "<group>"; };
+		F4049AE81E74B9CB00B52F43 /* ReviewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
 		F44D9B7F1E3D6E3700566044 /* MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessagesExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44D9B811E3D6E3700566044 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
 		F44D9B841E3D6E3700566044 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
@@ -267,8 +265,6 @@
 		F4049ACD1E6F4F9B00B52F43 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
-				F4049AD91E74033000B52F43 /* RatingsCell.swift */,
-				F4049ADA1E74033000B52F43 /* RatingsCell.xib */,
 				5E2A7DE91E3D85A300B2CE15 /* Discover.swift */,
 				5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */,
 				F4049AE41E74A57000B52F43 /* RestrictionCell.swift */,
@@ -291,6 +287,7 @@
 				F4049AD01E71753900B52F43 /* ReviewTextCell.xib */,
 				F4049AD31E717DDE00B52F43 /* HeaderCell.swift */,
 				F4049AD41E717DDE00B52F43 /* HeaderCell.xib */,
+				F4049AE81E74B9CB00B52F43 /* ReviewsViewController.swift */,
 			);
 			name = Review;
 			sourceTree = "<group>";
@@ -517,7 +514,6 @@
 				5E2A7DD41E3D63BF00B2CE15 /* Near Me-100.png in Resources */,
 				5E2A7DB41E3D5AE600B2CE15 /* LaunchScreen.storyboard in Resources */,
 				5E2A7DB11E3D5AE600B2CE15 /* Assets.xcassets in Resources */,
-				F4049ADC1E74033000B52F43 /* RatingsCell.xib in Resources */,
 				5E2A7DAF1E3D5AE600B2CE15 /* Main.storyboard in Resources */,
 				F4049AD61E717DDE00B52F43 /* HeaderCell.xib in Resources */,
 				F4049AD21E71753900B52F43 /* ReviewTextCell.xib in Resources */,
@@ -642,7 +638,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4049ADB1E74033000B52F43 /* RatingsCell.swift in Sources */,
 				F4EE7A4B1E5A650A00DE3DF8 /* RatingLabel.swift in Sources */,
 				F4EE7A3C1E57EE9600DE3DF8 /* UIView+Autolayout.swift in Sources */,
 				F48810C91E6BAAF000A822C4 /* OptionCell.swift in Sources */,
@@ -664,6 +659,7 @@
 				F4049AD81E73FF7A00B52F43 /* IntrinsicTableView.swift in Sources */,
 				F4049AD11E71753900B52F43 /* ReviewTextCell.swift in Sources */,
 				F4049AC01E6E7F9300B52F43 /* MCTButton.swift in Sources */,
+				F4049AE91E74B9CB00B52F43 /* ReviewsViewController.swift in Sources */,
 				5E2A7DAA1E3D5AE600B2CE15 /* AppDelegate.swift in Sources */,
 				F4049ACB1E6F3B5300B52F43 /* ReviewCell.swift in Sources */,
 				F4FEC2FD1E4C82B700112F14 /* Webservice.swift in Sources */,

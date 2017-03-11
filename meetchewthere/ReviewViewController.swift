@@ -49,6 +49,8 @@ class ReviewViewController: UIViewController {
     fileprivate var choiceRating = "-1"
     fileprivate var safetyRating = "-1"
     
+    fileprivate var dispatchGroup = DispatchGroup()
+    
     // MARK: - ReviewViewController
 
     override func viewDidLoad() {
@@ -125,37 +127,44 @@ class ReviewViewController: UIViewController {
     // MARK: UIButton Actions
     
     func submitReview() {
-        if reviewText == "" && choiceRating == "-1" && safetyRating == "-1" {
-            let alertController = UIAlertController(title: "You did not input anything", message: "Rate this restaurant's accomdation for your restriction(s) and/or write a review before submitting", preferredStyle: .alert)
+        if choiceRating == "-1" && safetyRating == "-1" {
+            let alertController = UIAlertController(title: "You did not rate this restaurant", message: "Rate this restaurant's accomdation for your restriction(s) before submitting", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
-        } else {
-            if let userId = UserProfile.current?.userId {
-                Webservice.deleteReview(forUserId: userId, businessId: businessId) { success in
-                    guard success else {
-                        print("Failed to delete user review")
-                        DispatchQueue.main.async {
-                            self.dismiss(animated: true, completion: nil)
-                        }
-                        return
+        } else if let userId = UserProfile.current?.userId {
+            
+            Webservice.deleteReview(forUserId: userId, businessId: businessId) { success in
+                guard success else {
+                    print("Failed to delete user review")
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
                     }
-                    print("Successfully deleted user review")
-                    Webservice.postReview(forUserId: userId, businessId: self.businessId, reviewText: self.reviewText, choiceRating: self.choiceRating, safetyRating: self.safetyRating) { success in
+                    return
+                }
+                print("Successfully deleted user review")
+                
+                for restriction in self.restrictions {
+                    self.dispatchGroup.enter()
+                    
+                    Webservice.postReview(forUserId: userId, businessId: self.businessId, restriction: restriction, reviewText: self.reviewText, choiceRating: self.choiceRating, safetyRating: self.safetyRating) { success in
                         if success {
-                            print("Successfully posted user review")
+                            print("Successfully posted user review for restriction: \(restriction)")
                         } else {
-                            print("Failed to post user review")
+                            print("Failed to post user review for restriction: \(restriction)")
                         }
-                        DispatchQueue.main.async {
-                            self.dismiss(animated: true, completion: nil)
-                        }
+                        self.dispatchGroup.leave()
                     }
                 }
-            } else {
-                print("No user currently logged in")
-                dismiss(animated: true, completion: nil)
+                
+                self.dispatchGroup.notify(queue: .main) {
+                    print("done")
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
+        } else {
+            print("No user currently logged in")
+            dismiss(animated: true, completion: nil)
         }
     }
     
@@ -213,7 +222,7 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UITextView Delegate
 extension ReviewViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Write something..." {
+        if textView.text == "Write something... (Optional)" {
             textView.text = ""
             textView.textColor = .black
         }
@@ -223,7 +232,7 @@ extension ReviewViewController: UITextViewDelegate {
         let text = textView.text.trimmingCharacters(in: .whitespacesAndNewlines)
         reviewText = text
         if text == "" {
-            textView.text = "Write something..."
+            textView.text = "Write something... (Optional)"
             textView.textColor = .chewGray
         }
     }

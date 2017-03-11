@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write something..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yLd-K1-bEn">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write something... (Optional)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yLd-K1-bEn">
                         <rect key="frame" x="16" y="16" width="288" height="167.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

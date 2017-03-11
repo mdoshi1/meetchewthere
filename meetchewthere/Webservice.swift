@@ -49,7 +49,7 @@ final class Webservice {
             }.resume()
     }
     
-    class func postReview(forUserId userId: String, businessId: String, reviewText: String, choiceRating: String, safetyRating: String, completion: @escaping(Bool) -> ()) {
+    class func postReview(forUserId userId: String, businessId: String, restriction: String, reviewText: String, choiceRating: String, safetyRating: String, completion: @escaping(Bool) -> ()) {
         
         let urlString = apiURL + "/reviews_insert_bizid_reviewtxt_choice_safety_email.php"
         guard let url = URL(string: urlString) else {
@@ -59,7 +59,7 @@ final class Webservice {
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        let params = "userid=\(userId)&bizid=\(businessId)&reviewtxt=\(reviewText)&choice=\(choiceRating)&safety=\(safetyRating)"
+        let params = "userid=\(userId)&bizid=\(businessId)&restriction=\(restriction)&reviewtxt=\(reviewText)&choice=\(choiceRating)&safety=\(safetyRating)"
         request.httpBody = params.data(using: .utf8)
         
         URLSession.shared.dataTask(with: request) { _, response, error in
