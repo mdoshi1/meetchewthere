@@ -77,7 +77,7 @@ class ReviewCell: UITableViewCell {
         goodSafetyButton.setTitleColor(.black, for: .selected)
         
         okSafetyButton.tag = 5
-        okSafetyButton.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
+        okSafetyButton.contentEdgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
         okSafetyButton.layer.cornerRadius = 5.0
         okSafetyButton.layer.masksToBounds = true
         okSafetyButton.setBackgroundImage(UIImage.withColor(.chewGray), for: .normal)
@@ -85,7 +85,7 @@ class ReviewCell: UITableViewCell {
         okSafetyButton.setTitleColor(.black, for: .selected)
         
         badSafetyButton.tag = 6
-        badSafetyButton.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
+        badSafetyButton.contentEdgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
         badSafetyButton.layer.cornerRadius = 5.0
         badSafetyButton.layer.masksToBounds = true
         badSafetyButton.setBackgroundImage(UIImage.withColor(.chewGray), for: .normal)

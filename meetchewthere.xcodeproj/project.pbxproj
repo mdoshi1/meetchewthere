@@ -32,11 +32,8 @@
 		F4049AD81E73FF7A00B52F43 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AD71E73FF7A00B52F43 /* IntrinsicTableView.swift */; };
 		F4049ADB1E74033000B52F43 /* RatingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AD91E74033000B52F43 /* RatingsCell.swift */; };
 		F4049ADC1E74033000B52F43 /* RatingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049ADA1E74033000B52F43 /* RatingsCell.xib */; };
-		F41490901E6523B300B966B6 /* SheetTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414908F1E6523B300B966B6 /* SheetTableView.swift */; };
-		F414909B1E6578EA00B966B6 /* SelectionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41490991E6578EA00B966B6 /* SelectionSheetCell.swift */; };
-		F414909C1E6578EA00B966B6 /* SelectionSheetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414909A1E6578EA00B966B6 /* SelectionSheetCell.xib */; };
-		F414909F1E6579A300B966B6 /* InputSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414909D1E6579A300B966B6 /* InputSheetCell.swift */; };
-		F41490A01E6579A300B966B6 /* InputSheetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F414909E1E6579A300B966B6 /* InputSheetCell.xib */; };
+		F4049AE61E74A57000B52F43 /* RestrictionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AE41E74A57000B52F43 /* RestrictionCell.swift */; };
+		F4049AE71E74A57000B52F43 /* RestrictionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049AE51E74A57000B52F43 /* RestrictionCell.xib */; };
 		F44D9B821E3D6E3700566044 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44D9B811E3D6E3700566044 /* Messages.framework */; };
 		F44D9B851E3D6E3700566044 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D9B841E3D6E3700566044 /* MessagesViewController.swift */; };
 		F44D9B881E3D6E3700566044 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44D9B861E3D6E3700566044 /* MainInterface.storyboard */; };
@@ -137,11 +134,8 @@
 		F4049AD71E73FF7A00B52F43 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		F4049AD91E74033000B52F43 /* RatingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingsCell.swift; sourceTree = "<group>"; };
 		F4049ADA1E74033000B52F43 /* RatingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingsCell.xib; sourceTree = "<group>"; };
-		F414908F1E6523B300B966B6 /* SheetTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetTableView.swift; sourceTree = "<group>"; };
-		F41490991E6578EA00B966B6 /* SelectionSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionSheetCell.swift; sourceTree = "<group>"; };
-		F414909A1E6578EA00B966B6 /* SelectionSheetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionSheetCell.xib; sourceTree = "<group>"; };
-		F414909D1E6579A300B966B6 /* InputSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputSheetCell.swift; sourceTree = "<group>"; };
-		F414909E1E6579A300B966B6 /* InputSheetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputSheetCell.xib; sourceTree = "<group>"; };
+		F4049AE41E74A57000B52F43 /* RestrictionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestrictionCell.swift; sourceTree = "<group>"; };
+		F4049AE51E74A57000B52F43 /* RestrictionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestrictionCell.xib; sourceTree = "<group>"; };
 		F44D9B7F1E3D6E3700566044 /* MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessagesExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44D9B811E3D6E3700566044 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
 		F44D9B841E3D6E3700566044 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +271,8 @@
 				F4049ADA1E74033000B52F43 /* RatingsCell.xib */,
 				5E2A7DE91E3D85A300B2CE15 /* Discover.swift */,
 				5E2A7DEE1E3DA49F00B2CE15 /* Details.swift */,
+				F4049AE41E74A57000B52F43 /* RestrictionCell.swift */,
+				F4049AE51E74A57000B52F43 /* RestrictionCell.xib */,
 				5EA118B91E3EC1AC008772D8 /* Favorites.swift */,
 				F4FEC2FA1E4C7F0700112F14 /* BusinessCell.swift */,
 				F4EE7A4A1E5A650A00DE3DF8 /* RatingLabel.swift */,
@@ -304,11 +300,6 @@
 			children = (
 				F4049ABF1E6E7F9300B52F43 /* MCTButton.swift */,
 				F4049AD71E73FF7A00B52F43 /* IntrinsicTableView.swift */,
-				F414909D1E6579A300B966B6 /* InputSheetCell.swift */,
-				F414909E1E6579A300B966B6 /* InputSheetCell.xib */,
-				F414908F1E6523B300B966B6 /* SheetTableView.swift */,
-				F41490991E6578EA00B966B6 /* SelectionSheetCell.swift */,
-				F414909A1E6578EA00B966B6 /* SelectionSheetCell.xib */,
 				F4049ACD1E6F4F9B00B52F43 /* Restaurant */,
 				F4CDFAAB1E6CDDF000B058F5 /* Profile */,
 			);
@@ -529,13 +520,12 @@
 				F4049ADC1E74033000B52F43 /* RatingsCell.xib in Resources */,
 				5E2A7DAF1E3D5AE600B2CE15 /* Main.storyboard in Resources */,
 				F4049AD61E717DDE00B52F43 /* HeaderCell.xib in Resources */,
-				F414909C1E6578EA00B966B6 /* SelectionSheetCell.xib in Resources */,
 				F4049AD21E71753900B52F43 /* ReviewTextCell.xib in Resources */,
 				F4049ACC1E6F3B5300B52F43 /* ReviewCell.xib in Resources */,
 				5EA118B61E3EB36B008772D8 /* close.png in Resources */,
 				F48810CA1E6BAAF000A822C4 /* OptionCell.xib in Resources */,
+				F4049AE71E74A57000B52F43 /* RestrictionCell.xib in Resources */,
 				5E2A7DD81E3D65A800B2CE15 /* Star-100.png in Resources */,
-				F41490A01E6579A300B966B6 /* InputSheetCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,18 +647,16 @@
 				F4EE7A3C1E57EE9600DE3DF8 /* UIView+Autolayout.swift in Sources */,
 				F48810C91E6BAAF000A822C4 /* OptionCell.swift in Sources */,
 				F48810C61E6BAACB00A822C4 /* ProfileViewController.swift in Sources */,
-				F414909B1E6578EA00B966B6 /* SelectionSheetCell.swift in Sources */,
 				F4049AC61E6EC90B00B52F43 /* UIImage+Resize.swift in Sources */,
 				F4049ABC1E6E522400B52F43 /* RestrictionViewController.swift in Sources */,
-				F414909F1E6579A300B966B6 /* InputSheetCell.swift in Sources */,
 				5E2A7DEA1E3D85A300B2CE15 /* Discover.swift in Sources */,
-				F41490901E6523B300B966B6 /* SheetTableView.swift in Sources */,
 				F4FEC2F91E4C754200112F14 /* Constants.swift in Sources */,
 				5E2A7DEF1E3DA49F00B2CE15 /* Details.swift in Sources */,
 				F4049AD51E717DDE00B52F43 /* HeaderCell.swift in Sources */,
 				F4EE7A191E5660A900DE3DF8 /* meetchewthere.xcdatamodeld in Sources */,
 				F4EE7A3E1E57EEBF00DE3DF8 /* UIColor+MCT.swift in Sources */,
 				F4FEC2FB1E4C7F0700112F14 /* BusinessCell.swift in Sources */,
+				F4049AE61E74A57000B52F43 /* RestrictionCell.swift in Sources */,
 				5EA118BA1E3EC1AC008772D8 /* Favorites.swift in Sources */,
 				F4049AC81E6F324B00B52F43 /* ReviewViewController.swift in Sources */,
 				F4CDFAAD1E6CDE6C00B058F5 /* ProfileView.swift in Sources */,

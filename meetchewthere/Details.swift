@@ -17,6 +17,7 @@ class Details: UIViewController {
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
+        scrollView.bounces = false
         return scrollView
     }()
     
@@ -132,9 +133,9 @@ class Details: UIViewController {
         let restrictionsTable = IntrinsicTableView()
         restrictionsTable.dataSource = self
         restrictionsTable.delegate = self
-        restrictionsTable.separatorColor = .clear
         restrictionsTable.bounces = false
-        restrictionsTable.register(UINib(nibName: "RatingsCell", bundle: nil), forCellReuseIdentifier: "RatingsCell")
+        restrictionsTable.rowHeight = UITableViewAutomaticDimension
+        restrictionsTable.register(UINib(nibName: "RestrictionCell", bundle: nil), forCellReuseIdentifier: "RestrictionCell")
         return restrictionsTable
     }()
     
@@ -178,18 +179,31 @@ class Details: UIViewController {
         scrollView.addSubview(infoStackView.usingAutolayout())
         scrollView.addSubview(reviewButton.usingAutolayout())
         setupConstraints()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
+        // Get business reviews
         guard let business = business else {
             print("Business is nil")
             return
         }
         let businessId = business.identifier
+        Webservice.getBusinessReviews(forBusinessId: businessId) { jsonDictionary in
+            guard let dictionary = jsonDictionary else {
+                print("Business reviews response could not be parsed as a JSON dictionary")
+                return
+            }
+            print(dictionary)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // Check if businessId has already been stored in Core Data
+        guard let business = business else {
+            print("Business is nil")
+            return
+        }
+        let businessId = business.identifier
         if let managedContext = managedContext {
         
             var count = 0
@@ -207,6 +221,14 @@ class Details: UIViewController {
                 favoriteButton.setImage(UIImage(named: "heart_full"), for: .normal)
             }
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        let px = 1 / UIScreen.main.scale
+        let frame = CGRect(x: 0, y: 0, width: restrictionsTable.frame.size.width, height: px)
+        let line = UIView(frame: frame)
+        restrictionsTable.tableHeaderView = line
+        line.backgroundColor = restrictionsTable.separatorColor
     }
     
     // MARK: - Helper Methods
@@ -230,7 +252,6 @@ class Details: UIViewController {
         
         // Restaurant Label
         NSLayoutConstraint.activate([
-            restaurantLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             restaurantLabel.topAnchor.constraint(equalTo: businessImageView.bottomAnchor, constant: 8.0),
             restaurantLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8.0),
             restaurantLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -8.0)
@@ -238,7 +259,6 @@ class Details: UIViewController {
         
         // Address Label
         NSLayoutConstraint.activate([
-            addressLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             addressLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8.0),
             addressLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 8.0),
             addressLabel.topAnchor.constraint(equalTo: restaurantLabel.bottomAnchor, constant: 8.0)
@@ -298,7 +318,7 @@ class Details: UIViewController {
         if segue.identifier == "toReview" {
             let destinationVC = segue.destination as! UINavigationController
             let reviewVC = destinationVC.childViewControllers[0] as! ReviewViewController
-            //reviewVC.navigationItem.title = titleName.text
+            reviewVC.navigationItem.title = restaurantLabel.text
             reviewVC.restrictions = restrictions
             if let businessId = business?.identifier {
                 reviewVC.businessId = businessId
@@ -401,13 +421,17 @@ class Details: UIViewController {
 
 extension Details: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 188.5
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restrictions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RatingsCell", for: indexPath) as! RatingsCell
-        cell.restriction.text = restrictions[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RestrictionCell", for: indexPath) as! RestrictionCell
+        cell.restrictionLabel.text = restrictions[indexPath.row]
         return cell
     }
     
