@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 import YelpAPI
 import FacebookCore
 
@@ -45,10 +46,16 @@ class Discover: UIViewController {
     var lastSearchedRestrictionTerm = ""
     var lastSearchedTerm = ""
     
+    fileprivate var currentCoordinates: CLLocationCoordinate2D?
+    fileprivate let kCLLocationAccuracy = 50.0
+    
     // MARK: - DiscoverViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setup location services
+        setupLocationServices()
         
         // Set custom back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
@@ -87,15 +94,29 @@ class Discover: UIViewController {
         return Int(arc4random_uniform(UInt32(BusinessManager.shared.businesses.count)))
     }
     
+    func setupLocationServices() {
+        AppDelegate.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            AppDelegate.locationManager.delegate = self
+            AppDelegate.locationManager.desiredAccuracy = kCLLocationAccuracy
+            AppDelegate.locationManager.requestLocation()
+        }
+    }
+    
     // MARK: - Button Actions
     
     func loadMoreBusinesses() {
-        yelpSearch(withLocation: "Stanford, CA", term: lastSearchedTerm, limit: 20, offset: UInt(BusinessManager.shared.businesses.count))
+        if let coordinates = currentCoordinates {
+            yelpSearch(withCoordinates: coordinates, term: lastSearchedTerm, limit: 20, offset: UInt(BusinessManager.shared.businesses.count))
+        } else {
+            yelpSearch(withLocation: "Stanford, CA", term: lastSearchedTerm, limit: 20, offset: UInt(BusinessManager.shared.businesses.count))
+        }
     }
     
     // MARK: - Notification Actions
     
     func initialSearch() {
+        AppDelegate.locationManager.requestLocation()
         if let userId = UserProfile.current?.userId {
             Webservice.getRestrictions(forUserId: userId, completion: { jsonDictionary in
                 guard let dictionary = jsonDictionary else {
@@ -111,12 +132,17 @@ class Discover: UIViewController {
                             restrictions.append(restriction)
                         }
                         SessionManager.shared.restrictions = restrictions
-                        self.yelpSearch(withLocation: "Stanford, CA", term: self.defaultSearchTerm, limit: 20, offset: 0)
-                    } else {
+                    }
+                    
+                    if let coordinates = self.currentCoordinates {
+                        self.yelpSearch(withCoordinates: coordinates, term: self.defaultSearchTerm, limit: 20, offset: 0)
+                    } else {                    
                         self.yelpSearch(withLocation: "Stanford, CA", term: self.defaultSearchTerm, limit: 20, offset: 0)
                     }
                 }
             })
+        } else if let coordinates = currentCoordinates {
+            yelpSearch(withCoordinates: coordinates, term: defaultSearchTerm, limit: 20, offset: 0)
         } else {
             yelpSearch(withLocation: "Stanford, CA", term: defaultSearchTerm, limit: 20, offset: 0)
         }
@@ -125,7 +151,7 @@ class Discover: UIViewController {
     func yelpSearch(withLocation location: String, term: String, limit: UInt, offset: UInt) {
         searchBar.text = term
         let searchTerm = term + " " + SessionManager.shared.restrictions.joined(separator: " ")
-        AppDelegate.sharedYLPClient.search(withLocation: location, term: searchTerm, limit: limit, offset: offset, sort: .bestMatched, completionHandler: { search, error in
+        AppDelegate.sharedYLPClient.search(withLocation: location, term: searchTerm, limit: limit, offset: offset, sort: .bestMatched) { search, error in
             guard let search = search, error == nil else {
                 print("Error getting initial search results: \(error?.localizedDescription)")
                 return
@@ -145,7 +171,35 @@ class Discover: UIViewController {
                 }
                 
             }
-        })
+        }
+    }
+    
+    func yelpSearch(withCoordinates coordinates: CLLocationCoordinate2D, term: String, limit: UInt, offset: UInt) {
+        searchBar.text = term
+        let searchTerm = term + " " + SessionManager.shared.restrictions.joined(separator: " ")
+        let ylpCoordinate = YLPCoordinate(latitude: coordinates.latitude.rounded(), longitude: coordinates.longitude.rounded())
+        
+        
+        AppDelegate.sharedYLPClient.search(with: ylpCoordinate, term: term, limit: limit, offset: offset, sort: .bestMatched) { search, error in
+            guard let search = search, error == nil else {
+                print("Error getting initial search results: \(error?.localizedDescription)")
+                return
+            }
+            print("Succesfully retrieved initial search results")
+            DispatchQueue.main.async {
+                if self.lastSearchedRestrictionTerm == searchTerm {
+                    BusinessManager.shared.businesses += search.businesses
+                    self.tableView.reloadData()
+                } else {
+                    self.lastSearchedTerm = term
+                    self.lastSearchedRestrictionTerm = searchTerm
+                    BusinessManager.shared.businesses.removeAll()
+                    BusinessManager.shared.businesses = search.businesses
+                    self.tableView.reloadData()
+                    self.tableView.setContentOffset(CGPoint.zero, animated: true)
+                }
+            }
+        }
     }
     
     func dismissKeyboard() {
@@ -353,6 +407,7 @@ extension Discover: UITableViewDelegate, UITableViewDataSource {
 extension Discover: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        AppDelegate.locationManager.requestLocation()
         searchBar.setShowsCancelButton(true, animated: true)
         view.addGestureRecognizer(tap)
     }
@@ -363,7 +418,11 @@ extension Discover: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        yelpSearch(withLocation: "Stanford, CA", term: searchBar.text ?? "", limit: 20, offset: 0)
+        if let coordinates = currentCoordinates {
+            yelpSearch(withCoordinates: coordinates, term: searchBar.text ?? "Food", limit: 20, offset: 0)
+        } else {
+            yelpSearch(withLocation: "Stanford, CA", term: searchBar.text ?? "", limit: 20, offset: 0)
+        }
         
         view.removeGestureRecognizer(tap)
         searchBar.endEditing(true)
@@ -376,4 +435,26 @@ extension Discover: UISearchBarDelegate {
         
         view.removeGestureRecognizer(tap)
     }
+}
+
+extension Discover: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentCoordinates = manager.location?.coordinate
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
+            AppDelegate.locationManager.requestLocation()
+        }
+    }
+    
+    /*func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        let alertController = UIAlertController(title: "Cannot get current location", message: "There was an error trying to update your location. Please click OK to refresh", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            AppDelegate.locationManager.requestLocation()
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }*/
 }

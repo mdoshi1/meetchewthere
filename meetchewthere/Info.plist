@@ -11,6 +11,10 @@
 			</array>
 		</dict>
 	</array>
+	<key>NSLocationUsageDescription</key>
+	<string>meetchewthere uses your location to find restaurants that accomadate your dietary restrictions near you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>meetchewthere uses your location when the app is in use to find restaurants that accomodate your dietary restrictions near you</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

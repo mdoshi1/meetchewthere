@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 import YelpAPI
 import FacebookCore
 import Fabric
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     static var sharedYLPClient: YLPClient!
+    static var locationManager = CLLocationManager()
     private let appId = "X6SA2_urz3iwprFX7Pxp_A"
     private let secret = "xZKXVQikiQpY1iTXLhvNbOsCAAhLqDqznLahEfg3uJ8C8oyH7jm6j3vTd245XQ5y"
     
