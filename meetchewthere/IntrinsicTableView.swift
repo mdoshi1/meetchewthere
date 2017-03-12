@@ -3,7 +3,7 @@
 //  meetchewthere
 //
 //  Created by Michael-Anthony Doshi on 3/11/17.
-//  Copyright © 2017 Alejandrina Gonzalez Reyes. All rights reserved.
+//  Copyright © 2017 Michael-Anthony Doshi. All rights reserved.
 //
 
 import UIKit
