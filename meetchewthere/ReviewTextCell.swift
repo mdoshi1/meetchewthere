@@ -17,7 +17,7 @@ class ReviewTextCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        reviewText.returnKeyType = .done
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

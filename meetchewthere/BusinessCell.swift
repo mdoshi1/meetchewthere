@@ -14,13 +14,11 @@ class BusinessCell: UITableViewCell {
     // MARK: - IBOutlets
     
     @IBOutlet weak var businessName: UILabel!
-    @IBOutlet weak var restrictionOneLabel: UILabel!
-    @IBOutlet weak var choiceOneButton: UIButton!
-    @IBOutlet weak var safetyOneButton: UIButton!
-    @IBOutlet weak var restrictionTwoLabel: UILabel!
-    @IBOutlet weak var choiceTwoButton: UIButton!
-    @IBOutlet weak var safetyTwoButton: UIButton!
     @IBOutlet weak var businessImage: UIImageView!
+    @IBOutlet weak var restrictionLabel: UILabel!
+    @IBOutlet weak var choiceButton: UIButton!
+    @IBOutlet weak var safetyButton: UIButton!
+    @IBOutlet weak var addressLabel: UILabel!
     
     // MARK: - Properties
     
@@ -34,15 +32,19 @@ class BusinessCell: UITableViewCell {
     var business: YLPBusiness? {
         didSet {
             DispatchQueue.main.async {
-                self.businessName.text = self.business?.name
-                if let businessImageURL = self.business?.imageURL {
-                    Webservice.getImage(withURL: businessImageURL, completion: { data in
-                        if let data = data {
-                            DispatchQueue.main.async {
-                                self.businessImage.image = UIImage(data: data)
+                if self.business != nil {
+                    self.businessName.text = self.business!.name
+                    let address = self.business!.location.address
+                    self.addressLabel.text = (address.count > 0) ? address.joined(separator: " ") : "Address N/A"
+                    if let businessImageURL = self.business?.imageURL {
+                        Webservice.getImage(withURL: businessImageURL, completion: { data in
+                            if let data = data {
+                                DispatchQueue.main.async {
+                                    self.businessImage.image = UIImage(data: data)
+                                }
                             }
-                        }
-                    })
+                        })
+                    }
                 }
             }
         }
@@ -89,21 +91,13 @@ class BusinessCell: UITableViewCell {
     }
     
     private func setupButtons() {
-        choiceOneButton.contentEdgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
-        choiceOneButton.layer.cornerRadius = 5.0
-        choiceOneButton.layer.masksToBounds = true
+        choiceButton.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
+        choiceButton.layer.cornerRadius = 5.0
+        choiceButton.layer.masksToBounds = true
         
-        safetyOneButton.contentEdgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
-        safetyOneButton.layer.cornerRadius = 5.0
-        safetyOneButton.layer.masksToBounds = true
-        
-        choiceTwoButton.contentEdgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
-        choiceTwoButton.layer.cornerRadius = 5.0
-        choiceTwoButton.layer.masksToBounds = true
-        
-        safetyTwoButton.contentEdgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
-        safetyTwoButton.layer.cornerRadius = 5.0
-        safetyTwoButton.layer.masksToBounds = true
+        safetyButton.contentEdgeInsets = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
+        safetyButton.layer.cornerRadius = 5.0
+        safetyButton.layer.masksToBounds = true
     }
     
 }

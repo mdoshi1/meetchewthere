@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -175,79 +174,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hWL-da-4iS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusinessCell" rowHeight="110" id="coc-KI-aEh" customClass="BusinessCell" customModule="meetchewthere" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="110"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="coc-KI-aEh" id="sxo-7U-scZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restuarant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhC-Tm-kEv">
-                                                    <rect key="frame" x="16" y="16" width="180.5" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="180.5" id="bEx-uU-KYf"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8T-Ae-2P0">
-                                                    <rect key="frame" x="16" y="48.5" width="31" height="14.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myN-rx-n5n">
-                                                    <rect key="frame" x="16" y="77.5" width="31" height="14.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9cy-Y5-bRw">
-                                                    <rect key="frame" x="241" y="28" width="126" height="73"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="126" id="1F3-X3-GJS"/>
-                                                        <constraint firstAttribute="height" constant="73" id="tZc-aS-6iZ"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEl-qD-VRs">
-                                                    <rect key="frame" x="309" y="8" width="58" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Csw-Oe-2nv">
-                                                    <rect key="frame" x="241" y="8" width="52" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="AhC-Tm-kEv" firstAttribute="leading" secondItem="sxo-7U-scZ" secondAttribute="leadingMargin" constant="8" id="9ab-Yv-K8A"/>
-                                                <constraint firstItem="q8T-Ae-2P0" firstAttribute="top" secondItem="AhC-Tm-kEv" secondAttribute="bottom" constant="11.5" id="CWc-tv-Gac"/>
-                                                <constraint firstItem="myN-rx-n5n" firstAttribute="top" secondItem="q8T-Ae-2P0" secondAttribute="bottom" constant="14.5" id="Hbm-Ks-hHq"/>
-                                                <constraint firstItem="AhC-Tm-kEv" firstAttribute="top" secondItem="sxo-7U-scZ" secondAttribute="topMargin" constant="8" id="Wxd-KS-2oC"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="9cy-Y5-bRw" secondAttribute="trailing" id="b01-Cl-Zp3"/>
-                                                <constraint firstItem="q8T-Ae-2P0" firstAttribute="leading" secondItem="sxo-7U-scZ" secondAttribute="leadingMargin" constant="8" id="iwC-wt-gMr"/>
-                                                <constraint firstItem="myN-rx-n5n" firstAttribute="leading" secondItem="sxo-7U-scZ" secondAttribute="leadingMargin" constant="8" id="wrY-Sq-oq2"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="9cy-Y5-bRw" secondAttribute="bottom" id="yCc-d7-Bx8"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="distance" destination="fEl-qD-VRs" id="VzB-e6-Ndi"/>
-                                            <outlet property="name" destination="AhC-Tm-kEv" id="GHo-J3-Oob"/>
-                                            <outlet property="price" destination="Csw-Oe-2nv" id="WIb-7C-b0W"/>
-                                            <outlet property="restImage" destination="9cy-Y5-bRw" id="Lqr-Xd-A1c"/>
-                                            <outlet property="restriction1" destination="q8T-Ae-2P0" id="Aod-lp-7sr"/>
-                                            <outlet property="restriction2" destination="myN-rx-n5n" id="uXM-UE-pPB"/>
-                                            <segue destination="Kho-vH-lGe" kind="show" id="ZDc-0s-7UP"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -261,6 +187,7 @@
                     <navigationItem key="navigationItem" title="meetchewthere" id="bqS-rz-TJi"/>
                     <connections>
                         <outlet property="tableView" destination="hWL-da-4iS" id="01m-7K-325"/>
+                        <segue destination="Kho-vH-lGe" kind="show" identifier="details" id="fqi-Nn-8q2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGu-Ou-DjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -389,6 +316,6 @@
         <image name="profile" width="20" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yk2-Ne-feI"/>
+        <segue reference="fqi-Nn-8q2"/>
     </inferredMetricsTieBreakers>
 </document>

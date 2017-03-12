@@ -239,6 +239,14 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - UITextView Delegate
 extension ReviewViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+        }
+        return true
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "Write something..." {
             textView.text = ""

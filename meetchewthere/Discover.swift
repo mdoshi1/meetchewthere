@@ -53,10 +53,10 @@ class Discover: UIViewController {
         if motion == .motionShake {
             let businessIndex = randBusiness()
             if let cell = tableView.cellForRow(at: IndexPath(row: businessIndex, section: 0)) {
-                performSegue(withIdentifier: "details", sender: cell)
+                performSegue(withIdentifier: "toDetails", sender: cell)
             } else if let businesses = BusinessManager.shared.businesses {
                 business = businesses[businessIndex]
-                performSegue(withIdentifier: "details", sender: nil)
+                performSegue(withIdentifier: "toDetails", sender: nil)
             }
         }
     }
@@ -134,6 +134,7 @@ class Discover: UIViewController {
         } else {
             detailController.business = business
         }
+        detailController.restrictions = restrictionTerms
     }
     
     // MARK: - Core Data
@@ -204,7 +205,7 @@ class Discover: UIViewController {
 extension Discover: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 172
+        return 123
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -275,17 +276,10 @@ extension Discover: UITableViewDelegate, UITableViewDataSource {
         let business = businesses[indexPath.row]
         cell.business = business
         
-        switch restrictionTerms.count {
-        case 2:
-            cell.restrictionTwoLabel.text = restrictionTerms[1]
-            fallthrough
-        case 1:
-            cell.restrictionOneLabel.text = restrictionTerms[0]
-            cell.restrictionTwoLabel.isHidden = true
-            cell.choiceTwoButton.isHidden = true
-        case 0:
-            
-        default:
+        if restrictionTerms.count > 0 {
+            cell.restrictionLabel.text = restrictionTerms[0]
+        } else {
+            cell.restrictionLabel.text = "No personal dietary restrictions"
         }
         
         // Initialize NSManagedObjectContext

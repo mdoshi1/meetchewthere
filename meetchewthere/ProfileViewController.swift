@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController {
             case .review:
                 return "My Reviews"
             case .login:
-                if AccessToken.current != nil {
+                if UserProfile.current != nil {
                     return "Logout"
                 } else {
                     return "Login"

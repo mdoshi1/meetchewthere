@@ -23,6 +23,16 @@ class ReviewsViewController: UIViewController {
         return reviewsTable
     }()
     
+    private lazy var noReviewsLabel: UILabel = {
+        let noReviewsLabel = UILabel()
+        noReviewsLabel.font = UIFont.systemFont(ofSize: 24.0)
+        noReviewsLabel.textColor = .chewDarkGray
+        noReviewsLabel.numberOfLines = 0
+        noReviewsLabel.textAlignment = .center
+        noReviewsLabel.text = "No reviews for \(self.restriction) restriction"
+        return noReviewsLabel
+    }()
+    
     var restriction: String = ""
     var reviews: [Review] = []
     
@@ -31,6 +41,12 @@ class ReviewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(reviewsTable.usingAutolayout())
+        view.addSubview(noReviewsLabel.usingAutolayout())
+        if reviews.count > 0 {
+            noReviewsLabel.isHidden = true
+        } else {
+            reviewsTable.isHidden = true
+        }
         setupConstraints()
     }
     
@@ -44,6 +60,14 @@ class ReviewsViewController: UIViewController {
             reviewsTable.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             reviewsTable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             reviewsTable.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor)
+            ])
+        
+        // No Review Label
+        NSLayoutConstraint.activate([
+            noReviewsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            noReviewsLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            noReviewsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.0),
+            noReviewsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -16.0)
             ])
     }
     

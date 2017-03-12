@@ -45,7 +45,8 @@ class Details: UIViewController {
         if let business = self.business {
             restaurantLabel.text = business.name
         }
-        restaurantLabel.font = UIFont.systemFont(ofSize: 36.0)
+        restaurantLabel.font = UIFont.systemFont(ofSize: 24.0)
+        restaurantLabel.numberOfLines = 0
         return restaurantLabel
     }()
     
@@ -157,8 +158,7 @@ class Details: UIViewController {
         }
     }
     
-    // TODO: Remove in favor of real data
-    fileprivate let restrictions = ["Nuts", "Dairy"]
+    var restrictions: [String] = []
     
     // MARK: Details
     
@@ -195,6 +195,15 @@ class Details: UIViewController {
         
         // Set custom back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: business.name, style: .plain, target: nil, action: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let business = business else {
+            print("Business is nil")
+            return
+        }
         
         // Get business reviews
         let businessId = business.identifier
@@ -207,17 +216,8 @@ class Details: UIViewController {
                 self.reviews = dictionary.flatMap(Review.init)
             }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         // Check if businessId has already been stored in Core Data
-        guard let business = business else {
-            print("Business is nil")
-            return
-        }
-        let businessId = business.identifier
         if let managedContext = managedContext {
         
             var count = 0
@@ -274,7 +274,7 @@ class Details: UIViewController {
         // Address Label
         NSLayoutConstraint.activate([
             addressLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8.0),
-            addressLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 8.0),
+            addressLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -8.0),
             addressLabel.topAnchor.constraint(equalTo: restaurantLabel.bottomAnchor, constant: 8.0)
             ])
         

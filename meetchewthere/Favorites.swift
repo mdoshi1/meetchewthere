@@ -23,6 +23,9 @@ class Favorites: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set custom back button
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+        
         // Initialize NSManagedObjectContext
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             managedContext = appDelegate.persistentContainer.viewContext
@@ -36,6 +39,7 @@ class Favorites: UIViewController {
         // Assign UITableView delegates
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: "BusinessCell", bundle: nil), forCellReuseIdentifier: "BusinessCell")
         
         // Set up notifications
         NotificationCenter.default.addObserver(self, selector: #selector(updateFavorites), name: .NSManagedObjectContextDidSave, object: managedContext)
@@ -85,6 +89,7 @@ class Favorites: UIViewController {
         let detailController = segue.destination as! Details
         let businessCell = sender as! BusinessCell
         detailController.business = businessCell.business
+        detailController.restImage = businessCell.businessImage.image
     }
     
     @IBAction func prepareForUnwind(sender: UIStoryboardSegue) {
@@ -121,15 +126,11 @@ class Favorites: UIViewController {
     
 }
 
-// MARK: - UITableViewDelegate
-extension Favorites: UITableViewDelegate {
+// MARK: - UITableView Methods
+extension Favorites: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return 123
     }
-}
-
-// MARK: - UITableViewDataSource
-extension Favorites: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return businessIds.count
@@ -150,5 +151,11 @@ extension Favorites: UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let businessCell = tableView.cellForRow(at: indexPath) {
+            performSegue(withIdentifier: "details", sender: businessCell)
+        }
     }
 }
