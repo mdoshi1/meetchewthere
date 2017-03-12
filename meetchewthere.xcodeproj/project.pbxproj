@@ -153,8 +153,6 @@
 			children = (
 				5E2A7DA81E3D5AE600B2CE15 /* meetchewthere */,
 				F44D9B801E3D6E3700566044 /* Frameworks */,
-				F4C4675F1E4D1B080042CEC8 /* Fabric.framework */,
-				F4C467601E4D1B080042CEC8 /* Crashlytics.framework */,
 				5E2A7DA71E3D5AE600B2CE15 /* Products */,
 				57D7316CDC2E078650F70B1D /* Pods */,
 			);
@@ -278,6 +276,8 @@
 		F44D9B801E3D6E3700566044 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4C4675F1E4D1B080042CEC8 /* Fabric.framework */,
+				F4C467601E4D1B080042CEC8 /* Crashlytics.framework */,
 				0AC8A2D6628C0F9E82424AB1 /* Pods_meetchewthere.framework */,
 			);
 			name = Frameworks;
