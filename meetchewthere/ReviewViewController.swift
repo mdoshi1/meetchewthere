@@ -45,9 +45,24 @@ class ReviewViewController: UIViewController {
     var restrictions: [String] = []
     var businessId = ""
     
+    fileprivate var reviews: [String:[Int]] = [:]
     fileprivate var reviewText = ""
-    fileprivate var choiceRating = "-1"
-    fileprivate var safetyRating = "-1"
+    private let defaultChoiceRating = 0
+    private let defaultSafetyRating = 0
+    private var isValidReview: Bool {
+        if reviewText != "" {
+            return true
+        }
+        for (_, ratings) in reviews {
+            for rating in ratings {
+                if rating != 0 {
+                    return true
+                }
+            }
+        }
+        
+        return false
+    }
     
     fileprivate var dispatchGroup = DispatchGroup()
     
@@ -63,6 +78,11 @@ class ReviewViewController: UIViewController {
         navigationItem.rightBarButtonItem = cancelButton
         view.addSubview(reviewTable.usingAutolayout())
         setupConstraints()
+        
+        // Setup reviews dictionary
+        for restriction in restrictions {
+            reviews[restriction] = [defaultChoiceRating, defaultSafetyRating]
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,7 +147,7 @@ class ReviewViewController: UIViewController {
     // MARK: UIButton Actions
     
     func submitReview() {
-        if choiceRating == "-1" && safetyRating == "-1" {
+        if !isValidReview {
             let alertController = UIAlertController(title: "You did not rate this restaurant", message: "Rate this restaurant's accomdation for your restriction(s) before submitting", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(okAction)
@@ -144,21 +164,19 @@ class ReviewViewController: UIViewController {
                 }
                 print("Successfully deleted user review")
                 
-                for restriction in self.restrictions {
+                for (restriction, ratings) in self.reviews {
                     self.dispatchGroup.enter()
-                    
-                    Webservice.postReview(forUserId: userId, businessId: self.businessId, restriction: restriction, reviewText: self.reviewText, choiceRating: self.choiceRating, safetyRating: self.safetyRating) { success in
+                    Webservice.postReview(forUserId: userId, businessId: self.businessId, restriction: restriction, reviewText: self.reviewText, choiceRating: ratings[0], safetyRating: ratings[1], completion: { success in
                         if success {
                             print("Successfully posted user review for restriction: \(restriction)")
                         } else {
                             print("Failed to post user review for restriction: \(restriction)")
                         }
                         self.dispatchGroup.leave()
-                    }
+                    })
                 }
                 
                 self.dispatchGroup.notify(queue: .main) {
-                    print("done")
                     self.dismiss(animated: true, completion: nil)
                 }
             }
@@ -222,7 +240,7 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UITextView Delegate
 extension ReviewViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Write something... (Optional)" {
+        if textView.text == "Write something..." {
             textView.text = ""
             textView.textColor = .black
         }
@@ -232,7 +250,7 @@ extension ReviewViewController: UITextViewDelegate {
         let text = textView.text.trimmingCharacters(in: .whitespacesAndNewlines)
         reviewText = text
         if text == "" {
-            textView.text = "Write something... (Optional)"
+            textView.text = "Write something..."
             textView.textColor = .chewGray
         }
     }
@@ -240,11 +258,11 @@ extension ReviewViewController: UITextViewDelegate {
 
 // MARK: - ReviewCellDelegate
 extension ReviewViewController: ReviewCellDelegate {
-    func updateChoiceRating(choice: String) {
-        choiceRating = choice
+    func updateChoiceRating(forRestriction restriction: String, choice: Int) {
+        reviews[restriction]![0] = choice
     }
     
-    func updateSafetyRating(safety: String) {
-        safetyRating = safety
+    func updateSafetyRating(forRestriction restriction: String, safety: Int) {
+        reviews[restriction]![1] = safety
     }
 }

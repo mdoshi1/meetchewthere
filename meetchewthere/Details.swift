@@ -151,6 +151,11 @@ class Details: UIViewController {
     var business: YLPBusiness?
     var restImage: UIImage?
     var managedContext: NSManagedObjectContext?
+    var reviews: [Review] = [] {
+        didSet {
+            restrictionsTable.reloadData()
+        }
+    }
     
     // TODO: Remove in favor of real data
     fileprivate let restrictions = ["Nuts", "Dairy"]
@@ -187,11 +192,13 @@ class Details: UIViewController {
         }
         let businessId = business.identifier
         Webservice.getBusinessReviews(forBusinessId: businessId) { jsonDictionary in
-            guard let dictionary = jsonDictionary else {
+            guard let dictionary = jsonDictionary?["rows"] as? [JSONDictionary] else {
                 print("Business reviews response could not be parsed as a JSON dictionary")
                 return
             }
-            print(dictionary)
+            DispatchQueue.main.async {
+                self.reviews = dictionary.flatMap(Review.init)
+            }
         }
     }
     
@@ -431,7 +438,49 @@ extension Details: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestrictionCell", for: indexPath) as! RestrictionCell
-        cell.restrictionLabel.text = restrictions[indexPath.row]
+        let restriction = restrictions[indexPath.row]
+        cell.restrictionLabel.text = restriction
+        var choiceReviewCount = 0
+        var choiceTotal = 0
+        var safetyReviewCount = 0
+        var safetyTotal = 0
+        for review in reviews {
+            if restriction == review.restriction {
+                choiceReviewCount += 1
+                choiceTotal += Int(review.choice)!
+                safetyReviewCount += 1
+                safetyTotal += Int(review.safety)!
+            }
+        }
+        cell.choiceReviewsLabel.text = "\(choiceReviewCount) Reviews"
+        cell.safetyReviewsLabel.text = "\(safetyReviewCount) Reviews"
+        
+        var choiceButtonColor = UIColor()
+        switch roundf(Float(choiceTotal) / Float(choiceReviewCount)) {
+        case 1:
+            choiceButtonColor = .chewRed
+        case 2:
+            choiceButtonColor = .chewYellow
+        case 3:
+            choiceButtonColor = .chewGreen
+        default:
+            choiceButtonColor = .chewGray
+        }
+        cell.choiceButton.backgroundColor = choiceButtonColor
+        
+        var safetyButtonColor = UIColor()
+        switch roundf(Float(safetyTotal) / Float(safetyReviewCount)) {
+        case 1:
+            safetyButtonColor = .chewRed
+        case 2:
+            safetyButtonColor = .chewYellow
+        case 3:
+            safetyButtonColor = .chewGreen
+        default:
+            safetyButtonColor = .chewGray
+        }
+        cell.safetyButon.backgroundColor = safetyButtonColor
+        
         return cell
     }
     

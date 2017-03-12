@@ -10,6 +10,15 @@ import UIKit
 
 class ReviewCell: UITableViewCell {
     
+    // MARK: - Rating Enum
+    
+    /*enum Rating: Int {
+        case neutral = 0
+        case bad
+        case ok
+        case good
+    }*/
+    
     // MARK: - IBOutlets
     
     // Choice buttons
@@ -97,55 +106,56 @@ class ReviewCell: UITableViewCell {
     
     @IBAction func selectRating(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        let restriction = restrictionLabel.text!
         
         switch sender.tag {
         case 1:
             (viewWithTag(2) as! UIButton).isSelected = false
             (viewWithTag(3) as! UIButton).isSelected = false
             if sender.isSelected {
-                delegate?.updateChoiceRating(choice: "2")
+                delegate?.updateChoiceRating(forRestriction: restriction, choice: 3)
             } else {
-                delegate?.updateChoiceRating(choice: "-1")
+                delegate?.updateChoiceRating(forRestriction: restriction,choice: 0)
             }
         case 2:
             (viewWithTag(1) as! UIButton).isSelected = false
             (viewWithTag(3) as! UIButton).isSelected = false
             if sender.isSelected {
-                delegate?.updateChoiceRating(choice: "1")
+                delegate?.updateChoiceRating(forRestriction: restriction, choice: 2)
             } else {
-                delegate?.updateChoiceRating(choice: "-1")
+                delegate?.updateChoiceRating(forRestriction: restriction, choice: 0)
             }
         case 3:
             (viewWithTag(1) as! UIButton).isSelected = false
             (viewWithTag(2) as! UIButton).isSelected = false
             if sender.isSelected {
-                delegate?.updateChoiceRating(choice: "0")
+                delegate?.updateChoiceRating(forRestriction: restriction, choice: 1)
             } else {
-                delegate?.updateChoiceRating(choice: "-1")
+                delegate?.updateChoiceRating(forRestriction: restriction, choice: 0)
             }
         case 4:
             (viewWithTag(5) as! UIButton).isSelected = false
             (viewWithTag(6) as! UIButton).isSelected = false
             if sender.isSelected {
-                delegate?.updateSafetyRating(safety: "2")
+                delegate?.updateSafetyRating(forRestriction: restriction, safety: 3)
             } else {
-                delegate?.updateSafetyRating(safety: "-1")
+                delegate?.updateSafetyRating(forRestriction: restriction, safety: 0)
             }
         case 5:
             (viewWithTag(4) as! UIButton).isSelected = false
             (viewWithTag(6) as! UIButton).isSelected = false
             if sender.isSelected {
-                delegate?.updateSafetyRating(safety: "1")
+                delegate?.updateSafetyRating(forRestriction: restriction, safety: 2)
             } else {
-                delegate?.updateSafetyRating(safety: "-1")
+                delegate?.updateSafetyRating(forRestriction: restriction, safety: 0)
             }
         case 6:
             (viewWithTag(4) as! UIButton).isSelected = false
             (viewWithTag(5) as! UIButton).isSelected = false
             if sender.isSelected {
-                delegate?.updateSafetyRating(safety: "0")
+                delegate?.updateSafetyRating(forRestriction: restriction, safety: 1)
             } else {
-                delegate?.updateSafetyRating(safety: "-1")
+                delegate?.updateSafetyRating(forRestriction: restriction, safety: 0)
             }
         default:
             break
@@ -156,6 +166,6 @@ class ReviewCell: UITableViewCell {
 }
 
 protocol ReviewCellDelegate: class {
-    func updateChoiceRating(choice: String)
-    func updateSafetyRating(safety: String)
+    func updateChoiceRating(forRestriction restriction: String, choice: Int)
+    func updateSafetyRating(forRestriction restriction: String, safety: Int)
 }

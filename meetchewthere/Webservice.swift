@@ -49,7 +49,7 @@ final class Webservice {
             }.resume()
     }
     
-    class func postReview(forUserId userId: String, businessId: String, restriction: String, reviewText: String, choiceRating: String, safetyRating: String, completion: @escaping(Bool) -> ()) {
+    class func postReview(forUserId userId: String, businessId: String, restriction: String, reviewText: String, choiceRating: Int, safetyRating: Int, completion: @escaping(Bool) -> ()) {
         
         let urlString = apiURL + "/reviews_insert_bizid_reviewtxt_choice_safety_email.php"
         guard let url = URL(string: urlString) else {
