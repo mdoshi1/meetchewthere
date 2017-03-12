@@ -36,6 +36,8 @@
 		F4049AEE1E74C49700B52F43 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AED1E74C49700B52F43 /* Review.swift */; };
 		F4049AF11E74E39E00B52F43 /* UserReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AEF1E74E39E00B52F43 /* UserReviewCell.swift */; };
 		F4049AF21E74E39E00B52F43 /* UserReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049AF01E74E39E00B52F43 /* UserReviewCell.xib */; };
+		F4049AF51E75046500B52F43 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AF31E75046500B52F43 /* BusinessCell.swift */; };
+		F4049AF61E75046500B52F43 /* BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049AF41E75046500B52F43 /* BusinessCell.xib */; };
 		F44D9B821E3D6E3700566044 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44D9B811E3D6E3700566044 /* Messages.framework */; };
 		F44D9B851E3D6E3700566044 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D9B841E3D6E3700566044 /* MessagesViewController.swift */; };
 		F44D9B881E3D6E3700566044 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44D9B861E3D6E3700566044 /* MainInterface.storyboard */; };
@@ -76,7 +78,6 @@
 		F4EE7A4B1E5A650A00DE3DF8 /* RatingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EE7A4A1E5A650A00DE3DF8 /* RatingLabel.swift */; };
 		F4EE7A4D1E5B96D900DE3DF8 /* BusinessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EE7A4C1E5B96D900DE3DF8 /* BusinessManager.swift */; };
 		F4FEC2F91E4C754200112F14 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEC2F81E4C754200112F14 /* Constants.swift */; };
-		F4FEC2FB1E4C7F0700112F14 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEC2FA1E4C7F0700112F14 /* BusinessCell.swift */; };
 		F4FEC2FD1E4C82B700112F14 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEC2FC1E4C82B700112F14 /* Webservice.swift */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,8 @@
 		F4049AED1E74C49700B52F43 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		F4049AEF1E74E39E00B52F43 /* UserReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserReviewCell.swift; sourceTree = "<group>"; };
 		F4049AF01E74E39E00B52F43 /* UserReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserReviewCell.xib; sourceTree = "<group>"; };
+		F4049AF31E75046500B52F43 /* BusinessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
+		F4049AF41E75046500B52F43 /* BusinessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessCell.xib; sourceTree = "<group>"; };
 		F44D9B7F1E3D6E3700566044 /* MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessagesExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44D9B811E3D6E3700566044 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
 		F44D9B841E3D6E3700566044 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
@@ -181,7 +184,6 @@
 		F4EE7A4A1E5A650A00DE3DF8 /* RatingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingLabel.swift; sourceTree = "<group>"; };
 		F4EE7A4C1E5B96D900DE3DF8 /* BusinessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessManager.swift; sourceTree = "<group>"; };
 		F4FEC2F81E4C754200112F14 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		F4FEC2FA1E4C7F0700112F14 /* BusinessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
 		F4FEC2FC1E4C82B700112F14 /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -312,7 +314,8 @@
 			isa = PBXGroup;
 			children = (
 				5E2A7DE91E3D85A300B2CE15 /* Discover.swift */,
-				F4FEC2FA1E4C7F0700112F14 /* BusinessCell.swift */,
+				F4049AF31E75046500B52F43 /* BusinessCell.swift */,
+				F4049AF41E75046500B52F43 /* BusinessCell.xib */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				5E2A7DB11E3D5AE600B2CE15 /* Assets.xcassets in Resources */,
 				5E2A7DAF1E3D5AE600B2CE15 /* Main.storyboard in Resources */,
 				F4049AF21E74E39E00B52F43 /* UserReviewCell.xib in Resources */,
+				F4049AF61E75046500B52F43 /* BusinessCell.xib in Resources */,
 				F4049AD61E717DDE00B52F43 /* HeaderCell.xib in Resources */,
 				F4049AD21E71753900B52F43 /* ReviewTextCell.xib in Resources */,
 				F4049ACC1E6F3B5300B52F43 /* ReviewCell.xib in Resources */,
@@ -684,7 +688,6 @@
 				F4049AD51E717DDE00B52F43 /* HeaderCell.swift in Sources */,
 				F4EE7A191E5660A900DE3DF8 /* meetchewthere.xcdatamodeld in Sources */,
 				F4EE7A3E1E57EEBF00DE3DF8 /* UIColor+MCT.swift in Sources */,
-				F4FEC2FB1E4C7F0700112F14 /* BusinessCell.swift in Sources */,
 				F4049AE61E74A57000B52F43 /* RestrictionCell.swift in Sources */,
 				5EA118BA1E3EC1AC008772D8 /* Favorites.swift in Sources */,
 				F4049AC81E6F324B00B52F43 /* ReviewViewController.swift in Sources */,
@@ -694,6 +697,7 @@
 				F4049AD81E73FF7A00B52F43 /* IntrinsicTableView.swift in Sources */,
 				F4049AD11E71753900B52F43 /* ReviewTextCell.swift in Sources */,
 				F4049AEE1E74C49700B52F43 /* Review.swift in Sources */,
+				F4049AF51E75046500B52F43 /* BusinessCell.swift in Sources */,
 				F4049AC01E6E7F9300B52F43 /* MCTButton.swift in Sources */,
 				F4049AE91E74B9CB00B52F43 /* ReviewsViewController.swift in Sources */,
 				5E2A7DAA1E3D5AE600B2CE15 /* AppDelegate.swift in Sources */,

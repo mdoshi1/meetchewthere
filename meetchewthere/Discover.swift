@@ -26,7 +26,6 @@ class Discover: UIViewController {
     var restrictionTerms: [String] = []
     let defaultSearchTerm = "food"
     
-    
     // MARK: - DiscoverViewController
     
     override func viewDidLoad() {
@@ -42,6 +41,8 @@ class Discover: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
+        
+        tableView.register(UINib(nibName: "BusinessCell", bundle: nil), forCellReuseIdentifier: "BusinessCell")
     }
     
     deinit {
@@ -129,7 +130,7 @@ class Discover: UIViewController {
         let detailController = segue.destination as! Details
         if let businessCell = sender as? BusinessCell {
             detailController.business = businessCell.business
-            detailController.restImage = businessCell.restImage.image
+            detailController.restImage = businessCell.businessImage.image
         } else {
             detailController.business = business
         }
@@ -199,11 +200,11 @@ class Discover: UIViewController {
 
 }
 
-// MARK: - UITableViewDelegate
-extension Discover: UITableViewDelegate {
+// MARK: - UITableView Methods
+extension Discover: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return 172
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -259,10 +260,6 @@ extension Discover: UITableViewDelegate {
         
         return [action]
     }
-}
-
-// MARK: - UITableViewDataSource
-extension Discover: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return BusinessManager.shared.businesses?.count ?? 0
@@ -277,6 +274,19 @@ extension Discover: UITableViewDataSource {
         }
         let business = businesses[indexPath.row]
         cell.business = business
+        
+        switch restrictionTerms.count {
+        case 2:
+            cell.restrictionTwoLabel.text = restrictionTerms[1]
+            fallthrough
+        case 1:
+            cell.restrictionOneLabel.text = restrictionTerms[0]
+            cell.restrictionTwoLabel.isHidden = true
+            cell.choiceTwoButton.isHidden = true
+        case 0:
+            
+        default:
+        }
         
         // Initialize NSManagedObjectContext
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -305,6 +315,11 @@ extension Discover: UITableViewDataSource {
         return true
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let businessCell = tableView.cellForRow(at: indexPath) {
+            performSegue(withIdentifier: "toDetails", sender: businessCell)
+        }
+    }
 }
 
 // MARK: - UISearchBarDelegate
