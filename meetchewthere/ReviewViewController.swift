@@ -42,7 +42,7 @@ class ReviewViewController: UIViewController {
         return cancelButton
     }()
     
-    var restrictions: [String] = []
+    //var restrictions: [String] = []
     var businessId = ""
     
     fileprivate var reviews: [String:[Int]] = [:]
@@ -80,7 +80,7 @@ class ReviewViewController: UIViewController {
         setupConstraints()
         
         // Setup reviews dictionary
-        for restriction in restrictions {
+        for restriction in SessionManager.shared.restrictions {
             reviews[restriction] = [defaultChoiceRating, defaultSafetyRating]
         }
     }
@@ -204,7 +204,7 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             return 127.5
-        case restrictions.count:
+        case SessionManager.shared.restrictions.count:
             return 200
         default:
             return 187
@@ -212,7 +212,7 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restrictions.count + 2
+        return SessionManager.shared.restrictions.count + 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -223,13 +223,13 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.username.text = username
             }
             return cell
-        case restrictions.count + 1:
+        case SessionManager.shared.restrictions.count + 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewTextCell") as! ReviewTextCell
             cell.reviewText.delegate = self
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell") as! ReviewCell
-            cell.restrictionLabel.text = restrictions[indexPath.row - 1]
+            cell.restrictionLabel.text = SessionManager.shared.restrictions[indexPath.row - 1]
             cell.delegate = self
             return cell
         }

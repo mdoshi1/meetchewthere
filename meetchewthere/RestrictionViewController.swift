@@ -74,14 +74,13 @@ class RestrictionViewController: UIViewController {
         return doneButton
     }()
     
-    var restrictions = [String]()
-    
     // MARK: - RestrictionViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Change back button to white
         navigationController?.navigationBar.tintColor = .white
+        navigationItem.hidesBackButton = true
         view.addSubview(restrictionsTable.usingAutolayout())
         view.addSubview(doneButton.usingAutolayout())
         setupConstraints()
@@ -111,11 +110,14 @@ class RestrictionViewController: UIViewController {
     func unwindToProfile() {
         if let indexPathsForSelectedRows = restrictionsTable.indexPathsForSelectedRows,
             let userProfile = UserProfile.current {
+            var restrictions: [String] = []
             for index in 0..<indexPathsForSelectedRows.count {
                 let restriction = Restriction(rawValue: indexPathsForSelectedRows[index].row)!.description
+                restrictions.append(restriction)
                 
                 Webservice.deleteRestrictions(forUserId: userProfile.userId, completion: { success in
                     if success {
+                        SessionManager.shared.restrictions.removeAll()
                         print("Successfully deleted all restrictions")
                         Webservice.postRestrictions(forUserId: userProfile.userId, restriction: restriction) { success in
                             if success {
@@ -125,6 +127,7 @@ class RestrictionViewController: UIViewController {
                             }
                             DispatchQueue.main.async {
                                 if index == indexPathsForSelectedRows.count - 1 {
+                                    SessionManager.shared.restrictions = restrictions
                                     _ = self.navigationController?.popViewController(animated: true)
                                 }
                             }
@@ -135,6 +138,9 @@ class RestrictionViewController: UIViewController {
                     }
                 })
             }
+        } else {
+            SessionManager.shared.restrictions.removeAll()
+            _ = self.navigationController?.popViewController(animated: true)
         }
     }
 }
@@ -149,6 +155,7 @@ extension RestrictionViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        cell.selectionStyle = .none
         cell.textLabel?.text = Restriction(rawValue: indexPath.row)!.description
         cell.tintColor = .chewGreen
         return cell

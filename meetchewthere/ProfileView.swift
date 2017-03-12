@@ -35,7 +35,7 @@ class ProfileView: UIView {
         return restrictionsLabel
     }()
     
-    var restrictions = [String]()
+    //var restrictions = [String]()
     
     // MARK: - ProfileView
     
@@ -78,7 +78,7 @@ class ProfileView: UIView {
     }
     
     func update() {
-        restrictions.removeAll()
+        //restrictions.removeAll()
         if let userProfile = UserProfile.current {
             
             // Update profile image
@@ -98,8 +98,15 @@ class ProfileView: UIView {
                 nameLabel.text = ""
             }
             
+            if SessionManager.shared.restrictions.count > 0 {
+                restrictionsLabel.text = SessionManager.shared.restrictions.joined(separator: ", ")
+            } else {
+                restrictionsLabel.text = "No dietary restrictions"
+            }
+            
+            
             // Update restrictions
-            Webservice.getRestrictions(forUserId: userProfile.userId, completion: { jsonDictionary in
+            /*Webservice.getRestrictions(forUserId: userProfile.userId, completion: { jsonDictionary in
                 guard let dictionary = jsonDictionary else {
                     print("Restrictions response could not be parsed as a JSON dictionary")
                     return
@@ -117,7 +124,7 @@ class ProfileView: UIView {
                         self.restrictionsLabel.text = "No dietary restrictions"
                     }
                 }
-            })
+            })*/
         } else {
             
             // Reset profile image

@@ -13,5 +13,5 @@ class BusinessManager {
     
     static let shared = BusinessManager()
     
-    var businesses: [YLPBusiness]?
+    var businesses: [YLPBusiness] = []
 }

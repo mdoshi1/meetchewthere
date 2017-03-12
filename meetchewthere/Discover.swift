@@ -20,11 +20,30 @@ class Discover: UIViewController {
 
     // MARK: - Properties
     
+    private lazy var footerView: UIView = {
+        let width = self.view.frame.width
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 64.0))
+        let borderView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 1.0))
+        borderView.backgroundColor = self.tableView.separatorColor
+        footerView.addSubview(borderView)
+        let loadMoreButton = UIButton(frame: CGRect(x: width / 2.0 - 75.0, y: 7.0, width: 150.0, height: 50.0))
+        loadMoreButton.layer.cornerRadius = 5.0
+        loadMoreButton.layer.borderWidth = 2.0
+        loadMoreButton.layer.borderColor = UIColor.chewGreen.cgColor
+        loadMoreButton.setTitle("See More", for: .normal)
+        loadMoreButton.setTitleColor(.black, for: .normal)
+        loadMoreButton.titleLabel!.font = UIFont.systemFont(ofSize: 16.0)
+        loadMoreButton.addTarget(self, action: #selector(loadMoreBusinesses), for: .touchUpInside)
+        footerView.addSubview(loadMoreButton)
+        return footerView
+    }()
+    
     fileprivate let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
     var business: YLPBusiness?
     
-    var restrictionTerms: [String] = []
-    let defaultSearchTerm = "food"
+    let defaultSearchTerm = "Food"
+    var lastSearchedRestrictionTerm = ""
+    var lastSearchedTerm = ""
     
     // MARK: - DiscoverViewController
     
@@ -42,6 +61,7 @@ class Discover: UIViewController {
         tableView.delegate = self
         searchBar.delegate = self
         
+        tableView.tableFooterView = footerView
         tableView.register(UINib(nibName: "BusinessCell", bundle: nil), forCellReuseIdentifier: "BusinessCell")
     }
     
@@ -54,8 +74,8 @@ class Discover: UIViewController {
             let businessIndex = randBusiness()
             if let cell = tableView.cellForRow(at: IndexPath(row: businessIndex, section: 0)) {
                 performSegue(withIdentifier: "toDetails", sender: cell)
-            } else if let businesses = BusinessManager.shared.businesses {
-                business = businesses[businessIndex]
+            } else {
+                business = BusinessManager.shared.businesses[businessIndex]
                 performSegue(withIdentifier: "toDetails", sender: nil)
             }
         }
@@ -64,11 +84,13 @@ class Discover: UIViewController {
     // MARK: - Helper Methods
     
     func randBusiness() -> Int {
-        if let businesses = BusinessManager.shared.businesses {
-            return Int(arc4random_uniform(UInt32(businesses.count)))
-        } else {
-            return 0
-        }
+        return Int(arc4random_uniform(UInt32(BusinessManager.shared.businesses.count)))
+    }
+    
+    // MARK: - Button Actions
+    
+    func loadMoreBusinesses() {
+        yelpSearch(withLocation: "Stanford, CA", term: lastSearchedTerm, limit: 20, offset: UInt(BusinessManager.shared.businesses.count))
     }
     
     // MARK: - Notification Actions
@@ -82,11 +104,13 @@ class Discover: UIViewController {
                 }
                 DispatchQueue.main.async {
                     if let restrictionsArray = dictionary["rows"] as? [JSONDictionary], restrictionsArray.count > 0 {
-                        self.restrictionTerms.removeAll()
+                        SessionManager.shared.restrictions.removeAll()
+                        var restrictions: [String] = []
                         for index in 0..<restrictionsArray.count {
                             let restriction = restrictionsArray[index]["restriction"] as! String
-                            self.restrictionTerms.append(restriction)
+                            restrictions.append(restriction)
                         }
+                        SessionManager.shared.restrictions = restrictions
                         self.yelpSearch(withLocation: "Stanford, CA", term: self.defaultSearchTerm, limit: 20, offset: 0)
                     } else {
                         self.yelpSearch(withLocation: "Stanford, CA", term: self.defaultSearchTerm, limit: 20, offset: 0)
@@ -100,7 +124,7 @@ class Discover: UIViewController {
     
     func yelpSearch(withLocation location: String, term: String, limit: UInt, offset: UInt) {
         searchBar.text = term
-        let searchTerm = term + " " + restrictionTerms.joined(separator: " ")
+        let searchTerm = term + " " + SessionManager.shared.restrictions.joined(separator: " ")
         AppDelegate.sharedYLPClient.search(withLocation: location, term: searchTerm, limit: limit, offset: offset, sort: .bestMatched, completionHandler: { search, error in
             guard let search = search, error == nil else {
                 print("Error getting initial search results: \(error?.localizedDescription)")
@@ -108,8 +132,18 @@ class Discover: UIViewController {
             }
             print("Succesfully retrieved initial search results")
             DispatchQueue.main.async {
-                BusinessManager.shared.businesses = search.businesses
-                self.tableView.reloadData()
+                if self.lastSearchedRestrictionTerm == searchTerm {
+                    BusinessManager.shared.businesses += search.businesses
+                    self.tableView.reloadData()
+                } else {
+                    self.lastSearchedTerm = term
+                    self.lastSearchedRestrictionTerm = searchTerm
+                    BusinessManager.shared.businesses.removeAll()
+                    BusinessManager.shared.businesses = search.businesses
+                    self.tableView.reloadData()
+                    self.tableView.setContentOffset(CGPoint.zero, animated: true)
+                }
+                
             }
         })
     }
@@ -132,7 +166,6 @@ class Discover: UIViewController {
         } else {
             detailController.business = business
         }
-        detailController.restrictions = restrictionTerms
     }
     
     // MARK: - Core Data
@@ -208,7 +241,8 @@ extension Discover: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        guard let businesses = BusinessManager.shared.businesses else {
+        let businesses = BusinessManager.shared.businesses
+        guard businesses.count > 0 else {
             print("No current businesses available")
             return nil
         }
@@ -261,21 +295,22 @@ extension Discover: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return BusinessManager.shared.businesses?.count ?? 0
+        return BusinessManager.shared.businesses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessCell", for: indexPath) as! BusinessCell
-        guard let businesses = BusinessManager.shared.businesses else {
+        let businesses = BusinessManager.shared.businesses
+        guard businesses.count > 0 else {
             print("Businesses array is nil")
             return cell
         }
         let business = businesses[indexPath.row]
         cell.business = business
         
-        if restrictionTerms.count > 0 {
-            cell.restrictionLabel.text = restrictionTerms[0]
+        if SessionManager.shared.restrictions.count > 0 {
+            cell.restrictionLabel.text = SessionManager.shared.restrictions[0]
         } else {
             cell.restrictionLabel.text = "No personal dietary restrictions"
         }

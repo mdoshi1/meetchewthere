@@ -158,7 +158,7 @@ class Details: UIViewController {
         }
     }
     
-    var restrictions: [String] = []
+    //var restrictions: [String] = []
     
     // MARK: Details
     
@@ -333,7 +333,7 @@ class Details: UIViewController {
             let destinationVC = segue.destination as! UINavigationController
             let reviewVC = destinationVC.childViewControllers[0] as! ReviewViewController
             reviewVC.navigationItem.title = restaurantLabel.text
-            reviewVC.restrictions = restrictions
+            //reviewVC.restrictions = restrictions
             if let businessId = business?.identifier {
                 reviewVC.businessId = businessId
             } else {
@@ -342,7 +342,7 @@ class Details: UIViewController {
         } else if segue.identifier == "toBusinessReviews" {
             if let indexPath = restrictionsTable.indexPathForSelectedRow {
                 let destinationVC = segue.destination as! ReviewsViewController
-                let restriction = restrictions[indexPath.row]
+                let restriction = SessionManager.shared.restrictions[indexPath.row]
                 destinationVC.navigationItem.title = restriction
                 var restrictionReviews: [Review] = []
                 destinationVC.restriction = restriction
@@ -454,12 +454,12 @@ extension Details: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restrictions.count
+        return SessionManager.shared.restrictions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestrictionCell", for: indexPath) as! RestrictionCell
-        let restriction = restrictions[indexPath.row]
+        let restriction = SessionManager.shared.restrictions[indexPath.row]
         cell.restrictionLabel.text = restriction
         var choiceReviewCount = 0
         var choiceTotal = 0

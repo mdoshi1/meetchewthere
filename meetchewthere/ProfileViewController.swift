@@ -144,7 +144,7 @@ class ProfileViewController: UIViewController {
     
     func handleLogin() {
         let fbLoginManager = LoginManager()
-        guard AccessToken.current == nil else {
+        guard UserProfile.current == nil else {
             fbLoginManager.logOut()
             print("Successfully logged out with Facebook")
             optionsTable.reloadData()

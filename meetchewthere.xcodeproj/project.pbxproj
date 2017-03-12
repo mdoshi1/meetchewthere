@@ -41,6 +41,7 @@
 		F4049AF81E75553900B52F43 /* MyReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AF71E75553900B52F43 /* MyReviewsViewController.swift */; };
 		F4049AFB1E755FC000B52F43 /* MyReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AF91E755FC000B52F43 /* MyReviewCell.swift */; };
 		F4049AFC1E755FC000B52F43 /* MyReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049AFA1E755FC000B52F43 /* MyReviewCell.xib */; };
+		F4049AFE1E75695200B52F43 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AFD1E75695200B52F43 /* SessionManager.swift */; };
 		F44D9B821E3D6E3700566044 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44D9B811E3D6E3700566044 /* Messages.framework */; };
 		F44D9B851E3D6E3700566044 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D9B841E3D6E3700566044 /* MessagesViewController.swift */; };
 		F44D9B881E3D6E3700566044 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44D9B861E3D6E3700566044 /* MainInterface.storyboard */; };
@@ -149,6 +150,7 @@
 		F4049AF71E75553900B52F43 /* MyReviewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewsViewController.swift; sourceTree = "<group>"; };
 		F4049AF91E755FC000B52F43 /* MyReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewCell.swift; sourceTree = "<group>"; };
 		F4049AFA1E755FC000B52F43 /* MyReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyReviewCell.xib; sourceTree = "<group>"; };
+		F4049AFD1E75695200B52F43 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		F44D9B7F1E3D6E3700566044 /* MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessagesExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44D9B811E3D6E3700566044 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
 		F44D9B841E3D6E3700566044 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				5E2A7DA91E3D5AE600B2CE15 /* AppDelegate.swift */,
 				F4EE7A4C1E5B96D900DE3DF8 /* BusinessManager.swift */,
+				F4049AFD1E75695200B52F43 /* SessionManager.swift */,
 				F41490931E6577D300B966B6 /* Interface */,
 				F4EE7A3F1E57EEC700DE3DF8 /* Extension */,
 				5E2A7DEB1E3D85AC00B2CE15 /* images */,
@@ -706,6 +709,7 @@
 				F4CDFAAD1E6CDE6C00B058F5 /* ProfileView.swift in Sources */,
 				F4CDFAA81E6C136D00B058F5 /* UIButton+Layout.swift in Sources */,
 				F4049AD81E73FF7A00B52F43 /* IntrinsicTableView.swift in Sources */,
+				F4049AFE1E75695200B52F43 /* SessionManager.swift in Sources */,
 				F4049AD11E71753900B52F43 /* ReviewTextCell.swift in Sources */,
 				F4049AEE1E74C49700B52F43 /* Review.swift in Sources */,
 				F4049AF51E75046500B52F43 /* BusinessCell.swift in Sources */,
