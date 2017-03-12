@@ -185,11 +185,18 @@ class Details: UIViewController {
         scrollView.addSubview(reviewButton.usingAutolayout())
         setupConstraints()
         
-        // Get business reviews
         guard let business = business else {
             print("Business is nil")
             return
         }
+        
+        // Set navigation title
+        navigationItem.title = business.name
+        
+        // Set custom back button
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: business.name, style: .plain, target: nil, action: nil)
+        
+        // Get business reviews
         let businessId = business.identifier
         Webservice.getBusinessReviews(forBusinessId: businessId) { jsonDictionary in
             guard let dictionary = jsonDictionary?["rows"] as? [JSONDictionary] else {
@@ -332,6 +339,20 @@ class Details: UIViewController {
             } else {
                 print("Business doesn't have an identifier")
             }
+        } else if segue.identifier == "toBusinessReviews" {
+            if let indexPath = restrictionsTable.indexPathForSelectedRow {
+                let destinationVC = segue.destination as! ReviewsViewController
+                let restriction = restrictions[indexPath.row]
+                destinationVC.navigationItem.title = restriction
+                var restrictionReviews: [Review] = []
+                destinationVC.restriction = restriction
+                for review in reviews {
+                    if restriction == review.restriction {
+                        restrictionReviews.append(review)
+                    }
+                }
+                destinationVC.reviews = restrictionReviews
+            }
         }
     }
     
@@ -456,32 +477,47 @@ extension Details: UITableViewDataSource, UITableViewDelegate {
         cell.safetyReviewsLabel.text = "\(safetyReviewCount) Reviews"
         
         var choiceButtonColor = UIColor()
+        var choiceButtonText = ""
         switch roundf(Float(choiceTotal) / Float(choiceReviewCount)) {
         case 1:
             choiceButtonColor = .chewRed
+            choiceButtonText = "Bad Choice"
         case 2:
             choiceButtonColor = .chewYellow
+            choiceButtonText = "OK Choice"
         case 3:
             choiceButtonColor = .chewGreen
+            choiceButtonText = "Good Choice"
         default:
             choiceButtonColor = .chewGray
+            choiceButtonText = "Choice"
         }
         cell.choiceButton.backgroundColor = choiceButtonColor
+        cell.choiceButton.setTitle(choiceButtonText, for: .normal)
         
         var safetyButtonColor = UIColor()
+        var safetyButtonText = ""
         switch roundf(Float(safetyTotal) / Float(safetyReviewCount)) {
         case 1:
             safetyButtonColor = .chewRed
+            safetyButtonText = "Bad Choice"
         case 2:
             safetyButtonColor = .chewYellow
+            safetyButtonText = "OK Choice"
         case 3:
             safetyButtonColor = .chewGreen
+            safetyButtonText = "Good Choice"
         default:
             safetyButtonColor = .chewGray
+            safetyButtonText = "Choice"
         }
         cell.safetyButon.backgroundColor = safetyButtonColor
+        cell.safetyButon.setTitle(safetyButtonText, for: .normal)
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toBusinessReviews", sender: nil)
+    }
 }

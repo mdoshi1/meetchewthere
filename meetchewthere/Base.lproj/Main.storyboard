@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="1124" y="-635.53223388305855"/>
         </scene>
-        <!--meetchewthere-->
+        <!--Details-->
         <scene sceneID="PfI-JA-pWl">
             <objects>
-                <viewController title="meetchewthere" id="Kho-vH-lGe" customClass="Details" customModule="meetchewthere" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Kho-vH-lGe" customClass="Details" customModule="meetchewthere" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mgM-8X-NfW"/>
                         <viewControllerLayoutGuide type="bottom" id="5Bb-xQ-zfc"/>
@@ -146,7 +146,7 @@
                     </view>
                     <connections>
                         <segue destination="z3z-pF-Zn2" kind="presentation" identifier="toReview" id="YtS-90-8rH"/>
-                        <segue destination="0E2-n5-G2A" kind="show" id="BIR-vb-Swj"/>
+                        <segue destination="0E2-n5-G2A" kind="show" identifier="toBusinessReviews" id="BIR-vb-Swj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLo-oJ-TbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -414,10 +414,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="857.72113943028489"/>
         </scene>
-        <!--View Controller-->
+        <!--Reviews View Controller-->
         <scene sceneID="0ED-hQ-aKP">
             <objects>
-                <viewController id="0E2-n5-G2A" sceneMemberID="viewController">
+                <viewController id="0E2-n5-G2A" customClass="ReviewsViewController" customModule="meetchewthere" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GNd-EU-XZ7"/>
                         <viewControllerLayoutGuide type="bottom" id="MeA-E3-3VJ"/>
