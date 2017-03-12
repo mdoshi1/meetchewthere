@@ -20,6 +20,13 @@ class BusinessCell: UITableViewCell {
     @IBOutlet private weak var distance: UILabel!
     @IBOutlet weak var restImage: UIImageView!
     
+    
+    
+    @IBOutlet weak var businessName: UILabel!
+    @IBOutlet weak var choiceLabel: UILabel!
+    @IBOutlet weak var safetyLabel: UILabel!
+    @IBOutlet weak var businessImage: UIImageView!
+    
     // MARK: - Properties
     
     lazy var choiceLabel1: UILabel = {

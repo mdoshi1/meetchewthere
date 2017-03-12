@@ -23,7 +23,8 @@ class Discover: UIViewController {
     fileprivate let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
     var business: YLPBusiness?
     
-    var restrictionTerms = ""
+    var restrictionTerms: [String] = []
+    let defaultSearchTerm = "food"
     
     
     // MARK: - DiscoverViewController
@@ -72,7 +73,6 @@ class Discover: UIViewController {
     // MARK: - Notification Actions
     
     func initialSearch() {
-        var searchTerm = "food"
         if let userId = UserProfile.current?.userId {
             Webservice.getRestrictions(forUserId: userId, completion: { jsonDictionary in
                 guard let dictionary = jsonDictionary else {
@@ -81,28 +81,28 @@ class Discover: UIViewController {
                 }
                 DispatchQueue.main.async {
                     if let restrictionsArray = dictionary["rows"] as? [JSONDictionary], restrictionsArray.count > 0 {
-                        searchTerm = ""
-                        self.restrictionTerms = ""
+                        //searchTerm = ""
+                        self.restrictionTerms = []
                         for index in 0..<restrictionsArray.count {
                             let restriction = restrictionsArray[index]["restriction"] as! String
-                            searchTerm += "\(restriction) "
-                            self.restrictionTerms += "\(restriction) "
+                            //searchTerm += "\(restriction) "
+                            self.restrictionTerms.append(restriction)
                         }
-                        self.yelpSearch(withLocation: "Stanford, CA", term: searchTerm, limit: 20, offset: 0)
-                        
+                        self.yelpSearch(withLocation: "Stanford, CA", term: self.defaultSearchTerm, limit: 20, offset: 0)
                     } else {
-                        self.yelpSearch(withLocation: "Stanford, CA", term: searchTerm, limit: 20, offset: 0)
+                        self.yelpSearch(withLocation: "Stanford, CA", term: self.defaultSearchTerm, limit: 20, offset: 0)
                     }
                 }
             })
         } else {
-            yelpSearch(withLocation: "Stanford, CA", term: searchTerm, limit: 20, offset: 0)
+            yelpSearch(withLocation: "Stanford, CA", term: defaultSearchTerm, limit: 20, offset: 0)
         }
     }
     
     func yelpSearch(withLocation location: String, term: String, limit: UInt, offset: UInt) {
         searchBar.text = term
-        AppDelegate.sharedYLPClient.search(withLocation: location, term: term, limit: limit, offset: offset, sort: .bestMatched, completionHandler: { search, error in
+        let searchTerm = term + " " + restrictionTerms.joined(separator: " ")
+        AppDelegate.sharedYLPClient.search(withLocation: location, term: searchTerm, limit: limit, offset: offset, sort: .bestMatched, completionHandler: { search, error in
             guard let search = search, error == nil else {
                 print("Error getting initial search results: \(error?.localizedDescription)")
                 return
@@ -321,12 +321,7 @@ extension Discover: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        //if searchBar.text != nil {
-        if let searchTerm = searchBar.text {
-            //let searchTerm = searchBar.text! + " \(restrictionTerms)"
-            yelpSearch(withLocation: "Stanford, CA", term: searchTerm, limit: 20, offset: 0)
-        }
+        yelpSearch(withLocation: "Stanford, CA", term: searchBar.text ?? "", limit: 20, offset: 0)
         
         view.removeGestureRecognizer(tap)
         searchBar.endEditing(true)
