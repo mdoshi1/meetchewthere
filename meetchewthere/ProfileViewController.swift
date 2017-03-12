@@ -63,6 +63,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set custom back button
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+        
         // Hide navigation bar bottom border
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -128,9 +131,9 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func toReviews() {
+    func toMyReviews() {
         if UserProfile.current != nil {
-            // TODO: segue to user reviews
+            performSegue(withIdentifier: "toMyReviews", sender: nil)
         } else {
             let alertController = UIAlertController(title: "You're not logged in", message: "Log in to view your restaurant reviews", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -190,7 +193,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         case .restriction:
             cell.optionButton.addTarget(self, action: #selector(toRestrictions), for: .touchUpInside)
         case .review:
-            cell.optionButton.addTarget(self, action: #selector(toReviews), for: .touchUpInside)
+            cell.optionButton.addTarget(self, action: #selector(toMyReviews), for: .touchUpInside)
         case .login:
             cell.optionButton.setImage(UIImage(named: "facebook_logo"), for: .normal)
             cell.optionButton.centerContent(withSpacing: 8.0)

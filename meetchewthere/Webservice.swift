@@ -14,6 +14,41 @@ final class Webservice {
     
     private static let apiURL = "https://hashtag.butler-demos.com/senthil"
     
+    class func getUserReviews(forUserId userId: String, completion: @escaping(JSONDictionary?) -> ()) {
+        let urlString = apiURL + "/reviews_select_email.php"
+        guard let url = URL(string: urlString) else {
+            print("Error generating URL from string: \(urlString)")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let params = "userid=\(userId)"
+        request.httpBody = params.data(using: .utf8)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error processing HTTP request: \(error?.localizedDescription)")
+                print("Error in retrieving image data")
+                completion(nil)
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("Status code should be 200, but is \(httpStatus.statusCode)")
+            }
+            
+            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            
+            guard let dictionary = json as? JSONDictionary else {
+                print("failed to case dict")
+                completion(nil)
+                return
+            }
+            completion(dictionary)
+            }.resume()
+    }
+    
     class func getBusinessReviews(forBusinessId businessId: String, completion: @escaping(JSONDictionary?) -> ()) {
         let urlString = apiURL + "/reviews_select_bizid.php"
         guard let url = URL(string: urlString) else {

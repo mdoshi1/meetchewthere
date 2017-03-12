@@ -1,28 +1,24 @@
 //
-//  UserReviewCell.swift
+//  MyReviewCell.swift
 //  meetchewthere
 //
-//  Created by Michael-Anthony Doshi on 3/11/17.
+//  Created by Michael-Anthony Doshi on 3/12/17.
 //  Copyright © 2017 Alejandrina Gonzalez Reyes. All rights reserved.
 //
 
 import UIKit
 
-class UserReviewCell: UITableViewCell {
+class MyReviewCell: UITableViewCell {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var flagButton: UIButton!
+    @IBOutlet weak var restaurantLabel: UILabel!
+    @IBOutlet weak var restrictionLabel: UILabel!
     @IBOutlet weak var choiceButton: UIButton!
     @IBOutlet weak var safetyButton: UIButton!
     @IBOutlet weak var reviewTextLabel: UILabel!
     
-    // MARK: - Properties
-    
-    weak var delegate: UserReviewCellDelegate?
-    
-    // MARK: - UserReviewCell
+    // MARK: - MyReviewCell
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,14 +46,4 @@ class UserReviewCell: UITableViewCell {
         safetyButton.isEnabled = false
     }
     
-    // MARK: - IBActions
-    
-    @IBAction func flagComment() {
-        delegate?.flagComment()
-    }
-    
-}
-
-protocol UserReviewCellDelegate: class {
-    func flagComment()
 }

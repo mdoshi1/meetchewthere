@@ -82,11 +82,9 @@ class Discover: UIViewController {
                 }
                 DispatchQueue.main.async {
                     if let restrictionsArray = dictionary["rows"] as? [JSONDictionary], restrictionsArray.count > 0 {
-                        //searchTerm = ""
-                        self.restrictionTerms = []
+                        self.restrictionTerms.removeAll()
                         for index in 0..<restrictionsArray.count {
                             let restriction = restrictionsArray[index]["restriction"] as! String
-                            //searchTerm += "\(restriction) "
                             self.restrictionTerms.append(restriction)
                         }
                         self.yelpSearch(withLocation: "Stanford, CA", term: self.defaultSearchTerm, limit: 20, offset: 0)

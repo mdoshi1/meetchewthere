@@ -80,7 +80,8 @@ class RestrictionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.hidesBackButton = true
+        // Change back button to white
+        navigationController?.navigationBar.tintColor = .white
         view.addSubview(restrictionsTable.usingAutolayout())
         view.addSubview(doneButton.usingAutolayout())
         setupConstraints()

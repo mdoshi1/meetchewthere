@@ -16,38 +16,9 @@ class Review {
     let choice: String
     let safety: String
     let reviewText: String
+    var businessName: String?
     
     init?(dictionary: JSONDictionary) {
-        /*print("dcitoin \(dictionary)")
-        guard let blah = dictionary["userid"] as? String else {
-            print("blah user")
-            return nil
-        }
-        guard let b = dictionary["bizid"] as? String else {
-            print("blah biz")
-            return nil
-        }
-        guard let a = dictionary["restriction"] as? String else {
-            print("blah restrict")
-            return nil
-        }
-        guard let c = dictionary["choice"] as? Int else {
-            print("choice \(dictionary["choice"])")
-            print("blah choice")
-            return nil
-        }
-        guard let d = dictionary["safety"] as? Int else {
-            print("safety \(dictionary["safety"])")
-            print("blah safety")
-            return nil
-        }
-        guard let e = dictionary["reviewtxt"] as? String else {
-            print("review \(dictionary["reviewtext"])")
-            print("blah review")
-            return nil
-        }*/
-        
-        
         guard let userId = dictionary["userid"] as? String,
             let businessId = dictionary["bizid"] as? String,
             let restriction = dictionary["restriction"] as? String,

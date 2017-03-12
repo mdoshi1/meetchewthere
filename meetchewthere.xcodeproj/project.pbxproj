@@ -38,6 +38,9 @@
 		F4049AF21E74E39E00B52F43 /* UserReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049AF01E74E39E00B52F43 /* UserReviewCell.xib */; };
 		F4049AF51E75046500B52F43 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AF31E75046500B52F43 /* BusinessCell.swift */; };
 		F4049AF61E75046500B52F43 /* BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049AF41E75046500B52F43 /* BusinessCell.xib */; };
+		F4049AF81E75553900B52F43 /* MyReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AF71E75553900B52F43 /* MyReviewsViewController.swift */; };
+		F4049AFB1E755FC000B52F43 /* MyReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049AF91E755FC000B52F43 /* MyReviewCell.swift */; };
+		F4049AFC1E755FC000B52F43 /* MyReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4049AFA1E755FC000B52F43 /* MyReviewCell.xib */; };
 		F44D9B821E3D6E3700566044 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44D9B811E3D6E3700566044 /* Messages.framework */; };
 		F44D9B851E3D6E3700566044 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D9B841E3D6E3700566044 /* MessagesViewController.swift */; };
 		F44D9B881E3D6E3700566044 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44D9B861E3D6E3700566044 /* MainInterface.storyboard */; };
@@ -143,6 +146,9 @@
 		F4049AF01E74E39E00B52F43 /* UserReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserReviewCell.xib; sourceTree = "<group>"; };
 		F4049AF31E75046500B52F43 /* BusinessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
 		F4049AF41E75046500B52F43 /* BusinessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessCell.xib; sourceTree = "<group>"; };
+		F4049AF71E75553900B52F43 /* MyReviewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewsViewController.swift; sourceTree = "<group>"; };
+		F4049AF91E755FC000B52F43 /* MyReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewCell.swift; sourceTree = "<group>"; };
+		F4049AFA1E755FC000B52F43 /* MyReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyReviewCell.xib; sourceTree = "<group>"; };
 		F44D9B7F1E3D6E3700566044 /* MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessagesExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44D9B811E3D6E3700566044 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
 		F44D9B841E3D6E3700566044 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
@@ -440,6 +446,9 @@
 				F48810C71E6BAAF000A822C4 /* OptionCell.swift */,
 				F48810C81E6BAAF000A822C4 /* OptionCell.xib */,
 				F4CDFAAC1E6CDE6C00B058F5 /* ProfileView.swift */,
+				F4049AF71E75553900B52F43 /* MyReviewsViewController.swift */,
+				F4049AF91E755FC000B52F43 /* MyReviewCell.swift */,
+				F4049AFA1E755FC000B52F43 /* MyReviewCell.xib */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -548,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E2A7DD41E3D63BF00B2CE15 /* Near Me-100.png in Resources */,
+				F4049AFC1E755FC000B52F43 /* MyReviewCell.xib in Resources */,
 				5E2A7DB41E3D5AE600B2CE15 /* LaunchScreen.storyboard in Resources */,
 				5E2A7DB11E3D5AE600B2CE15 /* Assets.xcassets in Resources */,
 				5E2A7DAF1E3D5AE600B2CE15 /* Main.storyboard in Resources */,
@@ -677,6 +687,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4EE7A4B1E5A650A00DE3DF8 /* RatingLabel.swift in Sources */,
+				F4049AF81E75553900B52F43 /* MyReviewsViewController.swift in Sources */,
 				F4EE7A3C1E57EE9600DE3DF8 /* UIView+Autolayout.swift in Sources */,
 				F48810C91E6BAAF000A822C4 /* OptionCell.swift in Sources */,
 				F48810C61E6BAACB00A822C4 /* ProfileViewController.swift in Sources */,
@@ -704,6 +715,7 @@
 				F4049ACB1E6F3B5300B52F43 /* ReviewCell.swift in Sources */,
 				F4FEC2FD1E4C82B700112F14 /* Webservice.swift in Sources */,
 				F4EE7A4D1E5B96D900DE3DF8 /* BusinessManager.swift in Sources */,
+				F4049AFB1E755FC000B52F43 /* MyReviewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
